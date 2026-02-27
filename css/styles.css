@@ -1,0 +1,12 @@
+/* ============================================
+   BOXMAR GLOBAL LOGISTICS — Stylesheet Entry Point
+   
+   Import order is significant:
+     1. base.css       — design tokens, CSS reset, typography,
+                         layout primitives, utilities, breakpoints
+     2. components.css — all UI components (navbar, hero, cards,
+                         forms, footer, floating elements, etc.)
+   ============================================ */
+
+@import url("base.css");
+@import url("components.css");
