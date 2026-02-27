@@ -532,14 +532,14 @@
 /* Hero layout */
 .hero-split {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-4xl);
+    grid-template-columns: 55fr 45fr;
+    gap: var(--space-3xl);
     align-items: center;
     position: relative;
     z-index: 2;
 }
 
-.hero-text-content { max-width: 640px; }
+.hero-text-content { max-width: 620px; }
 
 /* Hero headline */
 .hero-title-creative {
@@ -3456,8 +3456,8 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     .hero-camel-stage    { width: 300px; height: 300px; }
     .camel-core          { width: 220px; height: 220px; }
     .camel-svg           { width: 180px; height: 158px; }
-    .globe-camel-core    { width: 240px; height: 256px; }
-    .globe-camel-svg     { width: 240px; height: 256px; }
+    .globe-camel-core    { width: 240px; height: 240px; }
+    .globe-camel-svg     { width: 240px; height: 240px; }
     .hero-logo-img-large { width: 96px; height: 96px; }
     .hero-logo-display   { top: -70px; }
     .hero-visual-content { height: 380px; }
@@ -3501,8 +3501,8 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     .hero-camel-stage    { width: 260px; height: 260px; }
     .camel-core          { width: 200px; height: 200px; }
     .camel-svg           { width: 160px; height: 140px; }
-    .globe-camel-core    { width: 210px; height: 224px; }
-    .globe-camel-svg     { width: 210px; height: 224px; }
+    .globe-camel-core    { width: 210px; height: 210px; }
+    .globe-camel-svg     { width: 210px; height: 210px; }
     .hero-logo-img-large { width: 80px; height: 80px; }
     .hero-logo-display   { top: -60px; }
     .camel-ring-2,
@@ -3633,18 +3633,120 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 /* ============================================
+   HERO COMPANY LABEL (above headline)
+   ============================================ */
+.hero-company-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(168, 184, 200, 0.7);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-lg);
+    padding: 5px 14px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(200,146,42,0.2);
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(8px);
+}
+
+.hero-company-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold-400);
+    box-shadow: 0 0 8px var(--gold-400);
+    animation: pulse-dot 2s infinite;
+    flex-shrink: 0;
+}
+
+.hero-company-sep { color: rgba(200,146,42,0.4); }
+
+/* ============================================
+   HERO GLOBE WRAP
+   ============================================ */
+.hero-globe-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* ============================================
+   HERO FEATURE BADGES (below globe)
+   ============================================ */
+.hero-feature-badges {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: var(--space-lg);
+}
+
+.hero-feat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    background: rgba(3, 9, 18, 0.88);
+    border: 1px solid rgba(200, 146, 42, 0.28);
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(20px);
+    font-size: 0.78rem;
+    white-space: nowrap;
+    transition: all var(--t-base);
+}
+
+.hero-feat-badge:hover {
+    border-color: rgba(200, 146, 42, 0.5);
+    background: rgba(200, 146, 42, 0.08);
+}
+
+.feat-badge-icon {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.feat-icon-gold { background: rgba(200,146,42,0.15); border: 1px solid rgba(200,146,42,0.3); color: var(--gold-300); }
+.feat-icon-blue { background: rgba(58,135,200,0.15); border: 1px solid rgba(58,135,200,0.3); color: var(--blue-300); }
+
+.feat-badge-text { display: flex; flex-direction: column; gap: 1px; }
+.feat-badge-text strong { color: var(--white); font-size: 0.8rem; font-weight: 700; line-height: 1.2; }
+.feat-badge-text span { color: var(--silver-400); font-size: 0.68rem; line-height: 1.2; }
+
+/* ============================================
+   HERO VISUAL CONTENT — improved layout
+   ============================================ */
+.hero-visual-content {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    min-height: 520px;
+    gap: 0;
+}
+
+/* ============================================
    GLOBE + CAMEL CENTERPIECE
    ============================================ */
 .globe-camel-core {
     background: none;
     border: none;
     box-shadow: none;
-    width: 300px; height: 320px;
+    width: 300px; height: 300px;
     animation: camel-breathe 7s ease-in-out infinite alternate;
 }
 
 .globe-camel-svg {
-    width: 300px; height: 320px;
+    width: 300px; height: 300px;
     filter:
         drop-shadow(0 0 30px rgba(200,146,42,0.5))
         drop-shadow(0 0 60px rgba(58,135,200,0.25))
