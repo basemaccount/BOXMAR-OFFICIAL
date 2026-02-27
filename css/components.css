@@ -3456,8 +3456,8 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     .hero-camel-stage    { width: 300px; height: 300px; }
     .camel-core          { width: 220px; height: 220px; }
     .camel-svg           { width: 180px; height: 158px; }
-    .globe-camel-core    { width: 240px; height: 240px; }
-    .globe-camel-svg     { width: 240px; height: 240px; }
+    .globe-camel-core    { width: 260px; height: 260px; }
+    .globe-camel-svg     { width: 260px; height: 260px; }
     .hero-logo-img-large { width: 96px; height: 96px; }
     .hero-logo-display   { top: -70px; }
     .hero-visual-content { height: 380px; }
@@ -3501,8 +3501,8 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     .hero-camel-stage    { width: 260px; height: 260px; }
     .camel-core          { width: 200px; height: 200px; }
     .camel-svg           { width: 160px; height: 140px; }
-    .globe-camel-core    { width: 210px; height: 210px; }
-    .globe-camel-svg     { width: 210px; height: 210px; }
+    .globe-camel-core    { width: 220px; height: 220px; }
+    .globe-camel-svg     { width: 220px; height: 220px; }
     .hero-logo-img-large { width: 80px; height: 80px; }
     .hero-logo-display   { top: -60px; }
     .camel-ring-2,
@@ -3741,30 +3741,48 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     background: none;
     border: none;
     box-shadow: none;
-    width: 300px; height: 300px;
+    width: 340px; height: 340px;
     animation: camel-breathe 7s ease-in-out infinite alternate;
 }
 
 .globe-camel-svg {
-    width: 300px; height: 300px;
+    width: 340px; height: 340px;
     filter:
-        drop-shadow(0 0 30px rgba(200,146,42,0.5))
-        drop-shadow(0 0 60px rgba(58,135,200,0.25))
-        drop-shadow(0 8px 20px rgba(0,0,0,0.6));
+        drop-shadow(0 0 40px rgba(200,146,42,0.6))
+        drop-shadow(0 0 80px rgba(58,135,200,0.3))
+        drop-shadow(0 10px 24px rgba(0,0,0,0.7));
     animation: globe-float 8s ease-in-out infinite;
     overflow: visible;
 }
 
 @keyframes globe-float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    25%       { transform: translateY(-6px) rotate(0.5deg); }
-    75%       { transform: translateY(-4px) rotate(-0.5deg); }
+    0%, 100% { transform: translateY(0px); }
+    30%       { transform: translateY(-8px); }
+    70%       { transform: translateY(-5px); }
+}
+
+/* Globe outer rings animation */
+.globe-outer-ring-1 {
+    animation: globe-ring-pulse 4s ease-in-out infinite alternate;
+    transform-origin: 170px 170px;
+    transform-box: fill-box;
+}
+
+.globe-outer-ring-2 {
+    animation: globe-ring-pulse 6s ease-in-out infinite alternate-reverse;
+    transform-origin: 170px 170px;
+    transform-box: fill-box;
+}
+
+@keyframes globe-ring-pulse {
+    0%   { opacity: 0.4; transform: scale(0.98); }
+    100% { opacity: 1; transform: scale(1.02); }
 }
 
 /* Globe grid rotation animation */
 .globe-grid {
-    animation: globe-spin 30s linear infinite;
-    transform-origin: 150px 165px;
+    animation: globe-spin 35s linear infinite;
+    transform-origin: 170px 170px;
     transform-box: fill-box;
 }
 
