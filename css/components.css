@@ -1879,20 +1879,42 @@ textarea.form-control { min-height: 120px; resize: vertical; }
    PAGE HERO (SUBPAGES)
    ============================================ */
 .page-hero {
-    padding: 160px 0 80px;
+    padding: 180px 0 100px;
     background: linear-gradient(160deg, var(--navy-950) 0%, var(--navy-800) 60%, var(--navy-900) 100%);
     position: relative;
     overflow: hidden;
-    border-bottom: 1px solid rgba(200, 146, 42, 0.12);
+    border-bottom: 1px solid rgba(200, 146, 42, 0.15);
 }
 
-.page-hero h1 { color: var(--white); }
+/* Bottom fade on page-hero */
+.page-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, rgba(5,14,28,0.3));
+    pointer-events: none;
+    z-index: 1;
+}
+
+.page-hero h1 {
+    color: var(--white);
+    font-size: clamp(2rem, 4vw + 0.5rem, 3.2rem);
+    margin-bottom: var(--space-md);
+}
+
+.page-hero > .container > p {
+    font-size: 1.1rem !important;
+    color: rgba(255,255,255,0.75) !important;
+    max-width: 640px;
+    line-height: 1.7;
+}
 
 .page-hero .breadcrumb {
     display: flex;
     gap: var(--space-sm);
     color: rgba(255,255,255,0.45);
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-lg);
     font-size: 0.88rem;
     align-items: center;
 }
@@ -1906,12 +1928,390 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 .page-hero-icon {
     position: absolute;
-    top: 50%; right: 10%;
+    top: 50%; right: 8%;
     transform: translateY(-50%);
-    opacity: 0.07;
+    opacity: 0.1;
     z-index: 0;
-    width: 180px !important;
-    height: 180px !important;
+    width: 220px !important;
+    height: 220px !important;
+    animation: svc-icon-pulse 6s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 30px currentColor);
+}
+
+@keyframes svc-icon-pulse {
+    0%   { opacity: 0.07; transform: translateY(-50%) scale(0.95); }
+    100% { opacity: 0.14; transform: translateY(-50%) scale(1.05); }
+}
+
+/* ── Service Hero Stats Bar ── */
+.svc-hero-stats {
+    display: flex;
+    gap: var(--space-xl);
+    margin-top: var(--space-2xl);
+    flex-wrap: wrap;
+}
+
+.svc-hero-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: var(--space-md) var(--space-xl);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(200,146,42,0.2);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(12px);
+    min-width: 120px;
+    transition: all var(--t-base);
+}
+
+.svc-hero-stat:hover {
+    background: rgba(200,146,42,0.08);
+    border-color: rgba(200,146,42,0.35);
+    transform: translateY(-2px);
+}
+
+.svc-hero-stat .stat-val {
+    font-family: var(--font-accent);
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--gold-300), var(--gold-400));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1;
+}
+
+.svc-hero-stat .stat-lbl {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+}
+
+/* ── Service Feature Cards ── */
+.svc-features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+}
+
+.svc-feature-card {
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    background: var(--white);
+    border: 1px solid var(--silver-100);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--t-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.svc-feature-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--grad-gold);
+    transform: scaleX(0);
+    transition: transform var(--t-base);
+    transform-origin: left;
+}
+
+.svc-feature-card:hover::after { transform: scaleX(1); }
+
+.svc-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(200,146,42,0.2);
+}
+
+.svc-feature-icon {
+    width: 52px; height: 52px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-md);
+    background: rgba(200,146,42,0.08);
+    border: 1px solid rgba(200,146,42,0.18);
+    transition: all var(--t-base);
+}
+
+.svc-feature-card:hover .svc-feature-icon {
+    background: rgba(200,146,42,0.15);
+    border-color: rgba(200,146,42,0.35);
+    transform: scale(1.08);
+}
+
+.svc-feature-card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy-800);
+    margin-bottom: var(--space-xs);
+}
+
+.svc-feature-card p {
+    font-size: 0.88rem;
+    color: var(--gray-500);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Dark variant */
+.section--dark .svc-feature-card {
+    background: rgba(255,255,255,0.03);
+    border-color: rgba(255,255,255,0.07);
+}
+
+.section--dark .svc-feature-card:hover {
+    background: rgba(200,146,42,0.06);
+    border-color: rgba(200,146,42,0.2);
+}
+
+.section--dark .svc-feature-card h4 { color: var(--white); }
+.section--dark .svc-feature-card p  { color: rgba(255,255,255,0.55); }
+
+/* ── Service Process Steps ── */
+.svc-process {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+    position: relative;
+    margin-top: var(--space-2xl);
+}
+
+.svc-process::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: calc(12.5% + 20px);
+    right: calc(12.5% + 20px);
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold-500), var(--gold-300), var(--gold-500));
+    z-index: 0;
+}
+
+.svc-process-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.svc-step-num {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--grad-gold);
+    color: var(--navy-900);
+    font-family: var(--font-accent);
+    font-size: 1.3rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-md);
+    box-shadow: var(--shadow-gold);
+    transition: all var(--t-base);
+}
+
+.svc-process-step:hover .svc-step-num {
+    transform: scale(1.12);
+    box-shadow: var(--glow-gold);
+}
+
+.svc-step-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy-800);
+    margin-bottom: var(--space-xs);
+}
+
+.svc-step-desc {
+    font-size: 0.82rem;
+    color: var(--gray-500);
+    line-height: 1.6;
+}
+
+/* Dark variant */
+.section--dark .svc-step-title { color: var(--white); }
+.section--dark .svc-step-desc  { color: rgba(255,255,255,0.5); }
+
+/* ── Service Badges ── */
+.svc-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+}
+
+.svc-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: var(--radius-full);
+    background: rgba(200,146,42,0.08);
+    border: 1px solid rgba(200,146,42,0.25);
+    color: var(--gold-600);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    transition: all var(--t-base);
+}
+
+.svc-badge:hover {
+    background: rgba(200,146,42,0.15);
+    border-color: rgba(200,146,42,0.4);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-gold);
+}
+
+.svc-badge svg { flex-shrink: 0; }
+
+.svc-badge-blue {
+    background: rgba(58,135,200,0.08);
+    border-color: rgba(58,135,200,0.25);
+    color: var(--blue-600);
+}
+
+.svc-badge-blue:hover {
+    background: rgba(58,135,200,0.15);
+    border-color: rgba(58,135,200,0.4);
+    box-shadow: var(--shadow-blue);
+}
+
+/* ── Service CTA Buttons ── */
+.svc-cta-buttons {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: var(--space-xl);
+}
+
+.btn-whatsapp {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: var(--white);
+    box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 32px rgba(37,211,102,0.45);
+}
+
+/* ── Service Comparison Cards ── */
+.svc-compare-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
+}
+
+.svc-compare-card {
+    padding: var(--space-2xl);
+    border-radius: var(--radius-xl);
+    border: 2px solid rgba(200,146,42,0.2);
+    background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    backdrop-filter: blur(12px);
+    transition: all var(--t-base);
+}
+
+.svc-compare-card:hover {
+    border-color: rgba(200,146,42,0.4);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+}
+
+.svc-compare-card.featured {
+    border-color: var(--gold-500);
+    background: linear-gradient(145deg, rgba(200,146,42,0.08), rgba(200,146,42,0.02));
+}
+
+.svc-compare-title {
+    font-family: var(--font-accent);
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--gold-400);
+    margin-bottom: var(--space-sm);
+}
+
+.svc-compare-subtitle {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: var(--space-lg);
+}
+
+.svc-compare-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.svc-compare-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.75);
+}
+
+.svc-compare-list li:last-child { border-bottom: none; }
+
+.svc-compare-list li::before {
+    content: '✓';
+    color: var(--gold-400);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* ── Service Info Box ── */
+.svc-info-box {
+    background: linear-gradient(135deg, var(--navy-800), var(--navy-700));
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+    color: var(--white);
+    border: 1px solid rgba(200,146,42,0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.svc-info-box::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(200,146,42,0.08) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.svc-info-box h3 {
+    color: var(--gold-400);
+    margin-bottom: var(--space-lg);
+    font-size: 1.15rem;
+}
+
+/* ── Responsive for service components ── */
+@media (max-width: 768px) {
+    .svc-features-grid { grid-template-columns: 1fr; }
+    .svc-process        { grid-template-columns: repeat(2, 1fr); }
+    .svc-process::before { display: none; }
+    .svc-compare-grid   { grid-template-columns: 1fr; }
+    .svc-hero-stats     { gap: var(--space-md); }
+    .svc-hero-stat      { min-width: 100px; padding: var(--space-sm) var(--space-md); }
+    .svc-hero-stat .stat-val { font-size: 1.4rem; }
+}
+
+@media (max-width: 576px) {
+    .svc-process        { grid-template-columns: 1fr; }
+    .page-hero          { padding: 140px 0 70px; }
 }
 
 .hero-theme-glow { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
@@ -2092,10 +2492,24 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     border-bottom: 1px solid var(--silver-100);
     font-size: 0.9rem;
     color: var(--gray-700);
+    transition: background var(--t-fast);
 }
 
+.specs-table tbody tr:nth-child(even) td { background: rgba(200,146,42,0.03); }
 .specs-table tr:last-child td { border-bottom: none; }
-.specs-table tr:hover td      { background: var(--gold-50); }
+.specs-table tr:hover td {
+    background: var(--gold-50) !important;
+    color: var(--navy-800);
+}
+
+.specs-table td:first-child {
+    font-weight: 600;
+    color: var(--navy-700);
+}
+
+.specs-table td:last-child {
+    color: var(--gray-600);
+}
 
 /* ============================================
    CONTACT PAGE
