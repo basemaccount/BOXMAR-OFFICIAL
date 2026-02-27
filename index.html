@@ -124,21 +124,139 @@
         <path d="M294 142 C308 138 318 146 314 158 C310 170 298 172 290 165" stroke="currentColor" stroke-width="4" fill="none"/>
       </svg>
     </div>
-    <!-- Animated route lines (Silk Road paths) -->
-    <svg class="hero-route-lines" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <path class="route-path route-gold" d="M0 300 C150 280 300 320 450 290 C600 260 750 310 900 280 C1050 250 1150 270 1200 260"/>
-      <path class="route-path route-blue" d="M0 380 C200 360 350 400 500 370 C650 340 800 390 950 360 C1100 330 1150 350 1200 340"/>
-      <path class="route-path route-silver" d="M0 200 C100 190 250 210 400 195 C550 180 700 205 850 190 C1000 175 1100 195 1200 185"/>
-      <!-- Animated dots along routes -->
-      <circle class="route-dot route-dot-gold" r="4" fill="#C8922A" opacity="0.7">
-        <animateMotion dur="8s" repeatCount="indefinite" path="M0 300 C150 280 300 320 450 290 C600 260 750 310 900 280 C1050 250 1150 270 1200 260"/>
+    <!-- World Map Background with Routes -->
+    <svg class="hero-world-map" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="mapGoldRoute" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#C8922A" stop-opacity="0"/>
+          <stop offset="30%" stop-color="#E0B050" stop-opacity="0.9"/>
+          <stop offset="70%" stop-color="#C8922A" stop-opacity="0.9"/>
+          <stop offset="100%" stop-color="#C8922A" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="mapBlueRoute" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#3A87C8" stop-opacity="0"/>
+          <stop offset="30%" stop-color="#5BB0E0" stop-opacity="0.8"/>
+          <stop offset="70%" stop-color="#3A87C8" stop-opacity="0.8"/>
+          <stop offset="100%" stop-color="#3A87C8" stop-opacity="0"/>
+        </linearGradient>
+        <filter id="mapGlow">
+          <feGaussianBlur stdDeviation="2" result="blur"/>
+          <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        </filter>
+        <filter id="cityGlow">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        </filter>
+      </defs>
+
+      <!-- ── CONTINENT OUTLINES (simplified, stylized) ── -->
+      <!-- Europe -->
+      <path class="map-continent" d="M480 80 C490 75 510 72 530 78 C550 84 560 90 565 100 C570 110 568 120 560 128 C552 136 540 140 530 145 C520 150 510 155 505 165 C500 175 502 185 498 192 C494 199 485 202 478 198 C471 194 468 185 470 175 C472 165 478 158 476 148 C474 138 465 132 462 122 C459 112 462 100 470 92 Z" opacity="0.18"/>
+      <!-- Scandinavia -->
+      <path class="map-continent" d="M510 40 C518 35 528 38 532 48 C536 58 530 68 522 72 C514 76 506 72 504 62 C502 52 504 44 510 40 Z" opacity="0.15"/>
+      <!-- UK/Ireland -->
+      <path class="map-continent" d="M455 85 C460 80 468 82 470 90 C472 98 466 104 460 102 C454 100 452 92 455 85 Z" opacity="0.14"/>
+      <!-- Africa -->
+      <path class="map-continent" d="M490 220 C500 210 520 208 540 215 C560 222 572 238 575 258 C578 278 572 298 562 315 C552 332 538 345 525 352 C512 359 498 358 488 350 C478 342 472 328 470 312 C468 296 470 278 475 262 C480 246 482 228 490 220 Z" opacity="0.16"/>
+      <!-- Asia (simplified) -->
+      <path class="map-continent" d="M580 60 C610 50 650 52 690 58 C730 64 770 75 800 88 C830 101 855 118 870 138 C885 158 882 178 870 192 C858 206 838 212 815 215 C792 218 768 215 748 208 C728 201 712 190 698 178 C684 166 674 152 660 142 C646 132 628 126 612 118 C596 110 582 100 574 88 C566 76 566 66 580 60 Z" opacity="0.16"/>
+      <!-- Middle East -->
+      <path class="map-continent" d="M570 175 C582 168 598 170 610 180 C622 190 626 205 620 218 C614 231 600 238 586 235 C572 232 562 220 562 206 C562 192 560 180 570 175 Z" opacity="0.15"/>
+      <!-- North America -->
+      <path class="map-continent" d="M80 80 C110 68 148 70 180 82 C212 94 238 114 252 138 C266 162 265 188 255 210 C245 232 228 248 208 258 C188 268 165 270 145 262 C125 254 108 238 96 218 C84 198 78 174 78 152 C78 130 82 108 88 92 Z" opacity="0.16"/>
+      <!-- South America -->
+      <path class="map-continent" d="M195 280 C210 270 228 272 242 282 C256 292 262 310 260 328 C258 346 248 362 234 372 C220 382 202 384 188 376 C174 368 166 352 166 334 C166 316 170 298 180 288 Z" opacity="0.15"/>
+      <!-- Australia -->
+      <path class="map-continent" d="M870 310 C888 302 910 304 928 316 C946 328 952 348 946 366 C940 384 924 394 906 394 C888 394 872 382 864 366 C856 350 856 330 866 318 Z" opacity="0.14"/>
+
+      <!-- ── ROUTE LINES FROM ISTANBUL (approx x=590, y=175) ── -->
+      <!-- Istanbul → Hamburg (road/rail) -->
+      <path class="map-route map-route-gold" d="M590 175 C570 160 545 148 520 138 C495 128 475 122 460 115"/>
+      <circle r="3" fill="#E0B050" opacity="0.8">
+        <animateMotion dur="6s" repeatCount="indefinite" path="M590 175 C570 160 545 148 520 138 C495 128 475 122 460 115"/>
       </circle>
-      <circle class="route-dot route-dot-blue" r="3" fill="#3A87C8" opacity="0.6">
-        <animateMotion dur="12s" repeatCount="indefinite" path="M0 380 C200 360 350 400 500 370 C650 340 800 390 950 360 C1100 330 1150 350 1200 340"/>
+      <!-- Istanbul → Rotterdam (sea) -->
+      <path class="map-route map-route-blue" d="M590 175 C575 168 555 162 535 158 C515 154 495 152 475 148 C455 144 440 138 430 130"/>
+      <circle r="2.5" fill="#5BB0E0" opacity="0.7">
+        <animateMotion dur="8s" repeatCount="indefinite" begin="1s" path="M590 175 C575 168 555 162 535 158 C515 154 495 152 475 148 C455 144 440 138 430 130"/>
       </circle>
-      <circle class="route-dot route-dot-gold-2" r="3" fill="#D4A030" opacity="0.5">
-        <animateMotion dur="10s" repeatCount="indefinite" begin="3s" path="M0 300 C150 280 300 320 450 290 C600 260 750 310 900 280 C1050 250 1150 270 1200 260"/>
+      <!-- Istanbul → Dubai (sea/air) -->
+      <path class="map-route map-route-gold" d="M590 175 C600 182 612 190 622 200 C632 210 638 222 640 235"/>
+      <circle r="3" fill="#C8922A" opacity="0.8">
+        <animateMotion dur="5s" repeatCount="indefinite" begin="0.5s" path="M590 175 C600 182 612 190 622 200 C632 210 638 222 640 235"/>
       </circle>
+      <!-- Istanbul → Singapore (sea) -->
+      <path class="map-route map-route-blue" d="M590 175 C620 178 660 182 700 188 C740 194 775 202 800 215 C825 228 840 245 845 265"/>
+      <circle r="2.5" fill="#3A87C8" opacity="0.7">
+        <animateMotion dur="10s" repeatCount="indefinite" begin="2s" path="M590 175 C620 178 660 182 700 188 C740 194 775 202 800 215 C825 228 840 245 845 265"/>
+      </circle>
+      <!-- Istanbul → Shanghai (rail/Silk Road) -->
+      <path class="map-route map-route-gold map-route-silk" d="M590 175 C620 168 660 162 700 158 C740 154 780 152 820 150 C860 148 895 148 920 152"/>
+      <circle r="3.5" fill="#E0B050" opacity="0.9">
+        <animateMotion dur="9s" repeatCount="indefinite" begin="1.5s" path="M590 175 C620 168 660 162 700 158 C740 154 780 152 820 150 C860 148 895 148 920 152"/>
+      </circle>
+      <!-- Istanbul → New York (air) -->
+      <path class="map-route map-route-silver" d="M590 175 C560 160 520 145 480 132 C440 119 395 110 350 105 C305 100 260 100 220 105 C180 110 155 120 140 135"/>
+      <circle r="2.5" fill="#A8B8C8" opacity="0.6">
+        <animateMotion dur="12s" repeatCount="indefinite" begin="3s" path="M590 175 C560 160 520 145 480 132 C440 119 395 110 350 105 C305 100 260 100 220 105 C180 110 155 120 140 135"/>
+      </circle>
+
+      <!-- ── CITY MARKERS ── -->
+      <!-- Istanbul (HQ) -->
+      <g class="map-city map-city-hq" transform="translate(590,175)">
+        <circle r="8" fill="#C8922A" opacity="0.25" class="city-pulse-ring"/>
+        <circle r="5" fill="#C8922A" opacity="0.5" class="city-pulse-ring-2"/>
+        <circle r="3" fill="#E0B050"/>
+        <text x="8" y="-6" class="map-city-label map-city-label-hq">Istanbul</text>
+      </g>
+      <!-- Hamburg -->
+      <g class="map-city" transform="translate(505,112)">
+        <circle r="5" fill="#3A87C8" opacity="0.3" class="city-pulse-ring"/>
+        <circle r="2.5" fill="#5BB0E0"/>
+        <text x="6" y="-4" class="map-city-label">Hamburg</text>
+      </g>
+      <!-- Rotterdam -->
+      <g class="map-city" transform="translate(488,128)">
+        <circle r="5" fill="#3A87C8" opacity="0.3" class="city-pulse-ring"/>
+        <circle r="2.5" fill="#5BB0E0"/>
+        <text x="6" y="-4" class="map-city-label">Rotterdam</text>
+      </g>
+      <!-- Dubai -->
+      <g class="map-city" transform="translate(640,238)">
+        <circle r="5" fill="#C8922A" opacity="0.3" class="city-pulse-ring"/>
+        <circle r="2.5" fill="#D4A030"/>
+        <text x="6" y="-4" class="map-city-label">Dubai</text>
+      </g>
+      <!-- Singapore -->
+      <g class="map-city" transform="translate(845,268)">
+        <circle r="5" fill="#3A87C8" opacity="0.3" class="city-pulse-ring"/>
+        <circle r="2.5" fill="#5BB0E0"/>
+        <text x="6" y="-4" class="map-city-label">Singapore</text>
+      </g>
+      <!-- Shanghai -->
+      <g class="map-city" transform="translate(920,155)">
+        <circle r="5" fill="#C8922A" opacity="0.3" class="city-pulse-ring"/>
+        <circle r="2.5" fill="#D4A030"/>
+        <text x="6" y="-4" class="map-city-label">Shanghai</text>
+      </g>
+      <!-- New York -->
+      <g class="map-city" transform="translate(140,138)">
+        <circle r="5" fill="#8FA4B8" opacity="0.3" class="city-pulse-ring"/>
+        <circle r="2.5" fill="#A8B8C8"/>
+        <text x="6" y="-4" class="map-city-label">New York</text>
+      </g>
+      <!-- Warsaw -->
+      <g class="map-city" transform="translate(530,105)">
+        <circle r="4" fill="#3A87C8" opacity="0.25" class="city-pulse-ring"/>
+        <circle r="2" fill="#5BB0E0"/>
+        <text x="5" y="-3" class="map-city-label">Warsaw</text>
+      </g>
+      <!-- Almaty -->
+      <g class="map-city" transform="translate(740,148)">
+        <circle r="4" fill="#C8922A" opacity="0.25" class="city-pulse-ring"/>
+        <circle r="2" fill="#D4A030"/>
+        <text x="5" y="-3" class="map-city-label">Almaty</text>
+      </g>
     </svg>
     <div class="container hero-split">
       <div class="hero-text-content">
@@ -171,6 +289,13 @@
         </div>
       </div>
       <div class="hero-visual-content">
+        <!-- 25 Years Badge -->
+        <div class="hero-years-badge" aria-label="25 Years of Excellence">
+          <div class="years-badge-inner">
+            <span class="years-badge-num">25</span>
+            <span class="years-badge-text">YEARS<br>OF TRUST</span>
+          </div>
+        </div>
         <!-- Camel Visual Centerpiece -->
         <div class="hero-camel-stage">
           <!-- Outer glow rings -->
@@ -338,6 +463,14 @@
               <span class="footprint fp-4">🐾</span>
             </div>
           </div>
+          <!-- Silk Road label -->
+          <div class="camel-silk-road-label" aria-hidden="true">
+            <span class="silk-road-line"></span>
+            <span class="silk-road-text">✦ SILK ROAD ✦</span>
+            <span class="silk-road-line"></span>
+          </div>
+          <!-- Trusted Since 2001 -->
+          <div class="camel-trusted-since" aria-hidden="true">Trusted Since 2001</div>
         </div>
         <!-- Floating feature cards -->
         <div class="hero-float-card card-tl glass">
@@ -379,10 +512,28 @@
     </div>
     <!-- Desert Dune Wave at bottom of hero -->
     <div class="hero-dune-wave" aria-hidden="true">
-      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 40 C120 10 240 70 360 40 C480 10 600 70 720 40 C840 10 960 70 1080 40 C1200 10 1320 70 1440 40 L1440 80 L0 80 Z" fill="rgba(200,146,42,0.06)"/>
-        <path d="M0 55 C180 25 360 75 540 50 C720 25 900 75 1080 50 C1260 25 1380 65 1440 55 L1440 80 L0 80 Z" fill="rgba(200,146,42,0.04)"/>
-        <path d="M0 65 C240 45 480 75 720 60 C960 45 1200 75 1440 65 L1440 80 L0 80 Z" fill="rgba(58,135,200,0.04)"/>
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="duneGold1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="rgba(200,146,42,0)" />
+            <stop offset="30%" stop-color="rgba(200,146,42,0.14)" />
+            <stop offset="70%" stop-color="rgba(200,146,42,0.14)" />
+            <stop offset="100%" stop-color="rgba(200,146,42,0)" />
+          </linearGradient>
+          <linearGradient id="duneGold2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="rgba(200,146,42,0)" />
+            <stop offset="50%" stop-color="rgba(200,146,42,0.09)" />
+            <stop offset="100%" stop-color="rgba(200,146,42,0)" />
+          </linearGradient>
+        </defs>
+        <!-- Back dune (largest) -->
+        <path d="M0 60 C80 20 200 80 360 50 C520 20 640 80 800 50 C960 20 1080 80 1240 50 C1360 28 1420 55 1440 50 L1440 100 L0 100 Z" fill="url(#duneGold1)"/>
+        <!-- Mid dune -->
+        <path d="M0 72 C120 42 280 88 480 65 C680 42 840 88 1040 65 C1200 45 1340 75 1440 68 L1440 100 L0 100 Z" fill="url(#duneGold2)"/>
+        <!-- Front dune (blue tint) -->
+        <path d="M0 82 C200 62 400 92 600 78 C800 62 1000 92 1200 78 C1320 68 1400 82 1440 80 L1440 100 L0 100 Z" fill="rgba(58,135,200,0.06)"/>
+        <!-- Crest highlight line -->
+        <path d="M0 60 C80 20 200 80 360 50 C520 20 640 80 800 50 C960 20 1080 80 1240 50 C1360 28 1420 55 1440 50" fill="none" stroke="rgba(200,146,42,0.25)" stroke-width="1"/>
       </svg>
     </div>
     <!-- Floating Inquiry Button -->
@@ -442,6 +593,211 @@
         </svg> <span data-i18n="trust.4">ISO 9001 Quality</span></div>
     </div>
   </div>
+
+  <!-- ===== GLOBAL NETWORK MAP ===== -->
+  <section class="section section--dark global-network-section" id="global-network" style="padding:var(--space-3xl) 0;overflow:hidden;position:relative">
+    <div class="grid-bg" style="opacity:0.025"></div>
+    <div class="container" style="position:relative;z-index:2">
+      <div class="text-center reveal" style="margin-bottom:var(--space-2xl)">
+        <div class="section-label">Our Reach</div>
+        <h2 class="section-title">Global Network</h2>
+        <p class="section-subtitle" style="margin:0 auto;color:rgba(255,255,255,0.6)">Connecting Turkey to the world — 120+ countries, 6 continents, every major trade corridor.</p>
+      </div>
+      <!-- Full World Map -->
+      <div class="global-map-container reveal">
+        <svg class="global-map-svg" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" aria-label="Boxmar Global Network Map">
+          <defs>
+            <radialGradient id="gmapBg" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(10,22,40,0.8)"/>
+              <stop offset="100%" stop-color="rgba(2,8,16,0.95)"/>
+            </radialGradient>
+            <filter id="gmapGlow">
+              <feGaussianBlur stdDeviation="2.5" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+            <filter id="gmapCityGlow">
+              <feGaussianBlur stdDeviation="4" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+
+          <!-- Map background -->
+          <rect width="1000" height="500" fill="url(#gmapBg)" rx="16"/>
+
+          <!-- ── CONTINENTS (simplified outlines) ── -->
+          <!-- North America -->
+          <path class="gmap-continent" d="M55 60 C80 48 120 52 155 65 C190 78 215 100 228 125 C241 150 240 178 230 200 C220 222 202 238 182 248 C162 258 138 260 118 252 C98 244 80 228 68 208 C56 188 50 164 50 142 C50 120 52 98 58 80 Z"/>
+          <!-- Greenland -->
+          <path class="gmap-continent" d="M175 20 C188 14 205 16 215 26 C225 36 222 50 212 56 C202 62 188 58 182 48 C176 38 174 28 178 22 Z" opacity="0.6"/>
+          <!-- South America -->
+          <path class="gmap-continent" d="M168 270 C185 258 208 260 225 272 C242 284 250 305 248 326 C246 347 234 365 218 375 C202 385 182 387 166 378 C150 369 140 352 138 332 C136 312 140 290 150 278 Z"/>
+          <!-- Europe -->
+          <path class="gmap-continent" d="M400 55 C415 48 438 50 458 60 C478 70 490 88 494 108 C498 128 492 148 480 162 C468 176 450 182 432 180 C414 178 398 168 388 152 C378 136 376 116 382 98 C388 80 396 62 400 55 Z"/>
+          <!-- Scandinavia -->
+          <path class="gmap-continent" d="M415 28 C425 22 438 24 444 34 C450 44 446 56 436 60 C426 64 416 58 412 48 C408 38 408 32 415 28 Z" opacity="0.7"/>
+          <!-- UK -->
+          <path class="gmap-continent" d="M372 62 C378 56 388 58 390 68 C392 78 384 86 376 84 C368 82 366 72 372 62 Z" opacity="0.7"/>
+          <!-- Africa -->
+          <path class="gmap-continent" d="M408 195 C422 182 445 180 465 190 C485 200 498 220 500 244 C502 268 494 292 480 310 C466 328 446 340 426 344 C406 348 386 342 372 328 C358 314 350 294 350 272 C350 250 356 228 368 212 Z"/>
+          <!-- Middle East / Arabian Peninsula -->
+          <path class="gmap-continent" d="M490 168 C505 158 525 160 538 172 C551 184 554 202 546 216 C538 230 522 236 506 232 C490 228 480 214 480 198 C480 182 478 176 490 168 Z"/>
+          <!-- Central Asia -->
+          <path class="gmap-continent" d="M540 80 C570 68 610 70 645 82 C680 94 705 115 715 140 C725 165 718 192 700 210 C682 228 655 235 628 230 C601 225 578 210 562 190 C546 170 538 146 540 122 C542 98 542 88 540 80 Z"/>
+          <!-- South Asia (India) -->
+          <path class="gmap-continent" d="M600 185 C618 175 640 178 655 192 C670 206 672 228 662 244 C652 260 632 268 612 264 C592 260 578 244 576 224 C574 204 580 192 600 185 Z"/>
+          <!-- Southeast Asia -->
+          <path class="gmap-continent" d="M700 195 C718 185 740 188 755 202 C770 216 772 238 760 252 C748 266 726 270 706 262 C686 254 674 236 676 216 C678 196 684 202 700 195 Z"/>
+          <!-- East Asia (China/Japan) -->
+          <path class="gmap-continent" d="M720 80 C755 65 800 68 835 85 C870 102 890 130 888 160 C886 190 864 212 836 220 C808 228 776 220 752 202 C728 184 714 158 716 132 C718 106 720 90 720 80 Z"/>
+          <!-- Japan -->
+          <path class="gmap-continent" d="M870 95 C880 88 892 90 896 100 C900 110 894 122 884 124 C874 126 866 118 866 108 C866 98 866 100 870 95 Z" opacity="0.7"/>
+          <!-- Australia -->
+          <path class="gmap-continent" d="M760 320 C782 308 810 310 832 325 C854 340 862 365 854 388 C846 411 824 424 800 422 C776 420 756 406 746 386 C736 366 738 342 750 328 Z"/>
+
+          <!-- ── ROUTE LINES FROM ISTANBUL (approx 490, 148) ── -->
+          <!-- Istanbul → Hamburg (road/rail) -->
+          <path class="gmap-route gmap-route-gold" d="M490 148 C470 135 448 125 425 118 C402 111 382 108 365 105"/>
+          <circle r="3.5" fill="#E0B050" opacity="0.9" filter="url(#gmapGlow)">
+            <animateMotion dur="5s" repeatCount="indefinite" path="M490 148 C470 135 448 125 425 118 C402 111 382 108 365 105"/>
+          </circle>
+          <!-- Istanbul → Rotterdam (sea) -->
+          <path class="gmap-route gmap-route-blue" d="M490 148 C468 140 445 135 420 132 C395 129 372 128 352 126"/>
+          <circle r="3" fill="#5BB0E0" opacity="0.8" filter="url(#gmapGlow)">
+            <animateMotion dur="7s" repeatCount="indefinite" begin="1s" path="M490 148 C468 140 445 135 420 132 C395 129 372 128 352 126"/>
+          </circle>
+          <!-- Istanbul → Dubai (sea/air) -->
+          <path class="gmap-route gmap-route-gold" d="M490 148 C502 158 515 170 525 184 C535 198 540 214 540 228"/>
+          <circle r="3.5" fill="#C8922A" opacity="0.9" filter="url(#gmapGlow)">
+            <animateMotion dur="4s" repeatCount="indefinite" begin="0.5s" path="M490 148 C502 158 515 170 525 184 C535 198 540 214 540 228"/>
+          </circle>
+          <!-- Istanbul → Singapore (sea) -->
+          <path class="gmap-route gmap-route-blue" d="M490 148 C530 152 575 158 618 168 C661 178 700 192 730 210"/>
+          <circle r="3" fill="#3A87C8" opacity="0.8" filter="url(#gmapGlow)">
+            <animateMotion dur="9s" repeatCount="indefinite" begin="2s" path="M490 148 C530 152 575 158 618 168 C661 178 700 192 730 210"/>
+          </circle>
+          <!-- Istanbul → Shanghai (Silk Road rail) -->
+          <path class="gmap-route gmap-route-silk" d="M490 148 C535 138 585 130 635 125 C685 120 735 118 785 120 C835 122 870 128 895 138"/>
+          <circle r="4" fill="#E0B050" opacity="1" filter="url(#gmapGlow)">
+            <animateMotion dur="8s" repeatCount="indefinite" begin="1.5s" path="M490 148 C535 138 585 130 635 125 C685 120 735 118 785 120 C835 122 870 128 895 138"/>
+          </circle>
+          <!-- Istanbul → New York (air) -->
+          <path class="gmap-route gmap-route-silver" d="M490 148 C460 132 425 118 385 108 C345 98 300 92 255 90 C210 88 170 92 140 102 C120 110 105 122 95 135"/>
+          <circle r="3" fill="#A8B8C8" opacity="0.7" filter="url(#gmapGlow)">
+            <animateMotion dur="11s" repeatCount="indefinite" begin="3s" path="M490 148 C460 132 425 118 385 108 C345 98 300 92 255 90 C210 88 170 92 140 102 C120 110 105 122 95 135"/>
+          </circle>
+          <!-- Istanbul → Almaty (rail) -->
+          <path class="gmap-route gmap-route-gold" d="M490 148 C520 140 555 134 590 130 C625 126 660 124 690 125"/>
+          <circle r="3" fill="#D4A030" opacity="0.8" filter="url(#gmapGlow)">
+            <animateMotion dur="6s" repeatCount="indefinite" begin="2.5s" path="M490 148 C520 140 555 134 590 130 C625 126 660 124 690 125"/>
+          </circle>
+
+          <!-- ── CITY MARKERS ── -->
+          <!-- Istanbul (HQ) — gold, larger -->
+          <g class="gmap-city gmap-city-hq" transform="translate(490,148)">
+            <circle r="12" fill="rgba(200,146,42,0.15)" class="gmap-pulse-ring"/>
+            <circle r="7" fill="rgba(200,146,42,0.3)" class="gmap-pulse-ring-2"/>
+            <circle r="4" fill="#E0B050" filter="url(#gmapCityGlow)"/>
+            <text x="8" y="-7" class="gmap-city-label gmap-city-label-hq">Istanbul ★</text>
+          </g>
+          <!-- Hamburg -->
+          <g class="gmap-city" transform="translate(365,105)">
+            <circle r="7" fill="rgba(58,135,200,0.2)" class="gmap-pulse-ring"/>
+            <circle r="3.5" fill="#5BB0E0" filter="url(#gmapGlow)"/>
+            <text x="6" y="-5" class="gmap-city-label">Hamburg</text>
+          </g>
+          <!-- Rotterdam -->
+          <g class="gmap-city" transform="translate(352,126)">
+            <circle r="7" fill="rgba(58,135,200,0.2)" class="gmap-pulse-ring"/>
+            <circle r="3.5" fill="#5BB0E0" filter="url(#gmapGlow)"/>
+            <text x="6" y="-5" class="gmap-city-label">Rotterdam</text>
+          </g>
+          <!-- Dubai -->
+          <g class="gmap-city" transform="translate(540,230)">
+            <circle r="7" fill="rgba(200,146,42,0.2)" class="gmap-pulse-ring"/>
+            <circle r="3.5" fill="#D4A030" filter="url(#gmapGlow)"/>
+            <text x="6" y="-5" class="gmap-city-label">Dubai</text>
+          </g>
+          <!-- Singapore -->
+          <g class="gmap-city" transform="translate(730,212)">
+            <circle r="7" fill="rgba(58,135,200,0.2)" class="gmap-pulse-ring"/>
+            <circle r="3.5" fill="#5BB0E0" filter="url(#gmapGlow)"/>
+            <text x="6" y="-5" class="gmap-city-label">Singapore</text>
+          </g>
+          <!-- Shanghai -->
+          <g class="gmap-city" transform="translate(895,140)">
+            <circle r="7" fill="rgba(200,146,42,0.2)" class="gmap-pulse-ring"/>
+            <circle r="3.5" fill="#D4A030" filter="url(#gmapGlow)"/>
+            <text x="6" y="-5" class="gmap-city-label">Shanghai</text>
+          </g>
+          <!-- New York -->
+          <g class="gmap-city" transform="translate(95,137)">
+            <circle r="7" fill="rgba(143,164,184,0.2)" class="gmap-pulse-ring"/>
+            <circle r="3.5" fill="#A8B8C8" filter="url(#gmapGlow)"/>
+            <text x="6" y="-5" class="gmap-city-label">New York</text>
+          </g>
+          <!-- Almaty -->
+          <g class="gmap-city" transform="translate(690,127)">
+            <circle r="6" fill="rgba(200,146,42,0.2)" class="gmap-pulse-ring"/>
+            <circle r="3" fill="#D4A030" filter="url(#gmapGlow)"/>
+            <text x="5" y="-4" class="gmap-city-label">Almaty</text>
+          </g>
+          <!-- Warsaw -->
+          <g class="gmap-city" transform="translate(440,90)">
+            <circle r="6" fill="rgba(58,135,200,0.2)" class="gmap-pulse-ring"/>
+            <circle r="3" fill="#5BB0E0" filter="url(#gmapGlow)"/>
+            <text x="5" y="-4" class="gmap-city-label">Warsaw</text>
+          </g>
+          <!-- Mersin -->
+          <g class="gmap-city" transform="translate(498,165)">
+            <circle r="5" fill="rgba(200,146,42,0.2)" class="gmap-pulse-ring"/>
+            <circle r="2.5" fill="#C8922A" filter="url(#gmapGlow)"/>
+            <text x="5" y="-4" class="gmap-city-label">Mersin</text>
+          </g>
+        </svg>
+
+        <!-- Map Legend -->
+        <div class="gmap-legend">
+          <div class="gmap-legend-title">Route Types</div>
+          <div class="gmap-legend-item">
+            <span class="gmap-legend-line gmap-legend-gold"></span>
+            <span>Road / Rail</span>
+          </div>
+          <div class="gmap-legend-item">
+            <span class="gmap-legend-line gmap-legend-blue"></span>
+            <span>Sea Freight</span>
+          </div>
+          <div class="gmap-legend-item">
+            <span class="gmap-legend-line gmap-legend-silver"></span>
+            <span>Air Freight</span>
+          </div>
+          <div class="gmap-legend-item">
+            <span class="gmap-legend-line gmap-legend-silk"></span>
+            <span>Silk Road</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Network Stats Row -->
+      <div class="gmap-stats-row reveal">
+        <div class="gmap-stat">
+          <span class="gmap-stat-num">120+</span>
+          <span class="gmap-stat-label">Countries</span>
+        </div>
+        <div class="gmap-stat">
+          <span class="gmap-stat-num">6</span>
+          <span class="gmap-stat-label">Continents</span>
+        </div>
+        <div class="gmap-stat">
+          <span class="gmap-stat-num">500+</span>
+          <span class="gmap-stat-label">Ports & Airports</span>
+        </div>
+        <div class="gmap-stat">
+          <span class="gmap-stat-num">4</span>
+          <span class="gmap-stat-label">Transport Modes</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ===== SERVICES ===== -->
   <section class="section section--dark" id="services" style="position:relative;overflow:hidden">
