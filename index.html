@@ -177,60 +177,166 @@
           <div class="camel-ring camel-ring-1"></div>
           <div class="camel-ring camel-ring-2"></div>
           <div class="camel-ring camel-ring-3"></div>
-          <!-- Camel SVG with circuit overlay -->
+          <!-- Logo above camel -->
+          <div class="hero-logo-display">
+            <div class="hero-logo-halo"></div>
+            <img src="assets/logo.png" alt="Boxmar Global Logistics" class="hero-logo-img-large">
+          </div>
+          <!-- Camel SVG with circuit overlay — enhanced version -->
           <div class="camel-core">
-            <svg class="camel-svg" viewBox="0 0 320 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- Camel body silhouette -->
-              <path class="camel-body" d="M60 200 C60 200 50 180 55 160 C60 140 70 130 80 125 C85 122 88 118 88 112 C88 100 82 88 85 78 C88 68 98 62 108 65 C118 68 122 80 120 92 C118 104 112 110 115 118 C118 126 130 128 140 125 C150 122 158 115 162 108 C166 101 164 92 168 85 C172 78 182 74 192 77 C202 80 208 92 205 104 C202 116 194 122 196 132 C198 142 210 148 218 155 C226 162 228 172 225 182 C222 192 215 198 210 200 L60 200 Z" fill="url(#camelBodyGrad)" opacity="0.9"/>
-              <!-- Camel hump detail -->
-              <path class="camel-hump" d="M108 65 C108 65 100 50 108 38 C116 26 130 24 138 32 C146 40 144 55 140 65" stroke="url(#goldGrad)" stroke-width="2" fill="none" opacity="0.7"/>
-              <!-- Circuit lines on body -->
-              <g class="circuit-lines" opacity="0.5">
-                <path d="M90 160 L110 160 L110 150 L130 150" stroke="#3A87C8" stroke-width="1.5" stroke-linecap="round"/>
-                <path d="M130 150 L150 150 L150 165 L170 165" stroke="#3A87C8" stroke-width="1.5" stroke-linecap="round"/>
-                <path d="M170 165 L190 165 L190 155 L210 155" stroke="#3A87C8" stroke-width="1.5" stroke-linecap="round"/>
-                <path d="M100 175 L120 175 L120 168 L145 168" stroke="#4A9FD4" stroke-width="1" stroke-linecap="round"/>
-                <path d="M145 168 L165 168 L165 178 L185 178" stroke="#4A9FD4" stroke-width="1" stroke-linecap="round"/>
-                <!-- Circuit nodes -->
-                <circle cx="110" cy="150" r="2.5" fill="#3A87C8"/>
-                <circle cx="150" cy="165" r="2.5" fill="#3A87C8"/>
-                <circle cx="190" cy="155" r="2.5" fill="#3A87C8"/>
-                <circle cx="120" cy="168" r="2" fill="#4A9FD4"/>
-                <circle cx="165" cy="178" r="2" fill="#4A9FD4"/>
-              </g>
-              <!-- Camel legs -->
-              <g class="camel-legs" stroke="url(#silverGrad)" stroke-width="8" stroke-linecap="round">
-                <line x1="90" y1="200" x2="88" y2="230"/>
-                <line x1="115" y1="200" x2="113" y2="230"/>
-                <line x1="165" y1="200" x2="163" y2="230"/>
-                <line x1="190" y1="200" x2="192" y2="230"/>
-              </g>
-              <!-- Camel head -->
-              <ellipse cx="220" cy="120" rx="22" ry="16" fill="url(#camelBodyGrad)" opacity="0.85"/>
-              <path d="M238 115 C248 112 255 118 252 126 C249 134 240 135 235 130" stroke="url(#goldGrad)" stroke-width="1.5" fill="none"/>
-              <!-- Eye -->
-              <circle cx="228" cy="116" r="3" fill="#C8922A" opacity="0.9"/>
-              <circle cx="229" cy="115" r="1" fill="#050E1C"/>
-              <!-- Gradients -->
+            <svg class="camel-svg" viewBox="0 0 380 300" fill="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <linearGradient id="camelBodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#1B3B6C"/>
-                  <stop offset="50%" stop-color="#0F2340"/>
+                  <stop offset="0%" stop-color="#1E4A78"/>
+                  <stop offset="40%" stop-color="#0F2340"/>
+                  <stop offset="100%" stop-color="#060E1A"/>
+                </linearGradient>
+                <linearGradient id="camelBodyGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#152F56"/>
                   <stop offset="100%" stop-color="#0A1628"/>
                 </linearGradient>
                 <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#C8922A"/>
-                  <stop offset="50%" stop-color="#E0B050"/>
-                  <stop offset="100%" stop-color="#C8922A"/>
+                  <stop offset="0%" stop-color="#A87818"/>
+                  <stop offset="35%" stop-color="#E0B050"/>
+                  <stop offset="65%" stop-color="#C8922A"/>
+                  <stop offset="100%" stop-color="#A87818"/>
+                </linearGradient>
+                <linearGradient id="goldGradV" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#E0B050"/>
+                  <stop offset="100%" stop-color="#8C5E00"/>
                 </linearGradient>
                 <linearGradient id="silverGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stop-color="#8FA4B8"/>
+                  <stop offset="0%" stop-color="#A8B8C8"/>
                   <stop offset="100%" stop-color="#4A5E70"/>
                 </linearGradient>
+                <linearGradient id="saddleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#C8922A"/>
+                  <stop offset="50%" stop-color="#8C5E00"/>
+                  <stop offset="100%" stop-color="#6B4600"/>
+                </linearGradient>
+                <filter id="camelGlow">
+                  <feGaussianBlur stdDeviation="3" result="blur"/>
+                  <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                </filter>
+                <radialGradient id="eyeGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#E0B050"/>
+                  <stop offset="100%" stop-color="#C8922A" stop-opacity="0"/>
+                </radialGradient>
               </defs>
+
+              <!-- ── CAMEL BODY ── -->
+              <!-- Main body mass -->
+              <path d="M55 210 C50 195 48 178 52 162 C56 146 66 136 78 130 C84 127 87 122 87 115 C87 103 80 90 83 78 C86 66 97 59 109 62 C121 65 126 78 124 91 C122 104 115 111 118 120 C121 129 134 132 145 129 C156 126 165 118 169 110 C173 102 171 92 175 84 C179 76 190 71 201 74 C212 77 219 90 216 103 C213 116 204 123 206 134 C208 145 221 152 230 160 C239 168 242 179 239 191 C236 203 228 210 222 213 L55 213 Z" fill="url(#camelBodyGrad)" stroke="rgba(58,135,200,0.2)" stroke-width="0.5"/>
+
+              <!-- Body highlight (top edge) -->
+              <path d="M55 210 C50 195 48 178 52 162 C56 146 66 136 78 130" stroke="rgba(168,184,200,0.15)" stroke-width="1.5" fill="none"/>
+
+              <!-- ── HUMPS ── -->
+              <!-- First hump (rear) -->
+              <path d="M87 115 C87 115 78 98 83 82 C88 66 103 58 115 62 C127 66 130 80 127 94 C124 108 118 115 118 120" fill="url(#camelBodyGrad2)" stroke="rgba(200,146,42,0.3)" stroke-width="0.5"/>
+              <!-- Hump 1 gold outline -->
+              <path d="M87 115 C84 100 82 85 88 74 C94 63 108 58 118 64 C128 70 128 84 124 96 C120 108 118 115 118 120" stroke="url(#goldGrad)" stroke-width="1.5" fill="none" opacity="0.6"/>
+
+              <!-- Second hump (front) -->
+              <path d="M169 110 C169 110 162 93 166 78 C170 63 182 57 193 60 C204 63 210 76 207 89 C204 102 206 110 206 134" fill="url(#camelBodyGrad2)" stroke="rgba(200,146,42,0.3)" stroke-width="0.5"/>
+              <!-- Hump 2 gold outline -->
+              <path d="M169 110 C166 94 165 79 170 68 C175 57 188 53 199 57 C210 61 214 75 211 88 C208 101 206 110 206 134" stroke="url(#goldGrad)" stroke-width="1.5" fill="none" opacity="0.6"/>
+
+              <!-- ── SADDLE / CARGO ── -->
+              <!-- Saddle base between humps -->
+              <path d="M118 120 C122 128 130 132 140 130 C150 128 158 122 162 115 C166 108 169 110 169 110 C165 118 158 126 148 130 C138 134 126 132 118 120 Z" fill="url(#saddleGrad)" opacity="0.85"/>
+              <!-- Saddle strap -->
+              <path d="M120 122 C130 135 148 136 162 122" stroke="url(#goldGrad)" stroke-width="2" fill="none" opacity="0.9"/>
+              <!-- Cargo box on saddle -->
+              <rect x="128" y="108" width="28" height="20" rx="3" fill="url(#saddleGrad)" opacity="0.8" stroke="url(#goldGrad)" stroke-width="1"/>
+              <!-- Cargo box detail lines -->
+              <line x1="142" y1="108" x2="142" y2="128" stroke="url(#goldGradV)" stroke-width="0.8" opacity="0.7"/>
+              <line x1="128" y1="118" x2="156" y2="118" stroke="url(#goldGradV)" stroke-width="0.8" opacity="0.7"/>
+              <!-- Cargo rope -->
+              <path d="M128 112 C135 106 149 106 156 112" stroke="url(#goldGrad)" stroke-width="1.5" fill="none" opacity="0.8"/>
+
+              <!-- ── CIRCUIT LINES ON BODY ── -->
+              <g class="circuit-lines">
+                <!-- Main horizontal bus -->
+                <path d="M75 170 L100 170 L100 158 L125 158" stroke="#3A87C8" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+                <path d="M125 158 L155 158 L155 172 L180 172" stroke="#3A87C8" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+                <path d="M180 172 L205 172 L205 162 L225 162" stroke="#3A87C8" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+                <!-- Secondary bus -->
+                <path d="M85 185 L108 185 L108 178 L135 178" stroke="#4A9FD4" stroke-width="1.5" stroke-linecap="round" opacity="0.65"/>
+                <path d="M135 178 L160 178 L160 188 L188 188" stroke="#4A9FD4" stroke-width="1.5" stroke-linecap="round" opacity="0.65"/>
+                <!-- Vertical branches -->
+                <path d="M100 158 L100 148 L112 148" stroke="#5BB0E0" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+                <path d="M155 158 L155 148 L167 148" stroke="#5BB0E0" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+                <path d="M205 162 L205 152 L217 152" stroke="#5BB0E0" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+                <!-- Circuit nodes (larger, glowing) -->
+                <circle cx="100" cy="158" r="3.5" fill="#3A87C8" opacity="0.9"/>
+                <circle cx="155" cy="172" r="3.5" fill="#3A87C8" opacity="0.9"/>
+                <circle cx="205" cy="162" r="3.5" fill="#3A87C8" opacity="0.9"/>
+                <circle cx="108" cy="178" r="2.5" fill="#4A9FD4" opacity="0.8"/>
+                <circle cx="160" cy="188" r="2.5" fill="#4A9FD4" opacity="0.8"/>
+                <!-- Node glow rings -->
+                <circle cx="100" cy="158" r="6" fill="none" stroke="#3A87C8" stroke-width="1" opacity="0.3" class="node-pulse"/>
+                <circle cx="155" cy="172" r="6" fill="none" stroke="#3A87C8" stroke-width="1" opacity="0.3" class="node-pulse"/>
+                <circle cx="205" cy="162" r="6" fill="none" stroke="#3A87C8" stroke-width="1" opacity="0.3" class="node-pulse"/>
+              </g>
+
+              <!-- ── LEGS ── -->
+              <!-- Rear legs -->
+              <line x1="82" y1="213" x2="78" y2="248" stroke="url(#silverGrad)" stroke-width="9" stroke-linecap="round"/>
+              <line x1="110" y1="213" x2="106" y2="248" stroke="url(#silverGrad)" stroke-width="9" stroke-linecap="round"/>
+              <!-- Front legs -->
+              <line x1="170" y1="213" x2="166" y2="248" stroke="url(#silverGrad)" stroke-width="9" stroke-linecap="round"/>
+              <line x1="198" y1="213" x2="202" y2="248" stroke="url(#silverGrad)" stroke-width="9" stroke-linecap="round"/>
+              <!-- Hooves -->
+              <ellipse cx="78" cy="250" rx="7" ry="4" fill="#4A5E70"/>
+              <ellipse cx="106" cy="250" rx="7" ry="4" fill="#4A5E70"/>
+              <ellipse cx="166" cy="250" rx="7" ry="4" fill="#4A5E70"/>
+              <ellipse cx="202" cy="250" rx="7" ry="4" fill="#4A5E70"/>
+
+              <!-- ── NECK ── -->
+              <path d="M222 213 C228 200 238 185 242 168 C246 151 244 138 248 128" fill="url(#camelBodyGrad)" stroke="rgba(58,135,200,0.2)" stroke-width="0.5"/>
+
+              <!-- ── HEAD ── -->
+              <!-- Head shape -->
+              <ellipse cx="262" cy="118" rx="26" ry="19" fill="url(#camelBodyGrad)" stroke="rgba(200,146,42,0.25)" stroke-width="0.8"/>
+              <!-- Snout -->
+              <path d="M282 112 C295 108 304 115 301 125 C298 135 287 137 281 131 C275 125 276 118 282 112 Z" fill="url(#camelBodyGrad2)" stroke="rgba(200,146,42,0.3)" stroke-width="0.8"/>
+              <!-- Nostril -->
+              <ellipse cx="296" cy="122" rx="3" ry="2" fill="rgba(0,0,0,0.4)"/>
+              <!-- Mouth line -->
+              <path d="M284 128 C289 131 296 130 300 127" stroke="rgba(168,184,200,0.4)" stroke-width="1" fill="none"/>
+              <!-- Eye -->
+              <circle cx="268" cy="113" r="5" fill="#C8922A" opacity="0.95"/>
+              <circle cx="269" cy="112" r="2.5" fill="#050E1C"/>
+              <circle cx="270" cy="111" r="1" fill="rgba(255,255,255,0.6)"/>
+              <!-- Eye glow -->
+              <circle cx="268" cy="113" r="8" fill="url(#eyeGlow)" opacity="0.4"/>
+              <!-- Ear -->
+              <path d="M248 104 C244 96 248 88 255 90 C262 92 262 102 258 106" fill="url(#camelBodyGrad2)" stroke="rgba(200,146,42,0.3)" stroke-width="0.8"/>
+              <!-- Eyelash -->
+              <path d="M264 108 C266 105 270 104 273 106" stroke="rgba(168,184,200,0.5)" stroke-width="1" fill="none"/>
+
+              <!-- ── TAIL ── -->
+              <path d="M55 210 C48 215 42 222 44 230 C46 238 52 240 56 236" stroke="url(#silverGrad)" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+              <!-- ── FOOTPRINTS ── -->
+              <g class="camel-footprints" opacity="0.35">
+                <ellipse cx="60" cy="268" rx="5" ry="3" fill="#8FA4B8" transform="rotate(-15 60 268)"/>
+                <ellipse cx="80" cy="272" rx="5" ry="3" fill="#8FA4B8" transform="rotate(10 80 272)"/>
+                <ellipse cx="100" cy="268" rx="5" ry="3" fill="#8FA4B8" transform="rotate(-15 100 268)"/>
+                <ellipse cx="120" cy="272" rx="5" ry="3" fill="#8FA4B8" transform="rotate(10 120 272)"/>
+                <ellipse cx="140" cy="268" rx="5" ry="3" fill="#8FA4B8" transform="rotate(-15 140 268)"/>
+              </g>
             </svg>
             <!-- Gold glow beneath camel -->
             <div class="camel-glow-base"></div>
+            <!-- Footprint trail -->
+            <div class="camel-footprint-trail">
+              <span class="footprint fp-1">🐾</span>
+              <span class="footprint fp-2">🐾</span>
+              <span class="footprint fp-3">🐾</span>
+              <span class="footprint fp-4">🐾</span>
+            </div>
           </div>
         </div>
         <!-- Floating feature cards -->
@@ -270,6 +376,14 @@
           </div>
         </div>
       </div>
+    </div>
+    <!-- Desert Dune Wave at bottom of hero -->
+    <div class="hero-dune-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 40 C120 10 240 70 360 40 C480 10 600 70 720 40 C840 10 960 70 1080 40 C1200 10 1320 70 1440 40 L1440 80 L0 80 Z" fill="rgba(200,146,42,0.06)"/>
+        <path d="M0 55 C180 25 360 75 540 50 C720 25 900 75 1080 50 C1260 25 1380 65 1440 55 L1440 80 L0 80 Z" fill="rgba(200,146,42,0.04)"/>
+        <path d="M0 65 C240 45 480 75 720 60 C960 45 1200 75 1440 65 L1440 80 L0 80 Z" fill="rgba(58,135,200,0.04)"/>
+      </svg>
     </div>
     <!-- Floating Inquiry Button -->
     <a href="#quote" class="inquiry-float" title="Make an Inquiry">
