@@ -7,11 +7,21 @@
   <title>Boxmar Global Logistics | 25 Years of Trust in International Freight Forwarding</title>
   <meta name="description"
     content="Boxmar Global Logistics - Turkey's trusted leader in international freight forwarding, chemical tank containers, food tank shipments. Road, sea, air, rail transport with 25+ years experience.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.boxmar.com.tr/">
+  <meta property="og:title" content="Boxmar Global Logistics | 25 Years of Trust in International Freight Forwarding">
+  <meta property="og:description" content="Turkey's trusted leader in international freight forwarding, chemical tank containers, and food tank shipments. Over 25 years of mutual trust and global success.">
+  <meta property="og:image" content="https://www.boxmar.com.tr/assets/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Boxmar Global Logistics | International Freight Forwarding">
+  <meta name="twitter:description" content="Turkey's trusted leader in international freight forwarding with 25+ years experience.">
+  <meta name="twitter:image" content="https://www.boxmar.com.tr/assets/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap"
     rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%224%22 fill=%22%23050E1C%22/><text x=%2216%22 y=%2223%22 font-family=%22Arial%22 font-weight=%22bold%22 font-size=%2220%22 fill=%22%23C8922A%22 text-anchor=%22middle%22>B</text></svg>">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -69,6 +79,7 @@
         <div class="lang-switch">
           <button class="lang-btn active" data-lang="en">EN</button>
           <button class="lang-btn" data-lang="tr">TR</button>
+          <button class="lang-btn" data-lang="ar">AR</button>
         </div>
         <a href="#quote" class="nav-cta" data-i18n="nav.cta">Get Quote</a>
       </div>
@@ -616,7 +627,7 @@
         <div class="form-panel active">
           <div class="form-group">
             <label data-i18n="quote.cargo_type">Type of Cargo</label>
-            <select class="form-control">
+            <select class="form-control" name="cargo_type">
               <option value="" data-i18n="quote.select">Select...</option>
               <option value="general">General Cargo</option>
               <option value="chemical">Chemical / Hazardous</option>
@@ -627,7 +638,7 @@
           </div>
           <div class="form-group">
             <label data-i18n="quote.transport_type">Type of Transportation</label>
-            <select class="form-control">
+            <select class="form-control" name="transport_type">
               <option value="" data-i18n="quote.select">Select...</option>
               <option value="road">Road Transport</option>
               <option value="sea">Sea Freight (FCL)</option>
@@ -647,20 +658,20 @@
           <div class="form-row">
             <div class="form-group">
               <label data-i18n="quote.origin">Origin City</label>
-              <input type="text" class="form-control" placeholder="e.g. Istanbul">
+              <input type="text" class="form-control" name="origin" placeholder="e.g. Istanbul">
             </div>
             <div class="form-group">
               <label data-i18n="quote.destination">Destination City</label>
-              <input type="text" class="form-control" placeholder="e.g. Hamburg">
+              <input type="text" class="form-control" name="destination" placeholder="e.g. Hamburg">
             </div>
           </div>
           <div class="form-group">
             <label data-i18n="quote.weight">Weight (kg)</label>
-            <input type="text" class="form-control" placeholder="e.g. 5000">
+            <input type="text" class="form-control" name="weight" placeholder="e.g. 5000">
           </div>
           <div class="form-group">
             <label data-i18n="quote.notes">Additional Notes</label>
-            <textarea class="form-control" placeholder="Tank requirements, special handling, etc."></textarea>
+            <textarea class="form-control" name="notes" placeholder="Tank requirements, special handling, etc."></textarea>
           </div>
           <div class="form-nav">
             <button type="button" class="btn btn-dark" data-prev data-i18n="quote.prev">Previous</button>
@@ -672,21 +683,21 @@
           <div class="form-row">
             <div class="form-group">
               <label data-i18n="quote.name">Full Name</label>
-              <input type="text" class="form-control" placeholder="Your full name">
+              <input type="text" class="form-control" name="from_name" placeholder="Your full name" required>
             </div>
             <div class="form-group">
               <label data-i18n="quote.company">Company Name</label>
-              <input type="text" class="form-control" placeholder="Your company">
+              <input type="text" class="form-control" name="company" placeholder="Your company">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
               <label data-i18n="quote.email">Email Address</label>
-              <input type="email" class="form-control" placeholder="you@company.com">
+              <input type="email" class="form-control" name="reply_to" placeholder="you@company.com" required>
             </div>
             <div class="form-group">
               <label data-i18n="quote.phone">Phone Number</label>
-              <input type="tel" class="form-control" placeholder="+90 ...">
+              <input type="tel" class="form-control" name="phone" placeholder="+90 ...">
             </div>
           </div>
           <div class="form-nav">
@@ -721,10 +732,10 @@
           <p data-i18n="footer.about">Boxmar Global Logistics provides comprehensive freight forwarding and logistics
             solutions with 25+ years of industry expertise across Turkey and beyond.</p>
           <div class="footer-social">
-            <a href="#" title="LinkedIn">in</a>
-            <a href="#" title="Instagram">ig</a>
-            <a href="#" title="YouTube">yt</a>
-            <a href="#" title="Twitter">tw</a>
+            <a href="https://www.linkedin.com/company/boxmar" target="_blank" rel="noopener" title="LinkedIn">in</a>
+            <a href="https://www.instagram.com/boxmarglobal" target="_blank" rel="noopener" title="Instagram">ig</a>
+            <a href="https://www.youtube.com/@boxmarglobal" target="_blank" rel="noopener" title="YouTube">yt</a>
+            <a href="https://twitter.com/boxmarglobal" target="_blank" rel="noopener" title="Twitter">tw</a>
           </div>
         </div>
         <div>
@@ -774,7 +785,7 @@
       </div>
       <div class="footer-bottom">
         <span data-i18n="footer.rights">© 2026 Boxmar Global Logistics. All rights reserved.</span>
-        <span><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a></span>
+        <span><a href="privacy.html">Privacy Policy</a> · <a href="#">Terms of Service</a></span>
       </div>
     </div>
   </footer>
@@ -822,6 +833,12 @@
 
   <script src="js/translations.js"></script>
   <script src="js/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init('YOUR_EMAILJS_PUBLIC_KEY');
+    })();
+  </script>
   <script>
     // Chat box logic
     function chatReply(topic) {

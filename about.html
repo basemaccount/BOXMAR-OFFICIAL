@@ -7,15 +7,40 @@
     <title>About Us | Boxmar Global Logistics</title>
     <meta name="description"
         content="Learn about Boxmar Global Logistics - 25 years of excellence in international freight forwarding, chemical and food tank container operations in Turkey.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.boxmar.com.tr/about.html">
+    <meta property="og:title" content="About Us | Boxmar Global Logistics">
+    <meta property="og:description" content="25 years of excellence in international freight forwarding, chemical and food tank container operations in Turkey.">
+    <meta property="og:image" content="https://www.boxmar.com.tr/assets/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About Boxmar Global Logistics">
+    <meta name="twitter:description" content="25 years of excellence in international freight forwarding in Turkey.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%224%22 fill=%22%23050E1C%22/><text x=%2216%22 y=%2223%22 font-family=%22Arial%22 font-weight=%22bold%22 font-size=%2220%22 fill=%22%23C8922A%22 text-anchor=%22middle%22>B</text></svg>">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+
+    <!-- ===== TOP BAR ===== -->
+    <div class="top-bar">
+        <div class="container top-bar-inner">
+            <div class="top-bar-left">
+                <span class="top-badge">
+                    <span class="dot"></span>
+                    <span data-i18n="hero.badge">Celebrating 25 Years of Excellence</span>
+                </span>
+            </div>
+            <div class="top-bar-right">
+                <a href="mailto:info@boxmar.com.tr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> info@boxmar.com.tr</a>
+                <a href="tel:+908508405381"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> +90 850 840 53 81</a>
+            </div>
+        </div>
+    </div>
 
     <!-- NAVBAR -->
     <nav class="navbar scrolled">
@@ -44,7 +69,7 @@
             <div class="nav-actions">
                 <div class="lang-switch">
                     <button class="lang-btn active" data-lang="en">EN</button>
-                    <button class="lang-btn" data-lang="tr">TR</button>
+                    <button class="lang-btn" data-lang="tr">TR</button><button class="lang-btn" data-lang="ar">AR</button>
                 </div>
                 <a href="index.html#quote" class="nav-cta" data-i18n="nav.cta">Get Quote</a>
             </div>
@@ -52,11 +77,17 @@
         </div>
     </nav>
     <div class="mobile-menu">
-        <a href="index.html">Home</a><a href="about.html">About</a>
-        <a href="services/road.html">Road</a><a href="services/sea.html">Sea</a>
-        <a href="services/air.html">Air</a><a href="services/rail.html">Rail</a>
-        <a href="services/chemical.html">Chemical</a><a href="services/food.html">Food</a>
-        <a href="index.html#quote">Get Quote</a><a href="tracking.html">Tracking</a><a href="contact.html">Contact</a>
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="services/road.html" data-i18n="svc.road">Road Transport</a>
+        <a href="services/sea.html" data-i18n="svc.sea">Sea Freight</a>
+        <a href="services/air.html" data-i18n="svc.air">Air Freight</a>
+        <a href="services/rail.html" data-i18n="svc.rail">Rail Freight</a>
+        <a href="services/chemical.html" data-i18n="svc.chemical">Chemical Freight</a>
+        <a href="services/food.html" data-i18n="svc.food">Food Freight</a>
+        <a href="index.html#quote" data-i18n="nav.quote">Get Quote</a>
+        <a href="tracking.html" data-i18n="nav.tracking">Tracking</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
     </div>
 
     <!-- PAGE HERO -->
@@ -101,29 +132,29 @@
                         class="reveal reveal-delay-1">
                         <h3 style="color:var(--gold-400);margin-bottom:var(--space-md)">Our Services Include</h3>
                         <div class="tag-list" style="gap:var(--space-sm)">
-                            <span class="tag" style="background:rgba(16,185,129,0.2);color:var(--blue-300)">Airfreight
+                            <span class="tag" style="background:rgba(58,135,200,0.15);color:var(--blue-300)">Airfreight
                                 Consolidation</span>
                             <span class="tag"
-                                style="background:rgba(16,185,129,0.2);color:var(--blue-300)">Projects</span>
-                            <span class="tag" style="background:rgba(16,185,129,0.2);color:var(--blue-300)">Overland
+                                style="background:rgba(58,135,200,0.15);color:var(--blue-300)">Projects</span>
+                            <span class="tag" style="background:rgba(58,135,200,0.15);color:var(--blue-300)">Overland
                                 Trucking</span>
-                            <span class="tag" style="background:rgba(16,185,129,0.2);color:var(--blue-300)">Port /
+                            <span class="tag" style="background:rgba(58,135,200,0.15);color:var(--blue-300)">Port /
                                 Airport Handling</span>
-                            <span class="tag" style="background:rgba(16,185,129,0.2);color:var(--blue-300)">Warehousing
+                            <span class="tag" style="background:rgba(58,135,200,0.15);color:var(--blue-300)">Warehousing
                                 & Distribution</span>
                             <span class="tag"
-                                style="background:rgba(16,185,129,0.2);color:var(--blue-300)">De-consolidation</span>
-                            <span class="tag" style="background:rgba(16,185,129,0.2);color:var(--blue-300)">Customs
+                                style="background:rgba(58,135,200,0.15);color:var(--blue-300)">De-consolidation</span>
+                            <span class="tag" style="background:rgba(58,135,200,0.15);color:var(--blue-300)">Customs
                                 Clearance</span>
-                            <span class="tag" style="background:rgba(16,185,129,0.2);color:var(--blue-300)">Sea Freight
+                            <span class="tag" style="background:rgba(58,135,200,0.15);color:var(--blue-300)">Sea Freight
                                 FCL & LCL</span>
-                            <span class="tag" style="background:rgba(16,185,129,0.2);color:var(--blue-300)">Rail
+                            <span class="tag" style="background:rgba(58,135,200,0.15);color:var(--blue-300)">Rail
                                 Freight</span>
-                            <span class="tag" style="background:rgba(16,185,129,0.2);color:var(--blue-300)">Tank
+                            <span class="tag" style="background:rgba(58,135,200,0.15);color:var(--blue-300)">Tank
                                 Container Shipments</span>
                             <span class="tag"
-                                style="background:rgba(16,185,129,0.2);color:var(--blue-300)">Storage</span>
-                            <span class="tag" style="background:rgba(16,185,129,0.2);color:var(--blue-300)">Door-to-Door
+                                style="background:rgba(58,135,200,0.15);color:var(--blue-300)">Storage</span>
+                            <span class="tag" style="background:rgba(58,135,200,0.15);color:var(--blue-300)">Door-to-Door
                                 Turkey</span>
                         </div>
                     </div>
@@ -222,22 +253,22 @@
             </div>
             <div class="grid grid-4 reveal">
                 <div class="promise-card">
-                    <div class="promise-icon"></div>
+                    <div class="promise-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
                     <h4>Rapid Response</h4>
                     <p>Immediate response to irregularities minimizing complaints and errors.</p>
                 </div>
                 <div class="promise-card">
-                    <div class="promise-icon"></div>
+                    <div class="promise-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M2.5 22v-6h6"/><path d="M2.5 16A10 10 0 0118 3.5M21.5 8A10 10 0 016 20.5"/></svg></div>
                     <h4>Consistency</h4>
                     <p>Consistent freight handling and standardized work procedures.</p>
                 </div>
                 <div class="promise-card">
-                    <div class="promise-icon"></div>
+                    <div class="promise-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
                     <h4>Cost-Effective</h4>
                     <p>Swift, reliable, and economical transportation for every customer.</p>
                 </div>
                 <div class="promise-card">
-                    <div class="promise-icon"></div>
+                    <div class="promise-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
                     <h4>Quality Policy</h4>
                     <p>Quality policy applied across all personnel and operations.</p>
                 </div>
@@ -267,7 +298,7 @@
                     </a>
                     <p>Boxmar Global Logistics provides comprehensive freight forwarding and logistics solutions with
                         25+ years of industry expertise across Turkey and beyond.</p>
-                    <div class="footer-social"><a href="#">in</a><a href="#">ig</a><a href="#">yt</a><a href="#">tw</a>
+                    <div class="footer-social"><a href="https://www.linkedin.com/company/boxmar" target="_blank" rel="noopener">in</a><a href="https://www.instagram.com/boxmarglobal" target="_blank" rel="noopener">ig</a><a href="https://www.youtube.com/@boxmarglobal" target="_blank" rel="noopener">yt</a><a href="https://twitter.com/boxmarglobal" target="_blank" rel="noopener">tw</a>
                     </div>
                 </div>
                 <div>
@@ -287,7 +318,7 @@
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="contact.html">Contact</a></li>
                         <li><a href="tracking.html">Tracking</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div>
@@ -313,9 +344,67 @@
   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
 </svg>
 </a>
+    <!-- Floating Inquiry Button -->
+    <a href="index.html#quote" class="inquiry-float" title="Make an Inquiry">
+        <span class="inquiry-float-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg></span>
+        <span class="inquiry-float-text" data-i18n="float.inquiry">Inquiry</span>
+    </a>
+
+    <!-- Chat Box -->
+    <div class="chatbox" id="chatbox">
+        <div class="chatbox-header" onclick="document.getElementById('chatbox').classList.toggle('open')">
+            <span>💬 Chat with Boxmar</span>
+            <span class="chatbox-close">×</span>
+        </div>
+        <div class="chatbox-body">
+            <div class="chatbox-messages" id="chatMessages">
+                <div class="chat-msg bot"><div class="chat-bubble">Hello! 👋 Welcome to Boxmar Global Logistics. How can we help you today?</div></div>
+                <div class="chat-msg bot"><div class="chat-bubble">Choose a topic or type your question:</div></div>
+                <div class="chat-quick-replies">
+                    <button class="chat-quick" onclick="chatReply('quote')">📋 Get a Quote</button>
+                    <button class="chat-quick" onclick="chatReply('services')">🚛 Our Services</button>
+                    <button class="chat-quick" onclick="chatReply('tracking')">📍 Track Shipment</button>
+                    <button class="chat-quick" onclick="chatReply('contact')">📞 Contact Info</button>
+                </div>
+            </div>
+            <div class="chatbox-input">
+                <input type="text" placeholder="Type a message..." id="chatInput" onkeypress="if(event.key==='Enter')sendChat()">
+                <button onclick="sendChat()">➤</button>
+            </div>
+        </div>
+    </div>
+    <button class="chatbox-trigger" id="chatTrigger" onclick="document.getElementById('chatbox').classList.add('open');this.style.display='none'">
+        <span>💬</span>
+        <span data-i18n="float.chat">Chat</span>
+    </button>
+
     <script src="js/translations.js"></script>
-  <script src="js/app.js"></script>
-  <button class="scroll-top" aria-label="Scroll to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg></button>
+    <script src="js/app.js"></script>
+    <script>
+        function chatReply(topic) {
+            const msgs = document.getElementById('chatMessages');
+            const replies = {
+                quote: "To get a free quote, please visit our <a href='index.html#quote' style='color:var(--blue-400)'>quote form</a> or call us at <strong>+90 850 840 53 81</strong>.",
+                services: "We offer 6 core services:<br>🚛 Road Transport<br>🚢 Sea Freight<br>✈️ Air Freight<br>🚂 Rail Freight<br>⚗️ Chemical Tanks<br>🍶 Food Tanks",
+                tracking: "To track your shipment, visit our <a href='tracking.html' style='color:var(--blue-400)'>tracking page</a>.",
+                contact: "📍 Muratreis Mah. Payanda Sk. Çelik İş Hanı No:9, Üsküdar, İstanbul<br>📞 <a href='tel:+908508405381' style='color:var(--blue-400)'>+90 850 840 53 81</a>"
+            };
+            const qr = msgs.querySelector('.chat-quick-replies');
+            if (qr) qr.remove();
+            const topicNames = { quote: 'Get a Quote', services: 'Our Services', tracking: 'Track Shipment', contact: 'Contact Info' };
+            msgs.innerHTML += '<div class="chat-msg user"><div class="chat-bubble">' + topicNames[topic] + '</div></div>';
+            setTimeout(() => { msgs.innerHTML += '<div class="chat-msg bot"><div class="chat-bubble">' + replies[topic] + '</div></div>'; msgs.scrollTop = msgs.scrollHeight; }, 500);
+        }
+        function sendChat() {
+            const input = document.getElementById('chatInput');
+            const msgs = document.getElementById('chatMessages');
+            if (!input.value.trim()) return;
+            msgs.innerHTML += '<div class="chat-msg user"><div class="chat-bubble">' + input.value + '</div></div>';
+            input.value = '';
+            setTimeout(() => { msgs.innerHTML += '<div class="chat-msg bot"><div class="chat-bubble">Thank you! A Boxmar representative will respond shortly. Call <strong>+90 850 840 53 81</strong> for immediate help.</div></div>'; msgs.scrollTop = msgs.scrollHeight; }, 800);
+        }
+    </script>
+    <button class="scroll-top" aria-label="Scroll to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg></button>
 
 </body>
 

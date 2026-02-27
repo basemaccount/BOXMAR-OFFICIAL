@@ -173,15 +173,50 @@ function initQuoteForm() {
     const submitBtn = form.querySelector('[type="submit"]');
     if (!submitBtn) return;
 
-    submitBtn.textContent = currentLang === 'tr' ? 'Gönderildi! \u2713' : 'Submitted! \u2713';
-    submitBtn.style.background = 'var(--grad-gold)';
+    submitBtn.textContent = currentLang === 'tr' ? 'Gönderiliyor...' : currentLang === 'ar' ? 'جارٍ الإرسال...' : 'Sending...';
+    submitBtn.disabled = true;
 
-    setTimeout(() => {
-      submitBtn.textContent = translations[currentLang]['quote.submit'];
-      submitBtn.style.background = '';
-      showStep(0);
-      form.reset();
-    }, 3000);
+    const formData = new FormData(form);
+    const params = {};
+    formData.forEach((v, k) => { params[k] = v; });
+
+    // Try EmailJS first, fall back to mailto
+    if (typeof emailjs !== 'undefined') {
+      emailjs.send('service_boxmar', 'template_quote', params)
+        .then(() => {
+          submitBtn.textContent = currentLang === 'tr' ? 'Gönderildi! \u2713' : currentLang === 'ar' ? 'تم الإرسال! \u2713' : 'Submitted! \u2713';
+          submitBtn.style.background = 'var(--grad-gold)';
+          submitBtn.disabled = false;
+          setTimeout(() => {
+            submitBtn.textContent = translations[currentLang]['quote.submit'];
+            submitBtn.style.background = '';
+            showStep(0);
+            form.reset();
+          }, 3000);
+        })
+        .catch(() => {
+          // Fallback to mailto
+          const subject = encodeURIComponent('Quote Request from ' + (params.from_name || 'Website'));
+          const body = encodeURIComponent(Object.entries(params).map(([k,v]) => k + ': ' + v).join('\n'));
+          window.location.href = 'mailto:info@boxmar.com.tr?subject=' + subject + '&body=' + body;
+          submitBtn.textContent = translations[currentLang]['quote.submit'];
+          submitBtn.disabled = false;
+        });
+    } else {
+      // Direct mailto fallback
+      const subject = encodeURIComponent('Quote Request from ' + (params.from_name || 'Website'));
+      const body = encodeURIComponent(Object.entries(params).map(([k,v]) => k + ': ' + v).join('\n'));
+      window.location.href = 'mailto:info@boxmar.com.tr?subject=' + subject + '&body=' + body;
+      submitBtn.textContent = currentLang === 'tr' ? 'Gönderildi! \u2713' : currentLang === 'ar' ? 'تم الإرسال! \u2713' : 'Submitted! \u2713';
+      submitBtn.style.background = 'var(--grad-gold)';
+      submitBtn.disabled = false;
+      setTimeout(() => {
+        submitBtn.textContent = translations[currentLang]['quote.submit'];
+        submitBtn.style.background = '';
+        showStep(0);
+        form.reset();
+      }, 3000);
+    }
   });
 }
 

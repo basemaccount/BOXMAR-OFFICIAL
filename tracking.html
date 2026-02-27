@@ -6,15 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shipment Tracking | Boxmar Global Logistics</title>
     <meta name="description" content="Track your shipment in real-time with Boxmar Global Logistics tracking portal.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.boxmar.com.tr/tracking.html">
+    <meta property="og:title" content="Shipment Tracking | Boxmar Global Logistics">
+    <meta property="og:description" content="Track your cargo in real-time with Boxmar Global Logistics tracking portal.">
+    <meta property="og:image" content="https://www.boxmar.com.tr/assets/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Track Your Shipment | Boxmar Global Logistics">
+    <meta name="twitter:description" content="Real-time shipment tracking for Boxmar Global Logistics customers.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%224%22 fill=%22%23050E1C%22/><text x=%2216%22 y=%2223%22 font-family=%22Arial%22 font-weight=%22bold%22 font-size=%2220%22 fill=%22%23C8922A%22 text-anchor=%22middle%22>B</text></svg>">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+
+    <!-- ===== TOP BAR ===== -->
+    <div class="top-bar">
+        <div class="container top-bar-inner">
+            <div class="top-bar-left">
+                <span class="top-badge">
+                    <span class="dot"></span>
+                    <span data-i18n="hero.badge">Celebrating 25 Years of Excellence</span>
+                </span>
+            </div>
+            <div class="top-bar-right">
+                <a href="mailto:info@boxmar.com.tr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> info@boxmar.com.tr</a>
+                <a href="tel:+908508405381"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> +90 850 840 53 81</a>
+            </div>
+        </div>
+    </div>
 
     <nav class="navbar scrolled">
         <div class="container">
@@ -22,26 +47,42 @@
                 <img src="assets/logo.png" alt="Boxmar Global Logistics" class="nav-logo-img">
             </a>
             <div class="nav-links">
-                <a href="index.html">Home</a><a href="about.html">About</a>
-                <div class="nav-dropdown"><a href="#" class="nav-dropdown-toggle">Services</a>
-                    <div class="nav-dropdown-menu"><a href="services/road.html">Road</a><a
-                            href="services/sea.html">Sea</a><a href="services/air.html">Air</a><a
-                            href="services/rail.html">Rail</a><a href="services/chemical.html">Chemical</a><a
-                            href="services/food.html">Food</a></div>
+                <a href="index.html" data-i18n="nav.home">Home</a>
+                <a href="about.html" data-i18n="nav.about">About</a>
+                <div class="nav-dropdown"><a href="#" class="nav-dropdown-toggle" data-i18n="nav.services">Services</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="services/road.html"><span data-i18n="svc.road">Road Transport</span></a>
+                        <a href="services/sea.html"><span data-i18n="svc.sea">Sea Freight</span></a>
+                        <a href="services/air.html"><span data-i18n="svc.air">Air Freight</span></a>
+                        <a href="services/rail.html"><span data-i18n="svc.rail">Rail Freight</span></a>
+                        <a href="services/chemical.html"><span data-i18n="svc.chemical">Chemical Freight</span></a>
+                        <a href="services/food.html"><span data-i18n="svc.food">Food Freight</span></a>
+                    </div>
                 </div>
-                <a href="index.html#quote">Get Quote</a><a href="tracking.html" class="active">Tracking</a><a
-                    href="contact.html">Contact</a>
+                <a href="index.html#quote" data-i18n="nav.quote">Get Quote</a>
+                <a href="tracking.html" class="active" data-i18n="nav.tracking">Tracking</a>
+                <a href="contact.html" data-i18n="nav.contact">Contact</a>
             </div>
             <div class="nav-actions">
                 <div class="lang-switch"><button class="lang-btn active" data-lang="en">EN</button><button
-                        class="lang-btn" data-lang="tr">TR</button></div>
+                        class="lang-btn" data-lang="tr">TR</button><button class="lang-btn" data-lang="ar">AR</button></div>
                 <a href="index.html#quote" class="nav-cta">Get Quote</a>
             </div>
             <div class="hamburger"><span></span><span></span><span></span></div>
         </div>
     </nav>
-    <div class="mobile-menu"><a href="index.html">Home</a><a href="about.html">About</a><a
-            href="index.html#quote">Quote</a><a href="tracking.html">Tracking</a><a href="contact.html">Contact</a>
+    <div class="mobile-menu">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="services/road.html" data-i18n="svc.road">Road Transport</a>
+        <a href="services/sea.html" data-i18n="svc.sea">Sea Freight</a>
+        <a href="services/air.html" data-i18n="svc.air">Air Freight</a>
+        <a href="services/rail.html" data-i18n="svc.rail">Rail Freight</a>
+        <a href="services/chemical.html" data-i18n="svc.chemical">Chemical Freight</a>
+        <a href="services/food.html" data-i18n="svc.food">Food Freight</a>
+        <a href="index.html#quote" data-i18n="nav.quote">Get Quote</a>
+        <a href="tracking.html" data-i18n="nav.tracking">Tracking</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
     </div>
 
     <section class="page-hero">
@@ -187,44 +228,56 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-about"><a href="index.html" class="nav-logo" style="margin-bottom:var(--space-md)">
+                <div class="footer-about">
+                    <a href="index.html" class="nav-logo" style="margin-bottom:var(--space-md)">
                         <img src="assets/logo.png" alt="Boxmar Global Logistics" class="nav-logo-img">
                     </a>
-                    <p>25+ years of logistics excellence.</p>
-                    <div class="footer-social"><a href="#">in</a><a href="#">ig</a><a href="#">yt</a><a href="#">tw</a>
+                    <p>Boxmar Global Logistics provides comprehensive freight forwarding and logistics solutions with 25+ years of industry expertise across Turkey and beyond.</p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/boxmar" target="_blank" rel="noopener">in</a>
+                        <a href="https://www.instagram.com/boxmarglobal" target="_blank" rel="noopener">ig</a>
+                        <a href="https://www.youtube.com/@boxmarglobal" target="_blank" rel="noopener">yt</a>
+                        <a href="https://twitter.com/boxmarglobal" target="_blank" rel="noopener">tw</a>
                     </div>
                 </div>
                 <div>
                     <h4>Services</h4>
                     <ul class="footer-links">
-                        <li><a href="services/road.html">Road</a></li>
-                        <li><a href="services/sea.html">Sea</a></li>
-                        <li><a href="services/air.html">Air</a></li>
-                        <li><a href="services/rail.html">Rail</a></li>
-                        <li><a href="services/chemical.html">Chemical</a></li>
-                        <li><a href="services/food.html">Food</a></li>
+                        <li><a href="services/road.html">Road Transport</a></li>
+                        <li><a href="services/sea.html">Sea Freight</a></li>
+                        <li><a href="services/air.html">Air Freight</a></li>
+                        <li><a href="services/rail.html">Rail Freight</a></li>
+                        <li><a href="services/chemical.html">Chemical Freight</a></li>
+                        <li><a href="services/food.html">Food Freight</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4>Company</h4>
                     <ul class="footer-links">
-                        <li><a href="about.html">About</a></li>
+                        <li><a href="about.html">About Us</a></li>
                         <li><a href="contact.html">Contact</a></li>
                         <li><a href="tracking.html">Tracking</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4>Contact</h4>
-                    <div class="footer-contact-item"><span class="icon"></span>
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue-400)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <div>Muratreis Mah. Payanda Sk.<br>Çelik İş Hanı No:9 İç Kapı No:1<br>Üsküdar, İstanbul / Turkey</div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue-400)" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
                         <div><a href="tel:+908508405381">+90 850 840 53 81</a></div>
                     </div>
-                    <div class="footer-contact-item"><span class="icon"></span>
+                    <div class="footer-contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue-400)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                         <div><a href="mailto:info@boxmar.com.tr">info@boxmar.com.tr</a></div>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom"><span>© 2026 Boxmar Global Logistics.</span><span><a href="#">Privacy</a> · <a
-                        href="#">Terms</a></span></div>
+            <div class="footer-bottom"><span>© 2026 Boxmar Global Logistics. All rights reserved.</span><span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span></div>
         </div>
     </footer>
     <a href="https://wa.me/908508405381" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
@@ -233,8 +286,60 @@
 </svg>
 </a>
 
+    <!-- Chat Box -->
+    <div class="chatbox" id="chatbox">
+        <div class="chatbox-header" onclick="document.getElementById('chatbox').classList.toggle('open')">
+            <span>💬 Chat with Boxmar</span>
+            <span class="chatbox-close">×</span>
+        </div>
+        <div class="chatbox-body">
+            <div class="chatbox-messages" id="chatMessages">
+                <div class="chat-msg bot"><div class="chat-bubble">Hello! 👋 Welcome to Boxmar Global Logistics. How can we help you today?</div></div>
+                <div class="chat-msg bot"><div class="chat-bubble">Choose a topic or type your question:</div></div>
+                <div class="chat-quick-replies">
+                    <button class="chat-quick" onclick="chatReply('quote')">📋 Get a Quote</button>
+                    <button class="chat-quick" onclick="chatReply('services')">🚛 Our Services</button>
+                    <button class="chat-quick" onclick="chatReply('tracking')">📍 Track Shipment</button>
+                    <button class="chat-quick" onclick="chatReply('contact')">📞 Contact Info</button>
+                </div>
+            </div>
+            <div class="chatbox-input">
+                <input type="text" placeholder="Type a message..." id="chatInput" onkeypress="if(event.key==='Enter')sendChat()">
+                <button onclick="sendChat()">➤</button>
+            </div>
+        </div>
+    </div>
+    <button class="chatbox-trigger" id="chatTrigger" onclick="document.getElementById('chatbox').classList.add('open');this.style.display='none'">
+        <span>💬</span>
+        <span data-i18n="float.chat">Chat</span>
+    </button>
+
     <script src="js/translations.js"></script>
-  <script src="js/app.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        function chatReply(topic) {
+            const msgs = document.getElementById('chatMessages');
+            const replies = {
+                quote: "To get a free quote, please visit our <a href='index.html#quote' style='color:var(--blue-400)'>quote form</a> or call us at <strong>+90 850 840 53 81</strong>.",
+                services: "We offer 6 core services:<br>🚛 Road Transport<br>🚢 Sea Freight<br>✈️ Air Freight<br>🚂 Rail Freight<br>⚗️ Chemical Tanks<br>🍶 Food Tanks",
+                tracking: "Enter your tracking number above and click 'Track Now'. Demo number: <strong>BX-2026-TR-4821</strong>",
+                contact: "📍 Muratreis Mah. Payanda Sk. Çelik İş Hanı No:9, Üsküdar, İstanbul<br>📞 <a href='tel:+908508405381' style='color:var(--blue-400)'>+90 850 840 53 81</a>"
+            };
+            const qr = msgs.querySelector('.chat-quick-replies');
+            if (qr) qr.remove();
+            const topicNames = { quote: 'Get a Quote', services: 'Our Services', tracking: 'Track Shipment', contact: 'Contact Info' };
+            msgs.innerHTML += '<div class="chat-msg user"><div class="chat-bubble">' + topicNames[topic] + '</div></div>';
+            setTimeout(() => { msgs.innerHTML += '<div class="chat-msg bot"><div class="chat-bubble">' + replies[topic] + '</div></div>'; msgs.scrollTop = msgs.scrollHeight; }, 500);
+        }
+        function sendChat() {
+            const input = document.getElementById('chatInput');
+            const msgs = document.getElementById('chatMessages');
+            if (!input.value.trim()) return;
+            msgs.innerHTML += '<div class="chat-msg user"><div class="chat-bubble">' + input.value + '</div></div>';
+            input.value = '';
+            setTimeout(() => { msgs.innerHTML += '<div class="chat-msg bot"><div class="chat-bubble">Thank you! A Boxmar representative will respond shortly. Call <strong>+90 850 840 53 81</strong> for immediate help.</div></div>'; msgs.scrollTop = msgs.scrollHeight; }, 800);
+        }
+    </script>
     <script>
         // Tracking page specific logic
         document.querySelector('.tracking-btn').addEventListener('click', function () {
