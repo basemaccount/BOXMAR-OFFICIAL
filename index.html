@@ -79,7 +79,7 @@
         <div class="lang-switch">
           <button class="lang-btn active" data-lang="en">EN</button>
           <button class="lang-btn" data-lang="tr">TR</button>
-          <button class="lang-btn" data-lang="ar">AR</button>
+          
         </div>
         <a href="#quote" class="nav-cta" data-i18n="nav.cta">Get Quote</a>
       </div>
@@ -111,6 +111,35 @@
     <div class="hero-bg-pattern"></div>
     <div class="hero-glow"></div>
     <div class="hero-glow-2"></div>
+    <!-- Camel watermark background -->
+    <div class="hero-camel-watermark" aria-hidden="true">
+      <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 240 C30 240 20 210 25 185 C30 160 45 145 60 138 C68 134 72 126 72 115 C72 98 62 80 66 65 C70 50 84 42 98 46 C112 50 118 68 115 84 C112 100 104 108 108 120 C112 132 128 136 144 132 C160 128 170 118 174 108 C178 98 175 84 180 74 C185 64 198 58 212 62 C226 66 232 82 228 98 C224 114 214 122 218 136 C222 150 238 158 248 168 C258 178 260 192 256 206 C252 220 244 228 238 232 L30 240 Z" fill="currentColor"/>
+        <line x1="60" y1="240" x2="56" y2="280" stroke="currentColor" stroke-width="10" stroke-linecap="round"/>
+        <line x1="90" y1="240" x2="86" y2="280" stroke="currentColor" stroke-width="10" stroke-linecap="round"/>
+        <line x1="160" y1="240" x2="156" y2="280" stroke="currentColor" stroke-width="10" stroke-linecap="round"/>
+        <line x1="190" y1="240" x2="194" y2="280" stroke="currentColor" stroke-width="10" stroke-linecap="round"/>
+        <!-- Head -->
+        <ellipse cx="270" cy="148" rx="28" ry="20" fill="currentColor"/>
+        <path d="M294 142 C308 138 318 146 314 158 C310 170 298 172 290 165" stroke="currentColor" stroke-width="4" fill="none"/>
+      </svg>
+    </div>
+    <!-- Animated route lines (Silk Road paths) -->
+    <svg class="hero-route-lines" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <path class="route-path route-gold" d="M0 300 C150 280 300 320 450 290 C600 260 750 310 900 280 C1050 250 1150 270 1200 260"/>
+      <path class="route-path route-blue" d="M0 380 C200 360 350 400 500 370 C650 340 800 390 950 360 C1100 330 1150 350 1200 340"/>
+      <path class="route-path route-silver" d="M0 200 C100 190 250 210 400 195 C550 180 700 205 850 190 C1000 175 1100 195 1200 185"/>
+      <!-- Animated dots along routes -->
+      <circle class="route-dot route-dot-gold" r="4" fill="#C8922A" opacity="0.7">
+        <animateMotion dur="8s" repeatCount="indefinite" path="M0 300 C150 280 300 320 450 290 C600 260 750 310 900 280 C1050 250 1150 270 1200 260"/>
+      </circle>
+      <circle class="route-dot route-dot-blue" r="3" fill="#3A87C8" opacity="0.6">
+        <animateMotion dur="12s" repeatCount="indefinite" path="M0 380 C200 360 350 400 500 370 C650 340 800 390 950 360 C1100 330 1150 350 1200 340"/>
+      </circle>
+      <circle class="route-dot route-dot-gold-2" r="3" fill="#D4A030" opacity="0.5">
+        <animateMotion dur="10s" repeatCount="indefinite" begin="3s" path="M0 300 C150 280 300 320 450 290 C600 260 750 310 900 280 C1050 250 1150 270 1200 260"/>
+      </circle>
+    </svg>
     <div class="container hero-split">
       <div class="hero-text-content">
         <h1 class="hero-title-creative">
@@ -142,28 +171,102 @@
         </div>
       </div>
       <div class="hero-visual-content">
-        <div class="hero-orb-container">
-          <div class="hero-orb"></div>
-          <div class="hero-orb-ring ring-1"></div>
-          <div class="hero-orb-ring ring-2"></div>
+        <!-- Camel Visual Centerpiece -->
+        <div class="hero-camel-stage">
+          <!-- Outer glow rings -->
+          <div class="camel-ring camel-ring-1"></div>
+          <div class="camel-ring camel-ring-2"></div>
+          <div class="camel-ring camel-ring-3"></div>
+          <!-- Camel SVG with circuit overlay -->
+          <div class="camel-core">
+            <svg class="camel-svg" viewBox="0 0 320 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Camel body silhouette -->
+              <path class="camel-body" d="M60 200 C60 200 50 180 55 160 C60 140 70 130 80 125 C85 122 88 118 88 112 C88 100 82 88 85 78 C88 68 98 62 108 65 C118 68 122 80 120 92 C118 104 112 110 115 118 C118 126 130 128 140 125 C150 122 158 115 162 108 C166 101 164 92 168 85 C172 78 182 74 192 77 C202 80 208 92 205 104 C202 116 194 122 196 132 C198 142 210 148 218 155 C226 162 228 172 225 182 C222 192 215 198 210 200 L60 200 Z" fill="url(#camelBodyGrad)" opacity="0.9"/>
+              <!-- Camel hump detail -->
+              <path class="camel-hump" d="M108 65 C108 65 100 50 108 38 C116 26 130 24 138 32 C146 40 144 55 140 65" stroke="url(#goldGrad)" stroke-width="2" fill="none" opacity="0.7"/>
+              <!-- Circuit lines on body -->
+              <g class="circuit-lines" opacity="0.5">
+                <path d="M90 160 L110 160 L110 150 L130 150" stroke="#3A87C8" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M130 150 L150 150 L150 165 L170 165" stroke="#3A87C8" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M170 165 L190 165 L190 155 L210 155" stroke="#3A87C8" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M100 175 L120 175 L120 168 L145 168" stroke="#4A9FD4" stroke-width="1" stroke-linecap="round"/>
+                <path d="M145 168 L165 168 L165 178 L185 178" stroke="#4A9FD4" stroke-width="1" stroke-linecap="round"/>
+                <!-- Circuit nodes -->
+                <circle cx="110" cy="150" r="2.5" fill="#3A87C8"/>
+                <circle cx="150" cy="165" r="2.5" fill="#3A87C8"/>
+                <circle cx="190" cy="155" r="2.5" fill="#3A87C8"/>
+                <circle cx="120" cy="168" r="2" fill="#4A9FD4"/>
+                <circle cx="165" cy="178" r="2" fill="#4A9FD4"/>
+              </g>
+              <!-- Camel legs -->
+              <g class="camel-legs" stroke="url(#silverGrad)" stroke-width="8" stroke-linecap="round">
+                <line x1="90" y1="200" x2="88" y2="230"/>
+                <line x1="115" y1="200" x2="113" y2="230"/>
+                <line x1="165" y1="200" x2="163" y2="230"/>
+                <line x1="190" y1="200" x2="192" y2="230"/>
+              </g>
+              <!-- Camel head -->
+              <ellipse cx="220" cy="120" rx="22" ry="16" fill="url(#camelBodyGrad)" opacity="0.85"/>
+              <path d="M238 115 C248 112 255 118 252 126 C249 134 240 135 235 130" stroke="url(#goldGrad)" stroke-width="1.5" fill="none"/>
+              <!-- Eye -->
+              <circle cx="228" cy="116" r="3" fill="#C8922A" opacity="0.9"/>
+              <circle cx="229" cy="115" r="1" fill="#050E1C"/>
+              <!-- Gradients -->
+              <defs>
+                <linearGradient id="camelBodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#1B3B6C"/>
+                  <stop offset="50%" stop-color="#0F2340"/>
+                  <stop offset="100%" stop-color="#0A1628"/>
+                </linearGradient>
+                <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#C8922A"/>
+                  <stop offset="50%" stop-color="#E0B050"/>
+                  <stop offset="100%" stop-color="#C8922A"/>
+                </linearGradient>
+                <linearGradient id="silverGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#8FA4B8"/>
+                  <stop offset="100%" stop-color="#4A5E70"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <!-- Gold glow beneath camel -->
+            <div class="camel-glow-base"></div>
+          </div>
         </div>
+        <!-- Floating feature cards -->
         <div class="hero-float-card card-tl glass">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-400)" stroke-width="2">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-            <circle cx="12" cy="10" r="3" />
-          </svg>
+          <div class="float-card-icon float-icon-gold">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+          </div>
           <div>
             <strong data-i18n="hero.feat1">Global Reach</strong>
             <span data-i18n="hero.feat1.desc">120+ Countries</span>
           </div>
         </div>
         <div class="hero-float-card card-br glass">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue-400)" stroke-width="2">
-            <path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
+          <div class="float-card-icon float-icon-blue">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
           <div>
             <strong data-i18n="hero.feat2">Reliability</strong>
             <span data-i18n="hero.feat2.desc">99.9% On-Time</span>
+          </div>
+        </div>
+        <!-- Third floating card - 25 years -->
+        <div class="hero-float-card card-ml glass">
+          <div class="float-card-icon float-icon-gold">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <div>
+            <strong>25 Years</strong>
+            <span>Trusted Since 2001</span>
           </div>
         </div>
       </div>
@@ -178,6 +281,30 @@
       <span class="inquiry-float-text" data-i18n="float.inquiry">Inquiry</span>
     </a>
   </section>
+
+  <!-- ===== CAMEL DIVIDER ===== -->
+  <div class="camel-divider">
+    <div class="camel-divider-line"></div>
+    <div class="camel-divider-icon">
+      <svg viewBox="0 0 80 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Simplified camel silhouette for divider -->
+        <path d="M8 40 C8 40 6 34 8 28 C10 22 14 19 17 18 C18.5 17.5 19 16 19 13 C19 9 17 5 18.5 3 C20 1 23 0 25.5 1 C28 2 29 6 28 10 C27 14 25 16 26 19 C27 22 30 23 33 22 C36 21 38 18 39 15 C40 12 39 8 41 6 C43 4 47 3 49.5 4.5 C52 6 52.5 11 51 15 C49.5 19 47 21 48 25 C49 29 53 31 56 34 C59 37 59.5 41 58 44 C56.5 47 54 49 52 50 L8 50 Z" fill="url(#divGold)" opacity="0.85"/>
+        <!-- Legs -->
+        <line x1="16" y1="50" x2="15" y2="58" stroke="#8FA4B8" stroke-width="3" stroke-linecap="round"/>
+        <line x1="24" y1="50" x2="23" y2="58" stroke="#8FA4B8" stroke-width="3" stroke-linecap="round"/>
+        <line x1="40" y1="50" x2="39" y2="58" stroke="#8FA4B8" stroke-width="3" stroke-linecap="round"/>
+        <line x1="48" y1="50" x2="49" y2="58" stroke="#8FA4B8" stroke-width="3" stroke-linecap="round"/>
+        <defs>
+          <linearGradient id="divGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#C8922A"/>
+            <stop offset="50%" stop-color="#E0B050"/>
+            <stop offset="100%" stop-color="#A87818"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <div class="camel-divider-line"></div>
+  </div>
 
   <!-- ===== TRUST BAR ===== -->
   <div class="trust-bar">

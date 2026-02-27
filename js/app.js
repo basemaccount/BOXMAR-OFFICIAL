@@ -173,7 +173,7 @@ function initQuoteForm() {
     const submitBtn = form.querySelector('[type="submit"]');
     if (!submitBtn) return;
 
-    submitBtn.textContent = currentLang === 'tr' ? 'Gönderiliyor...' : currentLang === 'ar' ? 'جارٍ الإرسال...' : 'Sending...';
+    submitBtn.textContent = currentLang === 'tr' ? 'Gönderiliyor...' : 'Sending...';
     submitBtn.disabled = true;
 
     const formData = new FormData(form);
@@ -184,7 +184,7 @@ function initQuoteForm() {
     if (typeof emailjs !== 'undefined') {
       emailjs.send('service_boxmar', 'template_quote', params)
         .then(() => {
-          submitBtn.textContent = currentLang === 'tr' ? 'Gönderildi! \u2713' : currentLang === 'ar' ? 'تم الإرسال! \u2713' : 'Submitted! \u2713';
+          submitBtn.textContent = currentLang === 'tr' ? 'Gönderildi! \u2713' : 'Submitted! \u2713';
           submitBtn.style.background = 'var(--grad-gold)';
           submitBtn.disabled = false;
           setTimeout(() => {
@@ -207,7 +207,7 @@ function initQuoteForm() {
       const subject = encodeURIComponent('Quote Request from ' + (params.from_name || 'Website'));
       const body = encodeURIComponent(Object.entries(params).map(([k,v]) => k + ': ' + v).join('\n'));
       window.location.href = 'mailto:info@boxmar.com.tr?subject=' + subject + '&body=' + body;
-      submitBtn.textContent = currentLang === 'tr' ? 'Gönderildi! \u2713' : currentLang === 'ar' ? 'تم الإرسال! \u2713' : 'Submitted! \u2713';
+      submitBtn.textContent = currentLang === 'tr' ? 'Gönderildi! \u2713' : 'Submitted! \u2713';
       submitBtn.style.background = 'var(--grad-gold)';
       submitBtn.disabled = false;
       setTimeout(() => {
@@ -255,7 +255,6 @@ function initLanguageSwitcher() {
         .forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
 
       applyTranslations(lang);
-      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
     });
   });
 }
