@@ -3456,6 +3456,8 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     .hero-camel-stage    { width: 300px; height: 300px; }
     .camel-core          { width: 220px; height: 220px; }
     .camel-svg           { width: 180px; height: 158px; }
+    .globe-camel-core    { width: 240px; height: 256px; }
+    .globe-camel-svg     { width: 240px; height: 256px; }
     .hero-logo-img-large { width: 96px; height: 96px; }
     .hero-logo-display   { top: -70px; }
     .hero-visual-content { height: 380px; }
@@ -3499,6 +3501,8 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     .hero-camel-stage    { width: 260px; height: 260px; }
     .camel-core          { width: 200px; height: 200px; }
     .camel-svg           { width: 160px; height: 140px; }
+    .globe-camel-core    { width: 210px; height: 224px; }
+    .globe-camel-svg     { width: 210px; height: 224px; }
     .hero-logo-img-large { width: 80px; height: 80px; }
     .hero-logo-display   { top: -60px; }
     .camel-ring-2,
@@ -3626,6 +3630,103 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     .scroll-top          { width: 36px; height: 36px; right: 12px; bottom: 72px; }
     .chatbox-trigger     { right: 64px; bottom: 20px; padding: 8px 14px; font-size: 0.75rem; }
     .chatbox             { width: calc(100vw - 20px); right: 10px; bottom: 60px; max-height: 70vh; }
+}
+
+/* ============================================
+   GLOBE + CAMEL CENTERPIECE
+   ============================================ */
+.globe-camel-core {
+    background: none;
+    border: none;
+    box-shadow: none;
+    width: 300px; height: 320px;
+    animation: camel-breathe 7s ease-in-out infinite alternate;
+}
+
+.globe-camel-svg {
+    width: 300px; height: 320px;
+    filter:
+        drop-shadow(0 0 30px rgba(200,146,42,0.5))
+        drop-shadow(0 0 60px rgba(58,135,200,0.25))
+        drop-shadow(0 8px 20px rgba(0,0,0,0.6));
+    animation: globe-float 8s ease-in-out infinite;
+    overflow: visible;
+}
+
+@keyframes globe-float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25%       { transform: translateY(-6px) rotate(0.5deg); }
+    75%       { transform: translateY(-4px) rotate(-0.5deg); }
+}
+
+/* Globe grid rotation animation */
+.globe-grid {
+    animation: globe-spin 30s linear infinite;
+    transform-origin: 150px 165px;
+    transform-box: fill-box;
+}
+
+@keyframes globe-spin {
+    0%   { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+/* City pulse animations */
+.globe-city-pulse {
+    animation: globe-city-pulse 2.5s ease-in-out infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+@keyframes globe-city-pulse {
+    0%, 100% { r: 3.5; opacity: 0.2; }
+    50%       { r: 7; opacity: 0.06; }
+}
+
+/* Route arc animation */
+.globe-route-arc {
+    stroke-dasharray: 4 6;
+    animation: globe-arc-dash 8s linear infinite;
+}
+
+.globe-route-silk {
+    stroke-dasharray: 6 4;
+    animation: globe-arc-dash 5s linear infinite;
+    filter: drop-shadow(0 0 3px rgba(200,146,42,0.7));
+}
+
+@keyframes globe-arc-dash {
+    0%   { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -60; }
+}
+
+/* Camel on globe float */
+.globe-camel {
+    animation: globe-camel-walk 4s ease-in-out infinite alternate;
+    transform-origin: 80px 80px;
+    transform-box: fill-box;
+}
+
+@keyframes globe-camel-walk {
+    0%   { transform: translateY(0px) rotate(-1deg); }
+    50%  { transform: translateY(-4px) rotate(0deg); }
+    100% { transform: translateY(-2px) rotate(1deg); }
+}
+
+/* City labels on globe */
+.globe-city-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 7px;
+    font-weight: 600;
+    fill: rgba(168, 184, 200, 0.8);
+    letter-spacing: 0.04em;
+    pointer-events: none;
+}
+
+.globe-city-label-hq {
+    font-size: 8px;
+    font-weight: 800;
+    fill: rgba(224, 176, 80, 0.95);
 }
 
 /* ============================================

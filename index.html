@@ -307,161 +307,193 @@
             <div class="hero-logo-halo"></div>
             <img src="assets/logo.png" alt="Boxmar Global Logistics" class="hero-logo-img-large">
           </div>
-          <!-- Camel SVG with circuit overlay — enhanced version -->
-          <div class="camel-core">
-            <svg class="camel-svg" viewBox="0 0 380 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Globe with Camel on top — the world is Boxmar's stage -->
+          <div class="camel-core globe-camel-core">
+            <svg class="globe-camel-svg" viewBox="0 0 300 320" fill="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <linearGradient id="camelBodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <!-- Globe sphere gradient -->
+                <radialGradient id="globeSphere" cx="38%" cy="35%" r="65%">
                   <stop offset="0%" stop-color="#1E4A78"/>
-                  <stop offset="40%" stop-color="#0F2340"/>
-                  <stop offset="100%" stop-color="#060E1A"/>
-                </linearGradient>
-                <linearGradient id="camelBodyGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#152F56"/>
-                  <stop offset="100%" stop-color="#0A1628"/>
-                </linearGradient>
-                <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="35%" stop-color="#0F2340"/>
+                  <stop offset="70%" stop-color="#071828"/>
+                  <stop offset="100%" stop-color="#020810"/>
+                </radialGradient>
+                <!-- Globe highlight -->
+                <radialGradient id="globeHighlight" cx="30%" cy="25%" r="45%">
+                  <stop offset="0%" stop-color="rgba(58,135,200,0.35)"/>
+                  <stop offset="100%" stop-color="rgba(58,135,200,0)" />
+                </radialGradient>
+                <!-- Globe edge glow -->
+                <radialGradient id="globeEdge" cx="50%" cy="50%" r="50%">
+                  <stop offset="75%" stop-color="rgba(200,146,42,0)"/>
+                  <stop offset="100%" stop-color="rgba(200,146,42,0.4)"/>
+                </radialGradient>
+                <!-- Gold gradient for camel -->
+                <linearGradient id="gcGold" x1="0%" y1="0%" x2="100%" y2="0%">
                   <stop offset="0%" stop-color="#A87818"/>
-                  <stop offset="35%" stop-color="#E0B050"/>
-                  <stop offset="65%" stop-color="#C8922A"/>
+                  <stop offset="40%" stop-color="#E0B050"/>
+                  <stop offset="70%" stop-color="#C8922A"/>
                   <stop offset="100%" stop-color="#A87818"/>
                 </linearGradient>
-                <linearGradient id="goldGradV" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stop-color="#E0B050"/>
-                  <stop offset="100%" stop-color="#8C5E00"/>
-                </linearGradient>
-                <linearGradient id="silverGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stop-color="#A8B8C8"/>
+                <!-- Silver for camel legs -->
+                <linearGradient id="gcSilver" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#C4D0DC"/>
                   <stop offset="100%" stop-color="#4A5E70"/>
                 </linearGradient>
-                <linearGradient id="saddleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#C8922A"/>
-                  <stop offset="50%" stop-color="#8C5E00"/>
-                  <stop offset="100%" stop-color="#6B4600"/>
+                <!-- Camel body gradient -->
+                <linearGradient id="gcBody" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#E0B050"/>
+                  <stop offset="40%" stop-color="#C8922A"/>
+                  <stop offset="100%" stop-color="#8C5E00"/>
                 </linearGradient>
-                <filter id="camelGlow">
+                <!-- Clip to globe circle -->
+                <clipPath id="globeClip">
+                  <circle cx="150" cy="165" r="118"/>
+                </clipPath>
+                <!-- Glow filter -->
+                <filter id="gcGlow" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="4" result="blur"/>
+                  <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                </filter>
+                <filter id="gcCityGlow" x="-100%" y="-100%" width="300%" height="300%">
                   <feGaussianBlur stdDeviation="3" result="blur"/>
                   <feComposite in="SourceGraphic" in2="blur" operator="over"/>
                 </filter>
-                <radialGradient id="eyeGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="#E0B050"/>
-                  <stop offset="100%" stop-color="#C8922A" stop-opacity="0"/>
-                </radialGradient>
+                <filter id="camelGlowFilter" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="5" result="blur"/>
+                  <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                </filter>
               </defs>
 
-              <!-- ── CAMEL BODY ── -->
-              <!-- Main body mass -->
-              <path d="M55 210 C50 195 48 178 52 162 C56 146 66 136 78 130 C84 127 87 122 87 115 C87 103 80 90 83 78 C86 66 97 59 109 62 C121 65 126 78 124 91 C122 104 115 111 118 120 C121 129 134 132 145 129 C156 126 165 118 169 110 C173 102 171 92 175 84 C179 76 190 71 201 74 C212 77 219 90 216 103 C213 116 204 123 206 134 C208 145 221 152 230 160 C239 168 242 179 239 191 C236 203 228 210 222 213 L55 213 Z" fill="url(#camelBodyGrad)" stroke="rgba(58,135,200,0.2)" stroke-width="0.5"/>
+              <!-- ── GLOBE SPHERE ── -->
+              <circle cx="150" cy="165" r="120" fill="url(#globeSphere)"/>
+              <!-- Edge glow ring -->
+              <circle cx="150" cy="165" r="120" fill="url(#globeEdge)" opacity="0.9"/>
+              <!-- Highlight -->
+              <circle cx="150" cy="165" r="120" fill="url(#globeHighlight)"/>
 
-              <!-- Body highlight (top edge) -->
-              <path d="M55 210 C50 195 48 178 52 162 C56 146 66 136 78 130" stroke="rgba(168,184,200,0.15)" stroke-width="1.5" fill="none"/>
+              <!-- ── GLOBE GRID (clipped to sphere) ── -->
+              <g clip-path="url(#globeClip)" class="globe-grid">
+                <!-- Latitude lines -->
+                <ellipse cx="150" cy="165" rx="118" ry="28" stroke="rgba(58,135,200,0.22)" stroke-width="0.8" fill="none"/>
+                <ellipse cx="150" cy="165" rx="118" ry="58" stroke="rgba(58,135,200,0.18)" stroke-width="0.7" fill="none"/>
+                <ellipse cx="150" cy="165" rx="118" ry="88" stroke="rgba(58,135,200,0.15)" stroke-width="0.6" fill="none"/>
+                <ellipse cx="150" cy="165" rx="118" ry="108" stroke="rgba(58,135,200,0.12)" stroke-width="0.5" fill="none"/>
+                <!-- Equator (gold) -->
+                <ellipse cx="150" cy="165" rx="118" ry="12" stroke="rgba(200,146,42,0.35)" stroke-width="1" fill="none"/>
+                <!-- Longitude lines -->
+                <line x1="150" y1="47" x2="150" y2="283" stroke="rgba(58,135,200,0.18)" stroke-width="0.7"/>
+                <line x1="32" y1="165" x2="268" y2="165" stroke="rgba(58,135,200,0.18)" stroke-width="0.7"/>
+                <line x1="68" y1="72" x2="232" y2="258" stroke="rgba(58,135,200,0.12)" stroke-width="0.5"/>
+                <line x1="232" y1="72" x2="68" y2="258" stroke="rgba(58,135,200,0.12)" stroke-width="0.5"/>
+                <line x1="55" y1="120" x2="245" y2="210" stroke="rgba(58,135,200,0.1)" stroke-width="0.4"/>
+                <line x1="245" y1="120" x2="55" y2="210" stroke="rgba(58,135,200,0.1)" stroke-width="0.4"/>
 
-              <!-- ── HUMPS ── -->
-              <!-- First hump (rear) -->
-              <path d="M87 115 C87 115 78 98 83 82 C88 66 103 58 115 62 C127 66 130 80 127 94 C124 108 118 115 118 120" fill="url(#camelBodyGrad2)" stroke="rgba(200,146,42,0.3)" stroke-width="0.5"/>
-              <!-- Hump 1 gold outline -->
-              <path d="M87 115 C84 100 82 85 88 74 C94 63 108 58 118 64 C128 70 128 84 124 96 C120 108 118 115 118 120" stroke="url(#goldGrad)" stroke-width="1.5" fill="none" opacity="0.6"/>
+                <!-- ── CONTINENT SILHOUETTES (inside globe) ── -->
+                <!-- Europe/Middle East region (center-left of globe) -->
+                <path d="M118 118 C124 112 134 110 142 114 C150 118 154 126 152 134 C150 142 142 146 134 144 C126 142 118 136 116 128 Z" fill="rgba(58,135,200,0.28)" stroke="rgba(58,135,200,0.4)" stroke-width="0.6"/>
+                <!-- Turkey highlight (gold) -->
+                <path d="M138 128 C142 124 150 122 156 126 C162 130 162 138 156 142 C150 146 142 144 138 140 Z" fill="rgba(200,146,42,0.35)" stroke="rgba(200,146,42,0.6)" stroke-width="0.8"/>
+                <!-- Africa -->
+                <path d="M122 148 C128 142 138 140 146 146 C154 152 156 164 152 176 C148 188 138 196 128 194 C118 192 112 180 112 168 Z" fill="rgba(58,135,200,0.22)" stroke="rgba(58,135,200,0.35)" stroke-width="0.6"/>
+                <!-- Asia (right side) -->
+                <path d="M158 108 C170 102 188 104 200 112 C212 120 216 134 210 146 C204 158 190 162 178 158 C166 154 158 142 156 130 Z" fill="rgba(58,135,200,0.25)" stroke="rgba(58,135,200,0.38)" stroke-width="0.6"/>
+                <!-- Europe (upper left) -->
+                <path d="M96 108 C104 100 116 100 122 108 C128 116 126 128 118 132 C110 136 100 132 96 124 Z" fill="rgba(58,135,200,0.2)" stroke="rgba(58,135,200,0.32)" stroke-width="0.5"/>
 
-              <!-- Second hump (front) -->
-              <path d="M169 110 C169 110 162 93 166 78 C170 63 182 57 193 60 C204 63 210 76 207 89 C204 102 206 110 206 134" fill="url(#camelBodyGrad2)" stroke="rgba(200,146,42,0.3)" stroke-width="0.5"/>
-              <!-- Hump 2 gold outline -->
-              <path d="M169 110 C166 94 165 79 170 68 C175 57 188 53 199 57 C210 61 214 75 211 88 C208 101 206 110 206 134" stroke="url(#goldGrad)" stroke-width="1.5" fill="none" opacity="0.6"/>
+                <!-- ── CITY DOTS ON GLOBE ── -->
+                <!-- Istanbul (gold star — HQ) -->
+                <g class="globe-city-hq" transform="translate(148,128)">
+                  <circle r="5" fill="rgba(200,146,42,0.2)" class="globe-city-pulse"/>
+                  <circle r="3" fill="#E0B050" filter="url(#gcCityGlow)"/>
+                  <text x="5" y="-4" class="globe-city-label globe-city-label-hq">Istanbul</text>
+                </g>
+                <!-- Hamburg -->
+                <g class="globe-city" transform="translate(118,108)">
+                  <circle r="3.5" fill="rgba(58,135,200,0.2)" class="globe-city-pulse"/>
+                  <circle r="2" fill="#5BB0E0" filter="url(#gcCityGlow)"/>
+                  <text x="4" y="-3" class="globe-city-label">Hamburg</text>
+                </g>
+                <!-- Dubai -->
+                <g class="globe-city" transform="translate(178,148)">
+                  <circle r="3.5" fill="rgba(200,146,42,0.2)" class="globe-city-pulse"/>
+                  <circle r="2" fill="#D4A030" filter="url(#gcCityGlow)"/>
+                  <text x="4" y="-3" class="globe-city-label">Dubai</text>
+                </g>
+                <!-- Shanghai -->
+                <g class="globe-city" transform="translate(208,118)">
+                  <circle r="3.5" fill="rgba(200,146,42,0.2)" class="globe-city-pulse"/>
+                  <circle r="2" fill="#D4A030" filter="url(#gcCityGlow)"/>
+                  <text x="4" y="-3" class="globe-city-label">Shanghai</text>
+                </g>
+                <!-- Rotterdam -->
+                <g class="globe-city" transform="translate(108,114)">
+                  <circle r="3" fill="rgba(58,135,200,0.2)" class="globe-city-pulse"/>
+                  <circle r="1.8" fill="#5BB0E0" filter="url(#gcCityGlow)"/>
+                  <text x="4" y="-3" class="globe-city-label">Rotterdam</text>
+                </g>
 
-              <!-- ── SADDLE / CARGO ── -->
-              <!-- Saddle base between humps -->
-              <path d="M118 120 C122 128 130 132 140 130 C150 128 158 122 162 115 C166 108 169 110 169 110 C165 118 158 126 148 130 C138 134 126 132 118 120 Z" fill="url(#saddleGrad)" opacity="0.85"/>
-              <!-- Saddle strap -->
-              <path d="M120 122 C130 135 148 136 162 122" stroke="url(#goldGrad)" stroke-width="2" fill="none" opacity="0.9"/>
-              <!-- Cargo box on saddle -->
-              <rect x="128" y="108" width="28" height="20" rx="3" fill="url(#saddleGrad)" opacity="0.8" stroke="url(#goldGrad)" stroke-width="1"/>
-              <!-- Cargo box detail lines -->
-              <line x1="142" y1="108" x2="142" y2="128" stroke="url(#goldGradV)" stroke-width="0.8" opacity="0.7"/>
-              <line x1="128" y1="118" x2="156" y2="118" stroke="url(#goldGradV)" stroke-width="0.8" opacity="0.7"/>
-              <!-- Cargo rope -->
-              <path d="M128 112 C135 106 149 106 156 112" stroke="url(#goldGrad)" stroke-width="1.5" fill="none" opacity="0.8"/>
-
-              <!-- ── CIRCUIT LINES ON BODY ── -->
-              <g class="circuit-lines">
-                <!-- Main horizontal bus -->
-                <path d="M75 170 L100 170 L100 158 L125 158" stroke="#3A87C8" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
-                <path d="M125 158 L155 158 L155 172 L180 172" stroke="#3A87C8" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
-                <path d="M180 172 L205 172 L205 162 L225 162" stroke="#3A87C8" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
-                <!-- Secondary bus -->
-                <path d="M85 185 L108 185 L108 178 L135 178" stroke="#4A9FD4" stroke-width="1.5" stroke-linecap="round" opacity="0.65"/>
-                <path d="M135 178 L160 178 L160 188 L188 188" stroke="#4A9FD4" stroke-width="1.5" stroke-linecap="round" opacity="0.65"/>
-                <!-- Vertical branches -->
-                <path d="M100 158 L100 148 L112 148" stroke="#5BB0E0" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
-                <path d="M155 158 L155 148 L167 148" stroke="#5BB0E0" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
-                <path d="M205 162 L205 152 L217 152" stroke="#5BB0E0" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
-                <!-- Circuit nodes (larger, glowing) -->
-                <circle cx="100" cy="158" r="3.5" fill="#3A87C8" opacity="0.9"/>
-                <circle cx="155" cy="172" r="3.5" fill="#3A87C8" opacity="0.9"/>
-                <circle cx="205" cy="162" r="3.5" fill="#3A87C8" opacity="0.9"/>
-                <circle cx="108" cy="178" r="2.5" fill="#4A9FD4" opacity="0.8"/>
-                <circle cx="160" cy="188" r="2.5" fill="#4A9FD4" opacity="0.8"/>
-                <!-- Node glow rings -->
-                <circle cx="100" cy="158" r="6" fill="none" stroke="#3A87C8" stroke-width="1" opacity="0.3" class="node-pulse"/>
-                <circle cx="155" cy="172" r="6" fill="none" stroke="#3A87C8" stroke-width="1" opacity="0.3" class="node-pulse"/>
-                <circle cx="205" cy="162" r="6" fill="none" stroke="#3A87C8" stroke-width="1" opacity="0.3" class="node-pulse"/>
+                <!-- ── ROUTE ARCS FROM ISTANBUL ── -->
+                <!-- Istanbul → Hamburg -->
+                <path d="M148 128 C138 118 128 112 118 108" stroke="rgba(200,146,42,0.7)" stroke-width="1.2" fill="none" stroke-dasharray="4 6" class="globe-route-arc"/>
+                <!-- Istanbul → Dubai -->
+                <path d="M148 128 C158 134 168 140 178 148" stroke="rgba(200,146,42,0.7)" stroke-width="1.2" fill="none" stroke-dasharray="4 6" class="globe-route-arc"/>
+                <!-- Istanbul → Shanghai -->
+                <path d="M148 128 C168 122 188 118 208 118" stroke="rgba(224,176,80,0.85)" stroke-width="1.5" fill="none" stroke-dasharray="6 4" class="globe-route-silk"/>
+                <!-- Istanbul → Rotterdam -->
+                <path d="M148 128 C132 122 120 118 108 114" stroke="rgba(58,135,200,0.65)" stroke-width="1" fill="none" stroke-dasharray="3 7" class="globe-route-arc"/>
               </g>
 
-              <!-- ── LEGS ── -->
-              <!-- Rear legs -->
-              <line x1="82" y1="213" x2="78" y2="248" stroke="url(#silverGrad)" stroke-width="9" stroke-linecap="round"/>
-              <line x1="110" y1="213" x2="106" y2="248" stroke="url(#silverGrad)" stroke-width="9" stroke-linecap="round"/>
-              <!-- Front legs -->
-              <line x1="170" y1="213" x2="166" y2="248" stroke="url(#silverGrad)" stroke-width="9" stroke-linecap="round"/>
-              <line x1="198" y1="213" x2="202" y2="248" stroke="url(#silverGrad)" stroke-width="9" stroke-linecap="round"/>
-              <!-- Hooves -->
-              <ellipse cx="78" cy="250" rx="7" ry="4" fill="#4A5E70"/>
-              <ellipse cx="106" cy="250" rx="7" ry="4" fill="#4A5E70"/>
-              <ellipse cx="166" cy="250" rx="7" ry="4" fill="#4A5E70"/>
-              <ellipse cx="202" cy="250" rx="7" ry="4" fill="#4A5E70"/>
+              <!-- Globe border ring -->
+              <circle cx="150" cy="165" r="120" fill="none" stroke="rgba(200,146,42,0.4)" stroke-width="1.5"/>
+              <!-- Inner shimmer ring -->
+              <circle cx="150" cy="165" r="116" fill="none" stroke="rgba(200,146,42,0.12)" stroke-width="0.5"/>
 
-              <!-- ── NECK ── -->
-              <path d="M222 213 C228 200 238 185 242 168 C246 151 244 138 248 128" fill="url(#camelBodyGrad)" stroke="rgba(58,135,200,0.2)" stroke-width="0.5"/>
-
-              <!-- ── HEAD ── -->
-              <!-- Head shape -->
-              <ellipse cx="262" cy="118" rx="26" ry="19" fill="url(#camelBodyGrad)" stroke="rgba(200,146,42,0.25)" stroke-width="0.8"/>
-              <!-- Snout -->
-              <path d="M282 112 C295 108 304 115 301 125 C298 135 287 137 281 131 C275 125 276 118 282 112 Z" fill="url(#camelBodyGrad2)" stroke="rgba(200,146,42,0.3)" stroke-width="0.8"/>
-              <!-- Nostril -->
-              <ellipse cx="296" cy="122" rx="3" ry="2" fill="rgba(0,0,0,0.4)"/>
-              <!-- Mouth line -->
-              <path d="M284 128 C289 131 296 130 300 127" stroke="rgba(168,184,200,0.4)" stroke-width="1" fill="none"/>
-              <!-- Eye -->
-              <circle cx="268" cy="113" r="5" fill="#C8922A" opacity="0.95"/>
-              <circle cx="269" cy="112" r="2.5" fill="#050E1C"/>
-              <circle cx="270" cy="111" r="1" fill="rgba(255,255,255,0.6)"/>
-              <!-- Eye glow -->
-              <circle cx="268" cy="113" r="8" fill="url(#eyeGlow)" opacity="0.4"/>
-              <!-- Ear -->
-              <path d="M248 104 C244 96 248 88 255 90 C262 92 262 102 258 106" fill="url(#camelBodyGrad2)" stroke="rgba(200,146,42,0.3)" stroke-width="0.8"/>
-              <!-- Eyelash -->
-              <path d="M264 108 C266 105 270 104 273 106" stroke="rgba(168,184,200,0.5)" stroke-width="1" fill="none"/>
-
-              <!-- ── TAIL ── -->
-              <path d="M55 210 C48 215 42 222 44 230 C46 238 52 240 56 236" stroke="url(#silverGrad)" stroke-width="4" fill="none" stroke-linecap="round"/>
-
-              <!-- ── FOOTPRINTS ── -->
-              <g class="camel-footprints" opacity="0.35">
-                <ellipse cx="60" cy="268" rx="5" ry="3" fill="#8FA4B8" transform="rotate(-15 60 268)"/>
-                <ellipse cx="80" cy="272" rx="5" ry="3" fill="#8FA4B8" transform="rotate(10 80 272)"/>
-                <ellipse cx="100" cy="268" rx="5" ry="3" fill="#8FA4B8" transform="rotate(-15 100 268)"/>
-                <ellipse cx="120" cy="272" rx="5" ry="3" fill="#8FA4B8" transform="rotate(10 120 272)"/>
-                <ellipse cx="140" cy="268" rx="5" ry="3" fill="#8FA4B8" transform="rotate(-15 140 268)"/>
+              <!-- ── CAMEL ON TOP OF GLOBE ── -->
+              <!-- The camel sits on the top arc of the globe, as if walking across the world -->
+              <g class="globe-camel" transform="translate(60, 28)" filter="url(#camelGlowFilter)">
+                <!-- Camel body (simplified, elegant silhouette in gold) -->
+                <!-- Main body -->
+                <path d="M18 82 C16 74 15 65 17 57 C19 49 24 44 30 41 C33 39.5 34 37 34 33 C34 27 30 21 31.5 16 C33 11 39 8 45 10 C51 12 53 19 52 26 C51 33 47 36 48.5 41 C50 46 56 48 61 46 C66 44 70 40 72 36 C74 32 73 26 75 22 C77 18 83 16 88 18 C93 20 95 27 93 34 C91 41 87 44 88 50 C89 56 95 60 99 65 C103 70 104 77 102 84 C100 91 96 95 92 97 L18 97 Z" fill="url(#gcBody)" opacity="0.95"/>
+                <!-- Hump 1 gold outline -->
+                <path d="M34 33 C32 26 31 19 34 14 C37 9 44 7 50 10 C56 13 57 21 55 28 C53 35 50 38 50 41" stroke="url(#gcGold)" stroke-width="1.2" fill="none" opacity="0.8"/>
+                <!-- Hump 2 gold outline -->
+                <path d="M72 36 C70 29 69 22 72 17 C75 12 82 10 87 13 C92 16 93 24 91 31 C89 38 88 42 88 50" stroke="url(#gcGold)" stroke-width="1.2" fill="none" opacity="0.8"/>
+                <!-- Saddle between humps -->
+                <path d="M50 41 C53 46 58 48 63 46 C68 44 71 40 72 36" stroke="url(#gcGold)" stroke-width="1.5" fill="none" opacity="0.9"/>
+                <!-- Cargo box -->
+                <rect x="54" y="32" width="16" height="12" rx="2" fill="rgba(200,146,42,0.7)" stroke="url(#gcGold)" stroke-width="0.8"/>
+                <!-- Legs (silver) -->
+                <line x1="28" y1="97" x2="26" y2="116" stroke="url(#gcSilver)" stroke-width="5" stroke-linecap="round"/>
+                <line x1="42" y1="97" x2="40" y2="116" stroke="url(#gcSilver)" stroke-width="5" stroke-linecap="round"/>
+                <line x1="72" y1="97" x2="70" y2="116" stroke="url(#gcSilver)" stroke-width="5" stroke-linecap="round"/>
+                <line x1="86" y1="97" x2="88" y2="116" stroke="url(#gcSilver)" stroke-width="5" stroke-linecap="round"/>
+                <!-- Hooves -->
+                <ellipse cx="26" cy="118" rx="5" ry="3" fill="#4A5E70"/>
+                <ellipse cx="40" cy="118" rx="5" ry="3" fill="#4A5E70"/>
+                <ellipse cx="70" cy="118" rx="5" ry="3" fill="#4A5E70"/>
+                <ellipse cx="88" cy="118" rx="5" ry="3" fill="#4A5E70"/>
+                <!-- Neck -->
+                <path d="M92 97 C96 88 102 78 105 68 C108 58 107 50 109 43" fill="url(#gcBody)" stroke="rgba(200,146,42,0.3)" stroke-width="0.5"/>
+                <!-- Head -->
+                <ellipse cx="118" cy="36" rx="16" ry="12" fill="url(#gcBody)" stroke="rgba(200,146,42,0.4)" stroke-width="0.8"/>
+                <!-- Snout -->
+                <path d="M130 32 C138 29 143 33 141 40 C139 47 132 48 128 44 C124 40 125 35 130 32 Z" fill="rgba(200,146,42,0.8)" stroke="rgba(200,146,42,0.5)" stroke-width="0.6"/>
+                <!-- Eye (gold) -->
+                <circle cx="122" cy="33" r="3" fill="#E0B050"/>
+                <circle cx="123" cy="32" r="1.5" fill="#050E1C"/>
+                <circle cx="123.5" cy="31.5" r="0.6" fill="rgba(255,255,255,0.7)"/>
+                <!-- Ear -->
+                <path d="M108 26 C106 20 109 14 113 16 C117 18 117 25 114 28" fill="rgba(200,146,42,0.6)" stroke="rgba(200,146,42,0.4)" stroke-width="0.6"/>
+                <!-- Tail -->
+                <path d="M18 82 C13 86 10 91 11 96 C12 101 16 102 18 99" stroke="url(#gcSilver)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
               </g>
+
+              <!-- Globe bottom glow -->
+              <ellipse cx="150" cy="283" rx="80" ry="10" fill="rgba(200,146,42,0.2)" filter="url(#gcGlow)"/>
             </svg>
-            <!-- Gold glow beneath camel -->
+            <!-- Gold glow beneath globe -->
             <div class="camel-glow-base"></div>
-            <!-- Footprint trail -->
-            <div class="camel-footprint-trail">
-              <span class="footprint fp-1">🐾</span>
-              <span class="footprint fp-2">🐾</span>
-              <span class="footprint fp-3">🐾</span>
-              <span class="footprint fp-4">🐾</span>
-            </div>
           </div>
           <!-- Silk Road label -->
           <div class="camel-silk-road-label" aria-hidden="true">
