@@ -3,10 +3,17 @@
 
 <head>
   <meta charset="UTF-8">
+    <meta name="theme-color" content="#050E1C">
+    <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://www.boxmar.com.tr/">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Boxmar Global Logistics | 25 Years of Trust in International Freight Forwarding</title>
   <meta name="description"
     content="Boxmar Global Logistics - Turkey's trusted leader in international freight forwarding, chemical tank containers, food tank shipments. Road, sea, air, rail transport with 25+ years experience.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Boxmar Global Logistics">
+  <meta name="geo.region" content="TR-34">
+  <meta name="geo.placename" content="Istanbul, Turkey">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.boxmar.com.tr/">
   <meta property="og:title" content="Boxmar Global Logistics | 25 Years of Trust in International Freight Forwarding">
@@ -18,14 +25,21 @@
   <meta name="twitter:image" content="https://www.boxmar.com.tr/assets/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preload" href="css/styles.css" as="style">
+  <link rel="preload" href="assets/logo.png" as="image">
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap"
-    rel="stylesheet">
+    rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet"></noscript>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%224%22 fill=%22%23050E1C%22/><text x=%2216%22 y=%2223%22 font-family=%22Arial%22 font-weight=%22bold%22 font-size=%2220%22 fill=%22%23C8922A%22 text-anchor=%22middle%22>B</text></svg>">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+
+  <!-- Skip to content for accessibility -->
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
   <!-- ===== TOP BAR ===== -->
   <div class="top-bar">
@@ -55,7 +69,7 @@
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="nav-logo">
-        <img src="assets/logo.png" alt="Boxmar Global Logistics" class="nav-logo-img">
+        <img src="assets/logo.png" alt="Boxmar Global Logistics" class="nav-logo-img" fetchpriority="high">
       </a>
       <div class="nav-links">
         <a href="index.html" class="active" data-i18n="nav.home">Home</a>
@@ -105,7 +119,7 @@
   </div>
 
   <!-- ===== HERO ===== -->
-  <section class="hero">
+  <section class="hero" id="main-content">
     <div class="grid-bg"></div>
     <div class="particles" id="heroParticles"></div>
     <!-- Enhanced ambient orbs -->
@@ -1781,6 +1795,61 @@
       stroke-linejoin="round">
       <path d="M18 15l-6-6-6 6" />
     </svg></button>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FreightForwarder",
+    "name": "Boxmar Global Logistics",
+    "legalName": "Boxmar Logistics Transportation Co. Ltd.",
+    "url": "https://www.boxmar.com.tr",
+    "logo": "https://www.boxmar.com.tr/assets/logo.png",
+    "image": "https://www.boxmar.com.tr/assets/logo.png",
+    "description": "Turkey's trusted leader in international freight forwarding, chemical tank containers, and food tank shipments with 25+ years of experience.",
+    "foundingDate": "2001",
+    "numberOfEmployees": {"@type": "QuantitativeValue", "value": 50},
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Muratreis Mah. Payanda Sk. Çelik İş Hanı No:9 İç Kapı No:1",
+      "addressLocality": "Üsküdar",
+      "addressRegion": "İstanbul",
+      "addressCountry": "TR"
+    },
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+90-850-840-53-81",
+        "contactType": "customer service",
+        "availableLanguage": ["Turkish", "English"],
+        "hoursAvailable": "Mo-Fr 09:00-18:00"
+      }
+    ],
+    "email": "info@boxmar.com.tr",
+    "sameAs": [
+      "https://www.linkedin.com/company/boxmar",
+      "https://www.instagram.com/boxmarglobal",
+      "https://twitter.com/boxmarglobal"
+    ],
+    "areaServed": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {"@type": "GeoCoordinates", "latitude": 41.0244, "longitude": 29.0167},
+      "geoRadius": "10000000"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Freight Forwarding Services",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Road Transport"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Sea Freight"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Air Freight"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Rail Freight"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Chemical Tank Transport"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Food Tank Transport"}}
+      ]
+    }
+  }
+  </script>
 
 </body>
 

@@ -3,7 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#050E1C">
+    <meta name="color-scheme" content="dark">
+    <link rel="canonical" href="https://www.boxmar.com.tr/tracking">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shipment Tracking | Boxmar Global Logistics</title>
     <meta name="description" content="Track your shipment in real-time with Boxmar Global Logistics tracking portal.">
     <meta property="og:type" content="website">
@@ -15,6 +18,7 @@
     <meta name="twitter:title" content="Track Your Shipment | Boxmar Global Logistics">
     <meta name="twitter:description" content="Real-time shipment tracking for Boxmar Global Logistics customers.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap"
@@ -24,6 +28,9 @@
 </head>
 
 <body>
+
+  <!-- Skip to content for accessibility -->
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
     <!-- ===== TOP BAR ===== -->
     <div class="top-bar">
@@ -44,7 +51,7 @@
     <nav class="navbar scrolled">
         <div class="container">
             <a href="index.html" class="nav-logo">
-                <img src="assets/logo.png" alt="Boxmar Global Logistics" class="nav-logo-img">
+                <img src="assets/logo.png" alt="Boxmar Global Logistics" class="nav-logo-img" fetchpriority="high">
             </a>
             <div class="nav-links">
                 <a href="index.html" data-i18n="nav.home">Home</a>
@@ -85,12 +92,14 @@
         <a href="contact.html" data-i18n="nav.contact">Contact</a>
     </div>
 
-    <section class="page-hero">
+    <section class="page-hero" id="main-content">
         <div class="hero-bg-pattern"></div>
+        <div class="grid-bg" style="opacity:0.02"></div>
         <div class="container">
             <div class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span class="sep">/</span><span data-i18n="nav.tracking">Tracking</span></div>
+            <div class="hero-eyebrow" style="margin-bottom:var(--space-lg)"><span class="dot"></span><span>24/7 Real-Time Tracking</span></div>
             <h1 data-i18n="tracking.page.hero.h1">Shipment Tracking</h1>
-            <p style="color:rgba(255,255,255,0.65);max-width:600px;margin-top:var(--space-md)" data-i18n="tracking.page.hero.sub">Track your cargo in real-time. Enter your tracking number below.</p>
+            <p style="color:rgba(255,255,255,0.7);max-width:600px;margin-top:var(--space-md);font-size:1.1rem;line-height:1.75" data-i18n="tracking.page.hero.sub">Track your cargo in real-time. Enter your tracking number below.</p>
         </div>
     </section>
 
@@ -219,7 +228,7 @@
             <div class="footer-grid">
                 <div class="footer-about">
                     <a href="index.html" class="nav-logo" style="margin-bottom:var(--space-md)">
-                        <img src="assets/logo.png" alt="Boxmar Global Logistics" class="nav-logo-img">
+                        <img src="assets/logo.png" alt="Boxmar Global Logistics" class="nav-logo-img" fetchpriority="high">
                     </a>
                     <p>Boxmar Global Logistics provides comprehensive freight forwarding and logistics solutions with 25+ years of industry expertise across Turkey and beyond.</p>
                     <div class="footer-social">

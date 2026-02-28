@@ -3,7 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#050E1C">
+    <meta name="color-scheme" content="dark">
+    <link rel="canonical" href="https://www.boxmar.com.tr/about">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Boxmar Global Logistics</title>
     <meta name="description"
         content="Learn about Boxmar Global Logistics - 25 years of excellence in international freight forwarding, chemical and food tank container operations in Turkey.">
@@ -16,6 +19,7 @@
     <meta name="twitter:title" content="About Boxmar Global Logistics">
     <meta name="twitter:description" content="25 years of excellence in international freight forwarding in Turkey.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap"
@@ -25,6 +29,9 @@
 </head>
 
 <body>
+
+  <!-- Skip to content for accessibility -->
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
     <!-- ===== TOP BAR ===== -->
     <div class="top-bar">
@@ -46,7 +53,7 @@
     <nav class="navbar scrolled">
         <div class="container">
             <a href="index.html" class="nav-logo">
-                <img src="assets/logo.png" alt="Boxmar Global Logistics" class="nav-logo-img">
+                <img src="assets/logo.png" alt="Boxmar Global Logistics" class="nav-logo-img" fetchpriority="high">
             </a>
             <div class="nav-links">
                 <a href="index.html" data-i18n="nav.home">Home</a>
@@ -91,12 +98,33 @@
     </div>
 
     <!-- PAGE HERO -->
-    <section class="page-hero">
+    <section class="page-hero" id="main-content">
         <div class="hero-bg-pattern"></div>
+        <div class="grid-bg" style="opacity:0.02"></div>
         <div class="container">
             <div class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span class="sep">/</span><span data-i18n="nav.about">About</span></div>
+            <div class="hero-eyebrow" style="margin-bottom:var(--space-lg)"><span class="dot"></span><span>Est. 2001 · Üsküdar, İstanbul</span></div>
             <h1 data-i18n="about.page.hero.h1">Who We Are</h1>
-            <p style="color:rgba(255,255,255,0.65);max-width:600px;margin-top:var(--space-md)" data-i18n="about.page.hero.sub">25 years of dedication, innovation, and trust in international logistics.</p>
+            <p style="color:rgba(255,255,255,0.7);max-width:640px;margin-top:var(--space-md);font-size:1.1rem;line-height:1.75" data-i18n="about.page.hero.sub">25 years of dedication, innovation, and trust in international logistics.</p>
+            <!-- Quick stats -->
+            <div style="display:flex;gap:var(--space-xl);flex-wrap:wrap;margin-top:var(--space-2xl)">
+                <div class="svc-hero-stat">
+                    <span class="stat-val">25+</span>
+                    <span class="stat-lbl" data-i18n="stat.2.label">Years Experience</span>
+                </div>
+                <div class="svc-hero-stat">
+                    <span class="stat-val">500+</span>
+                    <span class="stat-lbl" data-i18n="stat.3.label">Satisfied Clients</span>
+                </div>
+                <div class="svc-hero-stat">
+                    <span class="stat-val">50+</span>
+                    <span class="stat-lbl" data-i18n="stat.1.label">Team Members</span>
+                </div>
+                <div class="svc-hero-stat">
+                    <span class="stat-val">120+</span>
+                    <span class="stat-lbl" data-i18n="map.stat.countries">Countries</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -274,7 +302,7 @@
             <div class="footer-grid">
                 <div class="footer-about">
                     <a href="index.html" class="nav-logo" style="margin-bottom:var(--space-md)">
-                        <img src="assets/logo.png" alt="Boxmar Global Logistics" class="nav-logo-img">
+                        <img src="assets/logo.png" alt="Boxmar Global Logistics" class="nav-logo-img" fetchpriority="high">
                     </a>
                     <p>Boxmar Global Logistics provides comprehensive freight forwarding and logistics solutions with
                         25+ years of industry expertise across Turkey and beyond.</p>

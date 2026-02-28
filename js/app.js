@@ -10,20 +10,22 @@
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initNavbar();
-  initMobileMenu();
-  initScrollAnimations();
-  initCounters();
-  initAccordion();
-  initAccordionV2();
-  initQuoteForm();
-  initQuoteFormV2();
-  initTestimonials();
-  initLanguageSwitcher();
-  initTrackingDemo();
-  initSmoothScroll();
-  initScrollTop();
-  initParallaxHero();
+  try { initNavbar(); } catch(e) { console.warn('initNavbar:', e); }
+  try { initMobileMenu(); } catch(e) { console.warn('initMobileMenu:', e); }
+  try { initScrollAnimations(); } catch(e) { console.warn('initScrollAnimations:', e); }
+  try { initCounters(); } catch(e) { console.warn('initCounters:', e); }
+  try { initAccordion(); } catch(e) { console.warn('initAccordion:', e); }
+  try { initAccordionV2(); } catch(e) { console.warn('initAccordionV2:', e); }
+  try { initQuoteForm(); } catch(e) { console.warn('initQuoteForm:', e); }
+  try { initQuoteFormV2(); } catch(e) { console.warn('initQuoteFormV2:', e); }
+  try { initTestimonials(); } catch(e) { console.warn('initTestimonials:', e); }
+  try { initLanguageSwitcher(); } catch(e) { console.warn('initLanguageSwitcher:', e); }
+  try { initTrackingDemo(); } catch(e) { console.warn('initTrackingDemo:', e); }
+  try { initSmoothScroll(); } catch(e) { console.warn('initSmoothScroll:', e); }
+  try { initScrollTop(); } catch(e) { console.warn('initScrollTop:', e); }
+  try { initParallaxHero(); } catch(e) { console.warn('initParallaxHero:', e); }
+  try { initActiveNavLink(); } catch(e) { console.warn('initActiveNavLink:', e); }
+  try { initImageLazyLoad(); } catch(e) { console.warn('initImageLazyLoad:', e); }
 });
 
 let currentLang = 'en';
@@ -316,6 +318,53 @@ function initSmoothScroll() {
       }
     });
   });
+}
+
+/* ============================================
+   ACTIVE NAV LINK — highlight current page
+   ============================================ */
+function initActiveNavLink() {
+  const path = window.location.pathname;
+  const filename = path.split('/').pop() || 'index.html';
+  
+  document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (!href) return;
+    const linkFile = href.split('/').pop().split('#')[0] || 'index.html';
+    if (linkFile === filename || (filename === '' && linkFile === 'index.html')) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+}
+
+/* ============================================
+   IMAGE LAZY LOAD — native + polyfill
+   ============================================ */
+function initImageLazyLoad() {
+  // Add loading="lazy" to images that don't have it
+  document.querySelectorAll('img:not([loading])').forEach(img => {
+    // Don't lazy load above-the-fold images (logo, hero)
+    if (!img.closest('.top-bar') && !img.closest('.navbar') && !img.closest('.hero')) {
+      img.setAttribute('loading', 'lazy');
+    }
+  });
+  
+  // Intersection Observer for background images
+  const lazyBgs = document.querySelectorAll('[data-bg]');
+  if (!lazyBgs.length) return;
+  
+  const bgObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.backgroundImage = `url(${entry.target.dataset.bg})`;
+        bgObserver.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '200px' });
+  
+  lazyBgs.forEach(el => bgObserver.observe(el));
 }
 
 /* ============================================
