@@ -90,7 +90,7 @@
     --grad-silver:    linear-gradient(135deg, var(--silver-500), var(--silver-300));
     --grad-blue:      linear-gradient(135deg, var(--blue-700), var(--blue-500), var(--blue-300));
     --grad-dark:      linear-gradient(180deg, var(--navy-950) 0%, var(--navy-800) 100%);
-    --grad-hero:      linear-gradient(145deg, #010509 0%, #030C18 15%, #050E1C 30%, #071220 50%, #0A1628 75%, #0D1E38 100%);
+    --grad-hero:      linear-gradient(145deg, #010408 0%, #020A14 12%, #040E1C 25%, #060F22 40%, #081428 60%, #0A1A30 80%, #0C2038 100%);
     --grad-card:      linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));
     --grad-cta:       linear-gradient(135deg, var(--navy-900), #061525, var(--navy-800));
 

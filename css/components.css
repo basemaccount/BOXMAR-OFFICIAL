@@ -494,27 +494,35 @@
 /* Ambient glow orbs */
 .hero-glow {
     position: absolute;
-    width: 800px; height: 800px;
+    width: 900px; height: 900px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(200, 146, 42, 0.18) 0%, rgba(200, 146, 42, 0.06) 40%, transparent 65%);
-    top: -300px; right: -300px;
+    background: radial-gradient(circle,
+        rgba(200, 146, 42, 0.22) 0%,
+        rgba(200, 146, 42, 0.1) 30%,
+        rgba(200, 146, 42, 0.03) 55%,
+        transparent 70%);
+    top: -350px; right: -350px;
     animation: float 10s ease-in-out infinite;
     pointer-events: none;
 }
 
 .hero-glow-2 {
     position: absolute;
-    width: 600px; height: 600px;
+    width: 700px; height: 700px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(58, 135, 200, 0.14) 0%, rgba(58, 135, 200, 0.04) 40%, transparent 65%);
-    bottom: -200px; left: -200px;
+    background: radial-gradient(circle,
+        rgba(58, 135, 200, 0.18) 0%,
+        rgba(58, 135, 200, 0.07) 35%,
+        rgba(58, 135, 200, 0.02) 55%,
+        transparent 70%);
+    bottom: -250px; left: -250px;
     animation: float 12s ease-in-out infinite reverse;
     pointer-events: none;
 }
 
 @keyframes float {
     0%, 100% { transform: translate(0, 0) scale(1); }
-    50%       { transform: translate(25px, -25px) scale(1.05); }
+    50%       { transform: translate(30px, -30px) scale(1.06); }
 }
 
 /* Circuit dot pattern */
@@ -522,7 +530,7 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.06;
+    opacity: 0.08;
     background-image:
         radial-gradient(circle at 15% 40%, var(--gold-500) 1px, transparent 1px),
         radial-gradient(circle at 75% 25%, var(--blue-400) 1px, transparent 1px),
@@ -885,39 +893,51 @@
 /* Camel core container */
 .camel-core {
     position: relative;
-    width: 290px; height: 290px;
+    width: 300px; height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(circle at 40% 35%,
-        rgba(200, 146, 42, 0.15) 0%,
-        rgba(58, 135, 200, 0.1) 45%,
-        rgba(5, 14, 28, 0.65) 100%);
+    background: radial-gradient(circle at 38% 32%,
+        rgba(200, 146, 42, 0.2) 0%,
+        rgba(58, 135, 200, 0.14) 35%,
+        rgba(5, 14, 28, 0.7) 65%,
+        rgba(2, 8, 16, 0.85) 100%);
     border-radius: 50%;
-    border: 1px solid rgba(200, 146, 42, 0.22);
+    border: 1px solid rgba(200, 146, 42, 0.3);
     box-shadow:
-        0 0 70px rgba(200, 146, 42, 0.22),
-        0 0 140px rgba(58, 135, 200, 0.12),
-        inset 0 0 50px rgba(0,0,0,0.55);
+        0 0 80px rgba(200, 146, 42, 0.28),
+        0 0 160px rgba(58, 135, 200, 0.15),
+        0 0 40px rgba(200, 146, 42, 0.1),
+        inset 0 0 60px rgba(0,0,0,0.6);
     animation: camel-breathe 7s ease-in-out infinite alternate;
     overflow: visible;
 }
 
 @keyframes camel-breathe {
-    0%   { box-shadow: 0 0 50px rgba(200,146,42,0.18), 0 0 100px rgba(58,135,200,0.1), inset 0 0 50px rgba(0,0,0,0.55); transform: scale(0.97); }
-    100% { box-shadow: 0 0 100px rgba(200,146,42,0.32), 0 0 180px rgba(58,135,200,0.16), inset 0 0 50px rgba(0,0,0,0.55); transform: scale(1.03); }
+    0%   {
+        box-shadow: 0 0 60px rgba(200,146,42,0.22), 0 0 120px rgba(58,135,200,0.12), 0 0 30px rgba(200,146,42,0.08), inset 0 0 60px rgba(0,0,0,0.6);
+        transform: scale(0.97);
+    }
+    100% {
+        box-shadow: 0 0 120px rgba(200,146,42,0.38), 0 0 200px rgba(58,135,200,0.2), 0 0 60px rgba(200,146,42,0.15), inset 0 0 60px rgba(0,0,0,0.6);
+        transform: scale(1.03);
+    }
 }
 
 .camel-svg {
-    width: 250px; height: 220px;
-    filter: drop-shadow(0 4px 20px rgba(200,146,42,0.4)) drop-shadow(0 0 10px rgba(58,135,200,0.2));
+    width: 260px; height: 230px;
+    filter:
+        drop-shadow(0 6px 24px rgba(200,146,42,0.5))
+        drop-shadow(0 0 14px rgba(58,135,200,0.3))
+        drop-shadow(0 2px 8px rgba(0,0,0,0.5));
     animation: camel-float 8s ease-in-out infinite;
     overflow: visible;
 }
 
 @keyframes camel-float {
     0%, 100% { transform: translateY(0px); }
-    50%       { transform: translateY(-10px); }
+    35%       { transform: translateY(-12px); }
+    70%       { transform: translateY(-8px); }
 }
 
 /* Circuit lines animation — enhanced */
