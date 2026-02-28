@@ -136,92 +136,156 @@
                 </div>
 
                 <div class="reveal reveal-delay-2">
-                    <!-- Air Freight Illustration -->
-                    <div class="svc-illustration svc-illustration--dark" style="margin-bottom:var(--space-xl)">
-                        <svg viewBox="0 0 480 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Cargo Aircraft Air Freight Illustration">
+                    <!-- Air Freight Illustration — Enhanced -->
+                    <div class="svc-illustration svc-illustration--dark" style="margin-bottom:var(--space-xl);padding:0;overflow:hidden">
+                        <svg viewBox="0 0 520 300" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block" aria-label="Cargo Aircraft Air Freight Illustration">
                             <defs>
                                 <linearGradient id="airSky" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" stop-color="#020810"/>
-                                    <stop offset="40%" stop-color="#071828"/>
+                                    <stop offset="0%" stop-color="#010508"/>
+                                    <stop offset="35%" stop-color="#050E1C"/>
+                                    <stop offset="70%" stop-color="#071828"/>
                                     <stop offset="100%" stop-color="#0A2040"/>
                                 </linearGradient>
-                                <linearGradient id="planeBody" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <linearGradient id="planeBody" x1="0%" y1="0%" x2="100%" y2="100%">
                                     <stop offset="0%" stop-color="#1E4A78"/>
-                                    <stop offset="100%" stop-color="#0A1628"/>
+                                    <stop offset="50%" stop-color="#0F2340"/>
+                                    <stop offset="100%" stop-color="#071828"/>
                                 </linearGradient>
-                                <filter id="airGlow">
-                                    <feGaussianBlur stdDeviation="4" result="blur"/>
+                                <linearGradient id="wingGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#152F56"/>
+                                    <stop offset="100%" stop-color="#071828"/>
+                                </linearGradient>
+                                <filter id="airGlow" x="-50%" y="-50%" width="200%" height="200%">
+                                    <feGaussianBlur stdDeviation="5" result="blur"/>
                                     <feComposite in="SourceGraphic" in2="blur" operator="over"/>
                                 </filter>
-                                <filter id="engineGlow">
-                                    <feGaussianBlur stdDeviation="6" result="blur"/>
+                                <filter id="engineGlow" x="-30%" y="-30%" width="160%" height="160%">
+                                    <feGaussianBlur stdDeviation="7" result="blur"/>
+                                    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                                </filter>
+                                <filter id="airSoftGlow" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feGaussianBlur stdDeviation="2.5" result="blur"/>
                                     <feComposite in="SourceGraphic" in2="blur" operator="over"/>
                                 </filter>
                             </defs>
-                            <!-- Sky background -->
-                            <rect width="480" height="260" fill="url(#airSky)" rx="12"/>
+
+                            <!-- ── SKY ── -->
+                            <rect width="520" height="300" fill="url(#airSky)"/>
                             <!-- Stars -->
-                            <circle cx="30" cy="20" r="1" fill="rgba(255,255,255,0.5)"/>
-                            <circle cx="80" cy="10" r="1.5" fill="rgba(255,255,255,0.4)"/>
-                            <circle cx="150" cy="25" r="1" fill="rgba(255,255,255,0.3)"/>
-                            <circle cx="250" cy="15" r="1" fill="rgba(255,255,255,0.5)"/>
-                            <circle cx="350" cy="8" r="1.5" fill="rgba(255,255,255,0.4)"/>
-                            <circle cx="430" cy="22" r="1" fill="rgba(255,255,255,0.3)"/>
-                            <!-- Clouds -->
-                            <ellipse cx="80" cy="80" rx="50" ry="18" fill="rgba(168,184,200,0.06)"/>
-                            <ellipse cx="100" cy="72" rx="35" ry="14" fill="rgba(168,184,200,0.05)"/>
-                            <ellipse cx="380" cy="60" rx="60" ry="20" fill="rgba(168,184,200,0.06)"/>
-                            <ellipse cx="400" cy="52" rx="40" ry="15" fill="rgba(168,184,200,0.05)"/>
-                            <!-- Engine glow trails -->
-                            <path d="M0 145 C80 140 160 148 240 143" stroke="rgba(240,200,80,0.08)" stroke-width="12" fill="none"/>
-                            <path d="M0 165 C80 160 160 168 240 163" stroke="rgba(240,200,80,0.06)" stroke-width="8" fill="none"/>
+                            <circle cx="25" cy="15" r="1.2" fill="rgba(255,255,255,0.6)"/>
+                            <circle cx="80" cy="8" r="0.8" fill="rgba(255,255,255,0.5)"/>
+                            <circle cx="150" cy="22" r="1" fill="rgba(255,255,255,0.4)"/>
+                            <circle cx="230" cy="12" r="1.2" fill="rgba(255,255,255,0.6)"/>
+                            <circle cx="310" cy="18" r="0.8" fill="rgba(255,255,255,0.5)"/>
+                            <circle cx="390" cy="8" r="1" fill="rgba(255,255,255,0.4)"/>
+                            <circle cx="470" cy="20" r="1.2" fill="rgba(255,255,255,0.6)"/>
+                            <!-- Milky way -->
+                            <path d="M0 50 C130 42 260 55 390 45 C450 40 490 50 520 46" stroke="rgba(255,255,255,0.03)" stroke-width="25" fill="none"/>
+                            <!-- Clouds (volumetric) -->
+                            <ellipse cx="80" cy="85" rx="65" ry="22" fill="rgba(168,184,200,0.07)"/>
+                            <ellipse cx="105" cy="75" rx="45" ry="18" fill="rgba(168,184,200,0.06)"/>
+                            <ellipse cx="60" cy="80" rx="35" ry="14" fill="rgba(168,184,200,0.05)"/>
+                            <ellipse cx="420" cy="65" rx="75" ry="25" fill="rgba(168,184,200,0.07)"/>
+                            <ellipse cx="445" cy="55" rx="50" ry="20" fill="rgba(168,184,200,0.06)"/>
+                            <ellipse cx="395" cy="70" rx="40" ry="16" fill="rgba(168,184,200,0.05)"/>
+                            <!-- Engine contrails -->
+                            <path d="M0 148 C60 143 120 150 180 145" stroke="rgba(255,255,255,0.06)" stroke-width="10" fill="none" stroke-linecap="round"/>
+                            <path d="M0 168 C60 163 120 170 180 165" stroke="rgba(255,255,255,0.05)" stroke-width="8" fill="none" stroke-linecap="round"/>
+                            <!-- Engine heat shimmer -->
+                            <path d="M0 148 C40 145 80 150 120 147" stroke="rgba(240,200,80,0.06)" stroke-width="14" fill="none"/>
+                            <path d="M0 168 C40 165 80 170 120 167" stroke="rgba(240,200,80,0.05)" stroke-width="10" fill="none"/>
 
                             <!-- ── CARGO AIRCRAFT ── -->
+                            <!-- Aircraft shadow (below) -->
+                            <ellipse cx="290" cy="260" rx="200" ry="18" fill="rgba(0,0,0,0.2)"/>
                             <!-- Main fuselage -->
-                            <path d="M80 120 C100 112 140 108 200 108 C280 108 360 112 420 118 C440 120 450 125 445 130 C440 135 420 138 380 140 C320 142 240 142 180 140 C140 138 100 135 80 130 Z" fill="url(#planeBody)" stroke="rgba(58,135,200,0.3)" stroke-width="1"/>
-                            <!-- Fuselage nose -->
-                            <path d="M420 118 C440 120 460 124 470 128 C475 130 472 133 465 134 C455 135 440 135 420 135" fill="url(#planeBody)" stroke="rgba(58,135,200,0.25)" stroke-width="0.8"/>
+                            <path d="M90 128 C115 118 160 113 225 112 C310 111 390 115 445 122 C462 124 472 130 468 136 C464 142 445 145 405 147 C345 149 265 149 200 147 C158 145 115 142 90 138 Z" fill="url(#planeBody)" stroke="rgba(58,135,200,0.35)" stroke-width="1.2"/>
+                            <!-- Fuselage top highlight -->
+                            <path d="M90 128 C115 118 160 113 225 112 C310 111 390 115 445 122" stroke="rgba(58,135,200,0.2)" stroke-width="1.5" fill="none"/>
+                            <!-- Nose cone -->
+                            <path d="M445 122 C462 124 478 128 485 133 C490 136 487 140 480 141 C470 142 458 142 445 140" fill="url(#planeBody)" stroke="rgba(58,135,200,0.3)" stroke-width="1"/>
                             <!-- Cockpit windows -->
-                            <ellipse cx="448" cy="124" rx="10" ry="6" fill="rgba(58,135,200,0.3)" stroke="rgba(58,135,200,0.5)" stroke-width="0.8"/>
-                            <ellipse cx="462" cy="126" rx="6" ry="4" fill="rgba(58,135,200,0.25)" stroke="rgba(58,135,200,0.4)" stroke-width="0.6"/>
-                            <!-- Fuselage windows -->
-                            <circle cx="380" cy="118" r="4" fill="rgba(240,200,80,0.25)" stroke="rgba(240,200,80,0.4)" stroke-width="0.5"/>
-                            <circle cx="360" cy="116" r="4" fill="rgba(240,200,80,0.25)" stroke="rgba(240,200,80,0.4)" stroke-width="0.5"/>
-                            <circle cx="340" cy="115" r="4" fill="rgba(240,200,80,0.25)" stroke="rgba(240,200,80,0.4)" stroke-width="0.5"/>
-                            <circle cx="320" cy="114" r="4" fill="rgba(240,200,80,0.25)" stroke="rgba(240,200,80,0.4)" stroke-width="0.5"/>
-                            <circle cx="300" cy="113" r="4" fill="rgba(240,200,80,0.25)" stroke="rgba(240,200,80,0.4)" stroke-width="0.5"/>
-                            <!-- Boxmar livery stripe -->
-                            <path d="M100 130 C160 128 240 128 320 130 C360 131 400 132 420 133" stroke="rgba(200,146,42,0.6)" stroke-width="3" fill="none"/>
-                            <!-- Main wings -->
-                            <path d="M200 124 C220 100 260 75 300 65 C320 60 340 62 350 68 C360 74 355 85 340 92 C320 100 280 108 240 116 C220 120 205 124 200 124 Z" fill="rgba(15,35,60,0.9)" stroke="rgba(58,135,200,0.3)" stroke-width="1"/>
-                            <path d="M200 124 C220 148 260 173 300 183 C320 188 340 186 350 180 C360 174 355 163 340 156 C320 148 280 140 240 132 C220 128 205 124 200 124 Z" fill="rgba(15,35,60,0.9)" stroke="rgba(58,135,200,0.3)" stroke-width="1"/>
-                            <!-- Wing stripe -->
-                            <path d="M205 124 C230 105 265 85 295 75" stroke="rgba(200,146,42,0.4)" stroke-width="1.5" fill="none"/>
-                            <path d="M205 124 C230 143 265 163 295 173" stroke="rgba(200,146,42,0.4)" stroke-width="1.5" fill="none"/>
-                            <!-- Engines -->
-                            <ellipse cx="270" cy="90" rx="22" ry="10" fill="rgba(10,22,40,0.95)" stroke="rgba(58,135,200,0.4)" stroke-width="1"/>
-                            <ellipse cx="270" cy="90" rx="14" ry="6" fill="rgba(240,200,80,0.15)" filter="url(#engineGlow)"/>
-                            <ellipse cx="270" cy="158" rx="22" ry="10" fill="rgba(10,22,40,0.95)" stroke="rgba(58,135,200,0.4)" stroke-width="1"/>
-                            <ellipse cx="270" cy="158" rx="14" ry="6" fill="rgba(240,200,80,0.15)" filter="url(#engineGlow)"/>
-                            <!-- Engine exhaust glow -->
-                            <ellipse cx="248" cy="90" rx="8" ry="5" fill="rgba(240,200,80,0.3)" filter="url(#airGlow)"/>
-                            <ellipse cx="248" cy="158" rx="8" ry="5" fill="rgba(240,200,80,0.3)" filter="url(#airGlow)"/>
-                            <!-- Tail fin -->
-                            <path d="M90 120 C85 100 88 80 95 70 C100 62 108 60 112 65 C116 70 115 85 110 100 C106 112 100 118 90 120 Z" fill="rgba(15,35,60,0.9)" stroke="rgba(58,135,200,0.3)" stroke-width="1"/>
-                            <!-- Tail horizontal stabilizers -->
-                            <path d="M90 128 C80 120 65 115 50 118 C40 120 38 125 45 128 C55 131 75 130 90 128 Z" fill="rgba(15,35,60,0.9)" stroke="rgba(58,135,200,0.25)" stroke-width="0.8"/>
-                            <path d="M90 132 C80 140 65 145 50 142 C40 140 38 135 45 132 C55 129 75 130 90 132 Z" fill="rgba(15,35,60,0.9)" stroke="rgba(58,135,200,0.25)" stroke-width="0.8"/>
-                            <!-- Navigation lights -->
-                            <circle cx="300" cy="65" r="3" fill="rgba(255,50,50,0.8)" filter="url(#airGlow)"/>
-                            <circle cx="300" cy="183" r="3" fill="rgba(50,255,50,0.8)" filter="url(#airGlow)"/>
-                            <circle cx="470" cy="128" r="3" fill="rgba(255,255,255,0.8)" filter="url(#airGlow)"/>
-                            <!-- Speed lines -->
-                            <line x1="0" y1="115" x2="75" y2="115" stroke="rgba(58,135,200,0.2)" stroke-width="1.5" stroke-dasharray="15 8"/>
-                            <line x1="0" y1="128" x2="75" y2="128" stroke="rgba(200,146,42,0.15)" stroke-width="1" stroke-dasharray="10 12"/>
-                            <line x1="0" y1="140" x2="75" y2="140" stroke="rgba(58,135,200,0.15)" stroke-width="0.8" stroke-dasharray="12 10"/>
-                            <!-- Ground below (airport runway hint) -->
-                            <rect x="0" y="220" width="480" height="40" fill="rgba(5,14,28,0.6)" rx="0"/>
-                            <line x1="0" y1="230" x2="480" y2="230" stroke="rgba(200,146,42,0.15)" stroke-width="1" stroke-dasharray="30 15"/>
+                            <ellipse cx="462" cy="130" rx="12" ry="7" fill="rgba(58,135,200,0.28)" stroke="rgba(58,135,200,0.5)" stroke-width="1"/>
+                            <ellipse cx="476" cy="133" rx="7" ry="5" fill="rgba(58,135,200,0.22)" stroke="rgba(58,135,200,0.4)" stroke-width="0.8"/>
+                            <!-- Cockpit window reflections -->
+                            <path d="M456 127 C460 125 466 126 468 129" stroke="rgba(255,255,255,0.15)" stroke-width="0.8" fill="none"/>
+                            <!-- Fuselage windows (cargo door windows) -->
+                            <rect cx="400" cy="122" width="10" height="7" rx="2" fill="rgba(240,200,80,0.3)" stroke="rgba(240,200,80,0.5)" stroke-width="0.6" x="395" y="119"/>
+                            <rect cx="378" cy="120" width="10" height="7" rx="2" fill="rgba(240,200,80,0.3)" stroke="rgba(240,200,80,0.5)" stroke-width="0.6" x="373" y="117"/>
+                            <rect cx="356" cy="119" width="10" height="7" rx="2" fill="rgba(240,200,80,0.3)" stroke="rgba(240,200,80,0.5)" stroke-width="0.6" x="351" y="116"/>
+                            <rect cx="334" cy="118" width="10" height="7" rx="2" fill="rgba(240,200,80,0.3)" stroke="rgba(240,200,80,0.5)" stroke-width="0.6" x="329" y="115"/>
+                            <rect cx="312" cy="117" width="10" height="7" rx="2" fill="rgba(240,200,80,0.25)" stroke="rgba(240,200,80,0.45)" stroke-width="0.6" x="307" y="114"/>
+                            <!-- Boxmar livery stripe (double) -->
+                            <path d="M110 138 C170 136 255 136 340 138 C380 139 420 140 445 141" stroke="rgba(200,146,42,0.7)" stroke-width="3.5" fill="none"/>
+                            <path d="M110 143 C170 141 255 141 340 143 C380 144 420 145 445 146" stroke="rgba(200,146,42,0.3)" stroke-width="1.5" fill="none"/>
+                            <!-- Cargo door outline -->
+                            <rect x="200" y="113" width="80" height="34" rx="2" fill="none" stroke="rgba(58,135,200,0.2)" stroke-width="0.8" stroke-dasharray="4 3"/>
+
+                            <!-- ── WINGS ── -->
+                            <!-- Upper wing -->
+                            <path d="M220 130 C245 104 285 78 330 66 C352 60 375 62 385 69 C395 76 390 90 372 98 C350 108 308 118 268 126 C248 130 230 132 220 130 Z" fill="url(#wingGrad)" stroke="rgba(58,135,200,0.3)" stroke-width="1.2"/>
+                            <!-- Upper wing highlight -->
+                            <path d="M225 130 C248 108 282 84 318 72" stroke="rgba(58,135,200,0.15)" stroke-width="1" fill="none"/>
+                            <!-- Lower wing -->
+                            <path d="M220 130 C245 156 285 182 330 194 C352 200 375 198 385 191 C395 184 390 170 372 162 C350 152 308 142 268 134 C248 130 230 128 220 130 Z" fill="url(#wingGrad)" stroke="rgba(58,135,200,0.3)" stroke-width="1.2"/>
+                            <!-- Wing stripes -->
+                            <path d="M226 130 C252 108 288 82 322 70" stroke="rgba(200,146,42,0.45)" stroke-width="1.8" fill="none"/>
+                            <path d="M226 130 C252 152 288 178 322 190" stroke="rgba(200,146,42,0.45)" stroke-width="1.8" fill="none"/>
+                            <!-- Wing flaps -->
+                            <path d="M340 70 C355 68 370 72 380 78 C385 82 382 88 375 90 C365 92 350 88 340 82 Z" fill="rgba(10,22,40,0.6)" stroke="rgba(58,135,200,0.2)" stroke-width="0.8"/>
+                            <path d="M340 190 C355 192 370 188 380 182 C385 178 382 172 375 170 C365 168 350 172 340 178 Z" fill="rgba(10,22,40,0.6)" stroke="rgba(58,135,200,0.2)" stroke-width="0.8"/>
+
+                            <!-- ── ENGINES ── -->
+                            <!-- Engine 1 (upper) -->
+                            <ellipse cx="295" cy="94" rx="26" ry="12" fill="rgba(8,18,38,0.97)" stroke="rgba(58,135,200,0.45)" stroke-width="1.2"/>
+                            <ellipse cx="295" cy="94" rx="18" ry="8" fill="rgba(240,200,80,0.12)" filter="url(#engineGlow)"/>
+                            <ellipse cx="295" cy="94" rx="10" ry="5" fill="rgba(240,200,80,0.2)"/>
+                            <!-- Engine 1 exhaust -->
+                            <ellipse cx="269" cy="94" rx="10" ry="6" fill="rgba(240,200,80,0.4)" filter="url(#airGlow)"/>
+                            <!-- Engine 2 (lower) -->
+                            <ellipse cx="295" cy="166" rx="26" ry="12" fill="rgba(8,18,38,0.97)" stroke="rgba(58,135,200,0.45)" stroke-width="1.2"/>
+                            <ellipse cx="295" cy="166" rx="18" ry="8" fill="rgba(240,200,80,0.12)" filter="url(#engineGlow)"/>
+                            <ellipse cx="295" cy="166" rx="10" ry="5" fill="rgba(240,200,80,0.2)"/>
+                            <!-- Engine 2 exhaust -->
+                            <ellipse cx="269" cy="166" rx="10" ry="6" fill="rgba(240,200,80,0.4)" filter="url(#airGlow)"/>
+                            <!-- Engine pylons -->
+                            <rect x="280" y="82" width="30" height="14" rx="2" fill="rgba(12,28,55,0.8)" stroke="rgba(58,135,200,0.2)" stroke-width="0.6"/>
+                            <rect x="280" y="164" width="30" height="14" rx="2" fill="rgba(12,28,55,0.8)" stroke="rgba(58,135,200,0.2)" stroke-width="0.6"/>
+
+                            <!-- ── TAIL ── -->
+                            <!-- Vertical tail fin -->
+                            <path d="M100 128 C94 106 97 84 104 72 C110 62 120 60 125 66 C130 72 128 90 122 106 C117 118 110 126 100 128 Z" fill="url(#wingGrad)" stroke="rgba(58,135,200,0.3)" stroke-width="1"/>
+                            <!-- Tail fin stripe -->
+                            <path d="M102 128 C97 110 99 90 106 78" stroke="rgba(200,146,42,0.4)" stroke-width="1.5" fill="none"/>
+                            <!-- Horizontal stabilizers -->
+                            <path d="M100 136 C88 127 72 122 55 125 C44 127 42 133 50 136 C62 140 84 138 100 136 Z" fill="url(#wingGrad)" stroke="rgba(58,135,200,0.25)" stroke-width="0.8"/>
+                            <path d="M100 140 C88 149 72 154 55 151 C44 149 42 143 50 140 C62 136 84 138 100 140 Z" fill="url(#wingGrad)" stroke="rgba(58,135,200,0.25)" stroke-width="0.8"/>
+
+                            <!-- ── NAVIGATION LIGHTS ── -->
+                            <circle cx="330" cy="66" r="4" fill="rgba(255,50,50,0.9)" filter="url(#airSoftGlow)"/>
+                            <circle cx="330" cy="194" r="4" fill="rgba(50,255,50,0.9)" filter="url(#airSoftGlow)"/>
+                            <circle cx="484" cy="133" r="4" fill="rgba(255,255,255,0.9)" filter="url(#airSoftGlow)"/>
+                            <!-- Anti-collision strobe -->
+                            <circle cx="260" cy="112" r="3" fill="rgba(255,50,50,0.6)" filter="url(#airSoftGlow)"/>
+
+                            <!-- ── SPEED LINES ── -->
+                            <line x1="0" y1="120" x2="85" y2="120" stroke="rgba(58,135,200,0.22)" stroke-width="2" stroke-dasharray="18 10"/>
+                            <line x1="0" y1="133" x2="65" y2="133" stroke="rgba(200,146,42,0.18)" stroke-width="1.5" stroke-dasharray="12 14"/>
+                            <line x1="0" y1="146" x2="75" y2="146" stroke="rgba(58,135,200,0.15)" stroke-width="1.2" stroke-dasharray="15 12"/>
+                            <line x1="0" y1="158" x2="55" y2="158" stroke="rgba(200,146,42,0.12)" stroke-width="1" stroke-dasharray="10 16"/>
+
+                            <!-- ── GROUND (airport) ── -->
+                            <rect x="0" y="255" width="520" height="45" fill="rgba(5,12,22,0.7)"/>
+                            <line x1="0" y1="262" x2="520" y2="262" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                            <!-- Runway markings -->
+                            <line x1="0" y1="275" x2="520" y2="275" stroke="rgba(200,146,42,0.18)" stroke-width="1.5" stroke-dasharray="35 18"/>
+                            <!-- Airport lights -->
+                            <circle cx="50" cy="260" r="2" fill="rgba(200,146,42,0.5)"/>
+                            <circle cx="130" cy="260" r="2" fill="rgba(200,146,42,0.5)"/>
+                            <circle cx="210" cy="260" r="2" fill="rgba(200,146,42,0.5)"/>
+                            <circle cx="290" cy="260" r="2" fill="rgba(200,146,42,0.5)"/>
+                            <circle cx="370" cy="260" r="2" fill="rgba(200,146,42,0.5)"/>
+                            <circle cx="450" cy="260" r="2" fill="rgba(200,146,42,0.5)"/>
                         </svg>
                         <p class="svc-illus-caption">Intercontinental airfreight — 24 to 72 hours worldwide</p>
                     </div>

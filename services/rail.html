@@ -135,115 +135,214 @@
                 </div>
 
                 <div class="reveal reveal-delay-2">
-                    <!-- Rail Freight Illustration -->
-                    <div class="svc-illustration svc-illustration--dark" style="margin-bottom:var(--space-xl)">
-                        <svg viewBox="0 0 480 240" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Freight Train Rail Illustration">
+                    <!-- Rail Freight Illustration — Enhanced -->
+                    <div class="svc-illustration svc-illustration--dark" style="margin-bottom:var(--space-xl);padding:0;overflow:hidden">
+                        <svg viewBox="0 0 520 280" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block" aria-label="Freight Train Rail Illustration">
                             <defs>
                                 <linearGradient id="railSky" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" stop-color="#020810"/>
+                                    <stop offset="0%" stop-color="#010508"/>
+                                    <stop offset="50%" stop-color="#050E1C"/>
                                     <stop offset="100%" stop-color="#071828"/>
                                 </linearGradient>
-                                <linearGradient id="trainLoco" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <linearGradient id="trainLoco" x1="0%" y1="0%" x2="100%" y2="100%">
                                     <stop offset="0%" stop-color="#1E4A78"/>
-                                    <stop offset="100%" stop-color="#0A1628"/>
+                                    <stop offset="50%" stop-color="#0F2340"/>
+                                    <stop offset="100%" stop-color="#071828"/>
                                 </linearGradient>
-                                <filter id="railGlow">
-                                    <feGaussianBlur stdDeviation="4" result="blur"/>
+                                <linearGradient id="wagonGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#152F56"/>
+                                    <stop offset="100%" stop-color="#071828"/>
+                                </linearGradient>
+                                <linearGradient id="railWheelRim" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#8FA4B8"/>
+                                    <stop offset="100%" stop-color="#3A5060"/>
+                                </linearGradient>
+                                <filter id="railGlow" x="-50%" y="-50%" width="200%" height="200%">
+                                    <feGaussianBlur stdDeviation="5" result="blur"/>
+                                    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                                </filter>
+                                <filter id="railSoftGlow" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feGaussianBlur stdDeviation="2" result="blur"/>
                                     <feComposite in="SourceGraphic" in2="blur" operator="over"/>
                                 </filter>
                             </defs>
-                            <!-- Background -->
-                            <rect width="480" height="240" fill="url(#railSky)" rx="12"/>
+
+                            <!-- ── SKY ── -->
+                            <rect width="520" height="280" fill="url(#railSky)"/>
                             <!-- Stars -->
-                            <circle cx="50" cy="20" r="1" fill="rgba(255,255,255,0.4)"/>
-                            <circle cx="150" cy="12" r="1.5" fill="rgba(255,255,255,0.3)"/>
-                            <circle cx="280" cy="18" r="1" fill="rgba(255,255,255,0.5)"/>
-                            <circle cx="400" cy="10" r="1.5" fill="rgba(255,255,255,0.4)"/>
-                            <!-- Distant mountains -->
-                            <path d="M0 160 C60 120 120 140 180 125 C240 110 300 130 360 118 C420 106 460 125 480 120 L480 170 L0 170 Z" fill="rgba(10,22,40,0.7)"/>
-                            <!-- Ground -->
-                            <rect x="0" y="170" width="480" height="70" fill="rgba(5,14,28,0.8)" rx="0"/>
-                            <!-- Rail tracks (perspective) -->
-                            <!-- Left rail -->
-                            <path d="M0 210 C120 205 240 200 480 195" stroke="rgba(168,184,200,0.5)" stroke-width="3" fill="none"/>
+                            <circle cx="30" cy="15" r="1.2" fill="rgba(255,255,255,0.6)"/>
+                            <circle cx="90" cy="8" r="0.8" fill="rgba(255,255,255,0.5)"/>
+                            <circle cx="160" cy="20" r="1" fill="rgba(255,255,255,0.4)"/>
+                            <circle cx="240" cy="10" r="1.2" fill="rgba(255,255,255,0.6)"/>
+                            <circle cx="320" cy="16" r="0.8" fill="rgba(255,255,255,0.5)"/>
+                            <circle cx="400" cy="8" r="1" fill="rgba(255,255,255,0.4)"/>
+                            <circle cx="480" cy="18" r="1.2" fill="rgba(255,255,255,0.6)"/>
+                            <!-- Milky way -->
+                            <path d="M0 45 C130 38 260 50 390 42 C450 38 490 48 520 44" stroke="rgba(255,255,255,0.03)" stroke-width="22" fill="none"/>
+
+                            <!-- ── MOUNTAINS ── -->
+                            <path d="M0 185 C40 148 85 165 130 150 C175 135 215 155 260 142 C305 129 345 148 390 136 C435 124 475 142 520 138 L520 200 L0 200 Z" fill="rgba(8,18,35,0.9)"/>
+                            <path d="M0 195 C60 172 120 185 180 172 C240 158 300 178 360 168 C420 158 475 175 520 170 L520 200 L0 200 Z" fill="rgba(12,25,45,0.8)"/>
+                            <!-- City lights on horizon -->
+                            <circle cx="100" cy="192" r="1.5" fill="rgba(200,146,42,0.4)"/>
+                            <circle cx="180" cy="188" r="1" fill="rgba(58,135,200,0.4)"/>
+                            <circle cx="280" cy="190" r="1.5" fill="rgba(200,146,42,0.4)"/>
+                            <circle cx="380" cy="186" r="1" fill="rgba(58,135,200,0.3)"/>
+                            <circle cx="460" cy="192" r="1.5" fill="rgba(200,146,42,0.4)"/>
+
+                            <!-- ── GROUND ── -->
+                            <rect x="0" y="200" width="520" height="80" fill="rgba(5,12,22,0.85)"/>
+                            <rect x="0" y="200" width="520" height="2" fill="rgba(255,255,255,0.06)"/>
+                            <!-- Ballast (gravel texture) -->
+                            <rect x="0" y="218" width="520" height="20" fill="rgba(40,60,80,0.3)"/>
+
+                            <!-- ── RAIL TRACKS ── -->
+                            <!-- Left rail (steel) -->
+                            <path d="M0 232 C130 226 260 220 520 214" stroke="rgba(168,184,200,0.6)" stroke-width="3.5" fill="none"/>
                             <!-- Right rail -->
-                            <path d="M0 220 C120 215 240 210 480 205" stroke="rgba(168,184,200,0.5)" stroke-width="3" fill="none"/>
-                            <!-- Rail ties/sleepers -->
-                            <line x1="20" y1="208" x2="20" y2="222" stroke="rgba(100,120,140,0.4)" stroke-width="4"/>
-                            <line x1="60" y1="207" x2="60" y2="221" stroke="rgba(100,120,140,0.4)" stroke-width="4"/>
-                            <line x1="100" y1="206" x2="100" y2="220" stroke="rgba(100,120,140,0.4)" stroke-width="4"/>
-                            <line x1="140" y1="205" x2="140" y2="219" stroke="rgba(100,120,140,0.4)" stroke-width="4"/>
-                            <line x1="180" y1="204" x2="180" y2="218" stroke="rgba(100,120,140,0.4)" stroke-width="4"/>
-                            <line x1="220" y1="203" x2="220" y2="217" stroke="rgba(100,120,140,0.4)" stroke-width="4"/>
-                            <line x1="260" y1="202" x2="260" y2="216" stroke="rgba(100,120,140,0.4)" stroke-width="4"/>
-                            <line x1="300" y1="201" x2="300" y2="215" stroke="rgba(100,120,140,0.4)" stroke-width="4"/>
-                            <line x1="340" y1="200" x2="340" y2="214" stroke="rgba(100,120,140,0.4)" stroke-width="4"/>
-                            <line x1="380" y1="199" x2="380" y2="213" stroke="rgba(100,120,140,0.4)" stroke-width="4"/>
-                            <line x1="420" y1="198" x2="420" y2="212" stroke="rgba(100,120,140,0.4)" stroke-width="4"/>
-                            <line x1="460" y1="197" x2="460" y2="211" stroke="rgba(100,120,140,0.4)" stroke-width="4"/>
-                            <!-- Electric wire -->
-                            <path d="M0 80 C120 78 240 76 480 74" stroke="rgba(168,184,200,0.2)" stroke-width="0.8" fill="none"/>
+                            <path d="M0 244 C130 238 260 232 520 226" stroke="rgba(168,184,200,0.6)" stroke-width="3.5" fill="none"/>
+                            <!-- Rail shine -->
+                            <path d="M0 231 C130 225 260 219 520 213" stroke="rgba(255,255,255,0.15)" stroke-width="1" fill="none"/>
+                            <path d="M0 243 C130 237 260 231 520 225" stroke="rgba(255,255,255,0.15)" stroke-width="1" fill="none"/>
+                            <!-- Sleepers/ties -->
+                            <line x1="18" y1="228" x2="18" y2="248" stroke="rgba(80,100,120,0.5)" stroke-width="5"/>
+                            <line x1="58" y1="227" x2="58" y2="247" stroke="rgba(80,100,120,0.5)" stroke-width="5"/>
+                            <line x1="98" y1="226" x2="98" y2="246" stroke="rgba(80,100,120,0.5)" stroke-width="5"/>
+                            <line x1="138" y1="225" x2="138" y2="245" stroke="rgba(80,100,120,0.5)" stroke-width="5"/>
+                            <line x1="178" y1="224" x2="178" y2="244" stroke="rgba(80,100,120,0.5)" stroke-width="5"/>
+                            <line x1="218" y1="223" x2="218" y2="243" stroke="rgba(80,100,120,0.5)" stroke-width="5"/>
+                            <line x1="258" y1="222" x2="258" y2="242" stroke="rgba(80,100,120,0.5)" stroke-width="5"/>
+                            <line x1="298" y1="221" x2="298" y2="241" stroke="rgba(80,100,120,0.5)" stroke-width="5"/>
+                            <line x1="338" y1="220" x2="338" y2="240" stroke="rgba(80,100,120,0.5)" stroke-width="5"/>
+                            <line x1="378" y1="219" x2="378" y2="239" stroke="rgba(80,100,120,0.5)" stroke-width="5"/>
+                            <line x1="418" y1="218" x2="418" y2="238" stroke="rgba(80,100,120,0.5)" stroke-width="5"/>
+                            <line x1="458" y1="217" x2="458" y2="237" stroke="rgba(80,100,120,0.5)" stroke-width="5"/>
+                            <line x1="498" y1="216" x2="498" y2="236" stroke="rgba(80,100,120,0.5)" stroke-width="5"/>
+
+                            <!-- ── ELECTRIC INFRASTRUCTURE ── -->
+                            <!-- Catenary wire -->
+                            <path d="M0 88 C130 85 260 82 520 78" stroke="rgba(168,184,200,0.22)" stroke-width="1" fill="none"/>
+                            <!-- Contact wire -->
+                            <path d="M0 92 C130 89 260 86 520 82" stroke="rgba(168,184,200,0.18)" stroke-width="0.8" fill="none"/>
                             <!-- Poles -->
-                            <line x1="80" y1="80" x2="80" y2="175" stroke="rgba(168,184,200,0.2)" stroke-width="1"/>
-                            <line x1="200" y1="78" x2="200" y2="175" stroke="rgba(168,184,200,0.2)" stroke-width="1"/>
-                            <line x1="320" y1="76" x2="320" y2="175" stroke="rgba(168,184,200,0.2)" stroke-width="1"/>
-                            <line x1="440" y1="74" x2="440" y2="175" stroke="rgba(168,184,200,0.2)" stroke-width="1"/>
+                            <line x1="80" y1="88" x2="80" y2="202" stroke="rgba(168,184,200,0.22)" stroke-width="1.2"/>
+                            <line x1="80" y1="88" x2="68" y2="88" stroke="rgba(168,184,200,0.22)" stroke-width="1.2"/>
+                            <line x1="80" y1="88" x2="92" y2="88" stroke="rgba(168,184,200,0.22)" stroke-width="1.2"/>
+                            <line x1="200" y1="86" x2="200" y2="202" stroke="rgba(168,184,200,0.22)" stroke-width="1.2"/>
+                            <line x1="200" y1="86" x2="188" y2="86" stroke="rgba(168,184,200,0.22)" stroke-width="1.2"/>
+                            <line x1="200" y1="86" x2="212" y2="86" stroke="rgba(168,184,200,0.22)" stroke-width="1.2"/>
+                            <line x1="320" y1="84" x2="320" y2="202" stroke="rgba(168,184,200,0.22)" stroke-width="1.2"/>
+                            <line x1="320" y1="84" x2="308" y2="84" stroke="rgba(168,184,200,0.22)" stroke-width="1.2"/>
+                            <line x1="320" y1="84" x2="332" y2="84" stroke="rgba(168,184,200,0.22)" stroke-width="1.2"/>
+                            <line x1="440" y1="82" x2="440" y2="202" stroke="rgba(168,184,200,0.22)" stroke-width="1.2"/>
+                            <line x1="440" y1="82" x2="428" y2="82" stroke="rgba(168,184,200,0.22)" stroke-width="1.2"/>
+                            <line x1="440" y1="82" x2="452" y2="82" stroke="rgba(168,184,200,0.22)" stroke-width="1.2"/>
 
                             <!-- ── FREIGHT TRAIN ── -->
+                            <!-- Train shadow -->
+                            <ellipse cx="280" cy="240" rx="250" ry="12" fill="rgba(0,0,0,0.3)"/>
+
                             <!-- Wagon 3 (rear) -->
-                            <rect x="30" y="140" width="90" height="55" rx="3" fill="rgba(10,22,40,0.9)" stroke="rgba(58,135,200,0.25)" stroke-width="0.8"/>
-                            <rect x="35" y="145" width="80" height="35" rx="2" fill="rgba(58,135,200,0.15)" stroke="rgba(58,135,200,0.2)" stroke-width="0.5"/>
-                            <circle cx="55" cy="200" r="10" fill="#0A1628" stroke="rgba(168,184,200,0.35)" stroke-width="1.5"/>
-                            <circle cx="55" cy="200" r="5" fill="#152F56"/>
-                            <circle cx="100" cy="200" r="10" fill="#0A1628" stroke="rgba(168,184,200,0.35)" stroke-width="1.5"/>
-                            <circle cx="100" cy="200" r="5" fill="#152F56"/>
-                            <!-- Wagon 2 (middle) -->
-                            <rect x="130" y="138" width="100" height="57" rx="3" fill="rgba(10,22,40,0.9)" stroke="rgba(58,135,200,0.25)" stroke-width="0.8"/>
-                            <rect x="135" y="143" width="90" height="37" rx="2" fill="rgba(200,146,42,0.12)" stroke="rgba(200,146,42,0.2)" stroke-width="0.5"/>
-                            <!-- Boxmar text on wagon -->
-                            <text x="180" y="166" font-family="Arial" font-weight="bold" font-size="9" fill="rgba(200,146,42,0.7)" text-anchor="middle" letter-spacing="1">BOXMAR</text>
-                            <circle cx="155" cy="200" r="10" fill="#0A1628" stroke="rgba(168,184,200,0.35)" stroke-width="1.5"/>
-                            <circle cx="155" cy="200" r="5" fill="#152F56"/>
-                            <circle cx="205" cy="200" r="10" fill="#0A1628" stroke="rgba(168,184,200,0.35)" stroke-width="1.5"/>
-                            <circle cx="205" cy="200" r="5" fill="#152F56"/>
+                            <rect x="22" y="155" width="105" height="68" rx="4" fill="url(#wagonGrad)" stroke="rgba(58,135,200,0.28)" stroke-width="1"/>
+                            <rect x="22" y="155" width="105" height="5" rx="2" fill="rgba(58,135,200,0.2)"/>
+                            <!-- Wagon 3 corrugations -->
+                            <line x1="55" y1="155" x2="55" y2="223" stroke="rgba(58,135,200,0.1)" stroke-width="0.8"/>
+                            <line x1="88" y1="155" x2="88" y2="223" stroke="rgba(58,135,200,0.1)" stroke-width="0.8"/>
+                            <line x1="121" y1="155" x2="121" y2="223" stroke="rgba(58,135,200,0.1)" stroke-width="0.8"/>
+                            <!-- Wagon 3 wheels -->
+                            <circle cx="48" cy="228" r="13" fill="#060E18" stroke="url(#railWheelRim)" stroke-width="2"/>
+                            <circle cx="48" cy="228" r="7" fill="#0A1628" stroke="rgba(168,184,200,0.25)" stroke-width="1.2"/>
+                            <circle cx="48" cy="228" r="3" fill="rgba(200,146,42,0.5)"/>
+                            <circle cx="100" cy="228" r="13" fill="#060E18" stroke="url(#railWheelRim)" stroke-width="2"/>
+                            <circle cx="100" cy="228" r="7" fill="#0A1628" stroke="rgba(168,184,200,0.25)" stroke-width="1.2"/>
+                            <circle cx="100" cy="228" r="3" fill="rgba(200,146,42,0.5)"/>
+
+                            <!-- Wagon 2 (middle — Boxmar branded) -->
+                            <rect x="135" y="152" width="115" height="71" rx="4" fill="url(#wagonGrad)" stroke="rgba(58,135,200,0.28)" stroke-width="1"/>
+                            <rect x="135" y="152" width="115" height="5" rx="2" fill="rgba(200,146,42,0.25)"/>
+                            <!-- Boxmar branding -->
+                            <rect x="148" y="168" width="89" height="30" rx="3" fill="rgba(200,146,42,0.1)" stroke="rgba(200,146,42,0.35)" stroke-width="1"/>
+                            <text x="192" y="186" font-family="Arial" font-weight="bold" font-size="10" fill="rgba(200,146,42,0.85)" text-anchor="middle" letter-spacing="1.5">BOXMAR</text>
+                            <!-- Wagon 2 wheels -->
+                            <circle cx="162" cy="228" r="13" fill="#060E18" stroke="url(#railWheelRim)" stroke-width="2"/>
+                            <circle cx="162" cy="228" r="7" fill="#0A1628" stroke="rgba(168,184,200,0.25)" stroke-width="1.2"/>
+                            <circle cx="162" cy="228" r="3" fill="rgba(200,146,42,0.5)"/>
+                            <circle cx="218" cy="228" r="13" fill="#060E18" stroke="url(#railWheelRim)" stroke-width="2"/>
+                            <circle cx="218" cy="228" r="7" fill="#0A1628" stroke="rgba(168,184,200,0.25)" stroke-width="1.2"/>
+                            <circle cx="218" cy="228" r="3" fill="rgba(200,146,42,0.5)"/>
+
                             <!-- Wagon 1 (front) -->
-                            <rect x="240" y="136" width="100" height="59" rx="3" fill="rgba(10,22,40,0.9)" stroke="rgba(58,135,200,0.25)" stroke-width="0.8"/>
-                            <rect x="245" y="141" width="90" height="39" rx="2" fill="rgba(58,135,200,0.12)" stroke="rgba(58,135,200,0.2)" stroke-width="0.5"/>
-                            <circle cx="265" cy="200" r="10" fill="#0A1628" stroke="rgba(168,184,200,0.35)" stroke-width="1.5"/>
-                            <circle cx="265" cy="200" r="5" fill="#152F56"/>
-                            <circle cx="315" cy="200" r="10" fill="#0A1628" stroke="rgba(168,184,200,0.35)" stroke-width="1.5"/>
-                            <circle cx="315" cy="200" r="5" fill="#152F56"/>
-                            <!-- Locomotive -->
-                            <rect x="350" y="125" width="110" height="70" rx="5" fill="url(#trainLoco)" stroke="rgba(58,135,200,0.4)" stroke-width="1.2"/>
+                            <rect x="258" y="150" width="115" height="73" rx="4" fill="url(#wagonGrad)" stroke="rgba(58,135,200,0.28)" stroke-width="1"/>
+                            <rect x="258" y="150" width="115" height="5" rx="2" fill="rgba(58,135,200,0.2)"/>
+                            <line x1="290" y1="150" x2="290" y2="223" stroke="rgba(58,135,200,0.1)" stroke-width="0.8"/>
+                            <line x1="325" y1="150" x2="325" y2="223" stroke="rgba(58,135,200,0.1)" stroke-width="0.8"/>
+                            <line x1="358" y1="150" x2="358" y2="223" stroke="rgba(58,135,200,0.1)" stroke-width="0.8"/>
+                            <!-- Wagon 1 wheels -->
+                            <circle cx="285" cy="228" r="13" fill="#060E18" stroke="url(#railWheelRim)" stroke-width="2"/>
+                            <circle cx="285" cy="228" r="7" fill="#0A1628" stroke="rgba(168,184,200,0.25)" stroke-width="1.2"/>
+                            <circle cx="285" cy="228" r="3" fill="rgba(200,146,42,0.5)"/>
+                            <circle cx="345" cy="228" r="13" fill="#060E18" stroke="url(#railWheelRim)" stroke-width="2"/>
+                            <circle cx="345" cy="228" r="7" fill="#0A1628" stroke="rgba(168,184,200,0.25)" stroke-width="1.2"/>
+                            <circle cx="345" cy="228" r="3" fill="rgba(200,146,42,0.5)"/>
+
+                            <!-- ── LOCOMOTIVE ── -->
+                            <rect x="378" y="138" width="125" height="85" rx="6" fill="url(#trainLoco)" stroke="rgba(58,135,200,0.45)" stroke-width="1.5"/>
+                            <!-- Loco top highlight -->
+                            <rect x="378" y="138" width="125" height="6" rx="3" fill="rgba(58,135,200,0.2)"/>
                             <!-- Loco front cab -->
-                            <path d="M460 125 C470 125 478 130 480 138 C480 148 475 155 465 158 C460 160 455 160 450 158 L450 125 Z" fill="rgba(20,50,90,0.95)" stroke="rgba(58,135,200,0.35)" stroke-width="1"/>
+                            <path d="M503 138 C515 138 524 144 526 154 C528 166 522 175 510 178 C504 180 498 180 492 178 L492 138 Z" fill="rgba(18,45,85,0.97)" stroke="rgba(58,135,200,0.4)" stroke-width="1.2"/>
                             <!-- Loco windows -->
-                            <rect x="358" y="132" width="30" height="20" rx="3" fill="rgba(58,135,200,0.25)" stroke="rgba(58,135,200,0.4)" stroke-width="0.8"/>
-                            <rect x="395" y="132" width="30" height="20" rx="3" fill="rgba(58,135,200,0.25)" stroke="rgba(58,135,200,0.4)" stroke-width="0.8"/>
-                            <rect x="455" y="132" width="18" height="16" rx="3" fill="rgba(58,135,200,0.3)" stroke="rgba(58,135,200,0.5)" stroke-width="0.8"/>
-                            <!-- Loco gold stripe -->
-                            <rect x="350" y="155" width="110" height="5" fill="rgba(200,146,42,0.5)"/>
-                            <!-- Headlight -->
-                            <circle cx="476" cy="142" r="5" fill="rgba(240,200,80,0.9)" filter="url(#railGlow)"/>
+                            <rect x="386" y="146" width="36" height="24" rx="4" fill="rgba(58,135,200,0.28)" stroke="rgba(58,135,200,0.45)" stroke-width="1"/>
+                            <rect x="428" y="146" width="36" height="24" rx="4" fill="rgba(58,135,200,0.28)" stroke="rgba(58,135,200,0.45)" stroke-width="1"/>
+                            <rect x="494" y="148" width="22" height="20" rx="3" fill="rgba(58,135,200,0.32)" stroke="rgba(58,135,200,0.5)" stroke-width="1"/>
+                            <!-- Window reflections -->
+                            <path d="M390 150 C398 148 406 149 410 152" stroke="rgba(255,255,255,0.15)" stroke-width="0.8" fill="none"/>
+                            <path d="M432 150 C440 148 448 149 452 152" stroke="rgba(255,255,255,0.15)" stroke-width="0.8" fill="none"/>
+                            <!-- Loco gold stripe (double) -->
+                            <rect x="378" y="175" width="125" height="5" fill="rgba(200,146,42,0.6)"/>
+                            <rect x="378" y="182" width="125" height="2" fill="rgba(200,146,42,0.3)"/>
+                            <!-- Loco grill -->
+                            <rect x="520" y="152" width="6" height="50" rx="2" fill="rgba(200,146,42,0.25)" stroke="rgba(200,146,42,0.4)" stroke-width="0.8"/>
+                            <line x1="520" y1="162" x2="526" y2="162" stroke="rgba(200,146,42,0.3)" stroke-width="1"/>
+                            <line x1="520" y1="172" x2="526" y2="172" stroke="rgba(200,146,42,0.3)" stroke-width="1"/>
+                            <line x1="520" y1="182" x2="526" y2="182" stroke="rgba(200,146,42,0.3)" stroke-width="1"/>
+                            <!-- Headlights -->
+                            <rect x="520" y="148" width="6" height="8" rx="2" fill="rgba(255,220,100,0.9)" filter="url(#railSoftGlow)"/>
+                            <rect x="520" y="196" width="6" height="6" rx="2" fill="rgba(255,200,60,0.6)" filter="url(#railSoftGlow)"/>
                             <!-- Headlight beam -->
-                            <path d="M480 142 C490 135 500 138 510 142" stroke="rgba(240,200,80,0.2)" stroke-width="6" fill="none"/>
-                            <!-- Loco wheels -->
-                            <circle cx="375" cy="200" r="12" fill="#0A1628" stroke="rgba(168,184,200,0.4)" stroke-width="2"/>
-                            <circle cx="375" cy="200" r="6" fill="#152F56" stroke="rgba(168,184,200,0.3)" stroke-width="1"/>
-                            <circle cx="375" cy="200" r="2.5" fill="rgba(200,146,42,0.6)"/>
-                            <circle cx="415" cy="200" r="12" fill="#0A1628" stroke="rgba(168,184,200,0.4)" stroke-width="2"/>
-                            <circle cx="415" cy="200" r="6" fill="#152F56" stroke="rgba(168,184,200,0.3)" stroke-width="1"/>
-                            <circle cx="415" cy="200" r="2.5" fill="rgba(200,146,42,0.6)"/>
-                            <circle cx="450" cy="200" r="12" fill="#0A1628" stroke="rgba(168,184,200,0.4)" stroke-width="2"/>
-                            <circle cx="450" cy="200" r="6" fill="#152F56" stroke="rgba(168,184,200,0.3)" stroke-width="1"/>
-                            <circle cx="450" cy="200" r="2.5" fill="rgba(200,146,42,0.6)"/>
-                            <!-- Pantograph (electric) -->
-                            <line x1="390" y1="125" x2="380" y2="80" stroke="rgba(168,184,200,0.3)" stroke-width="1"/>
-                            <line x1="410" y1="125" x2="420" y2="80" stroke="rgba(168,184,200,0.3)" stroke-width="1"/>
-                            <line x1="380" y1="80" x2="420" y2="80" stroke="rgba(168,184,200,0.4)" stroke-width="1.5"/>
-                            <!-- Speed lines -->
-                            <line x1="0" y1="148" x2="25" y2="148" stroke="rgba(200,146,42,0.2)" stroke-width="1.5" stroke-dasharray="10 6"/>
-                            <line x1="0" y1="158" x2="20" y2="158" stroke="rgba(58,135,200,0.15)" stroke-width="1" stroke-dasharray="8 8"/>
+                            <path d="M526 152 C550 145 570 148 520 152" stroke="rgba(255,220,100,0.1)" stroke-width="12" fill="none" stroke-linecap="round"/>
+                            <!-- Loco wheels (large driving wheels) -->
+                            <circle cx="408" cy="228" r="16" fill="#060E18" stroke="url(#railWheelRim)" stroke-width="2.5"/>
+                            <circle cx="408" cy="228" r="9" fill="#0A1628" stroke="rgba(168,184,200,0.3)" stroke-width="1.5"/>
+                            <circle cx="408" cy="228" r="4" fill="rgba(200,146,42,0.6)"/>
+                            <circle cx="408" cy="212" r="2.5" fill="rgba(168,184,200,0.4)"/>
+                            <circle cx="424" cy="228" r="2.5" fill="rgba(168,184,200,0.4)"/>
+                            <circle cx="408" cy="244" r="2.5" fill="rgba(168,184,200,0.4)"/>
+                            <circle cx="392" cy="228" r="2.5" fill="rgba(168,184,200,0.4)"/>
+                            <circle cx="458" cy="228" r="16" fill="#060E18" stroke="url(#railWheelRim)" stroke-width="2.5"/>
+                            <circle cx="458" cy="228" r="9" fill="#0A1628" stroke="rgba(168,184,200,0.3)" stroke-width="1.5"/>
+                            <circle cx="458" cy="228" r="4" fill="rgba(200,146,42,0.6)"/>
+                            <circle cx="458" cy="212" r="2.5" fill="rgba(168,184,200,0.4)"/>
+                            <circle cx="474" cy="228" r="2.5" fill="rgba(168,184,200,0.4)"/>
+                            <circle cx="458" cy="244" r="2.5" fill="rgba(168,184,200,0.4)"/>
+                            <circle cx="442" cy="228" r="2.5" fill="rgba(168,184,200,0.4)"/>
+                            <circle cx="500" cy="228" r="14" fill="#060E18" stroke="url(#railWheelRim)" stroke-width="2"/>
+                            <circle cx="500" cy="228" r="7" fill="#0A1628" stroke="rgba(168,184,200,0.25)" stroke-width="1.2"/>
+                            <circle cx="500" cy="228" r="3" fill="rgba(200,146,42,0.5)"/>
+                            <!-- Connecting rod -->
+                            <line x1="408" y1="228" x2="458" y2="228" stroke="rgba(168,184,200,0.3)" stroke-width="3" stroke-linecap="round"/>
+                            <!-- Pantograph -->
+                            <line x1="420" y1="138" x2="408" y2="92" stroke="rgba(168,184,200,0.35)" stroke-width="1.2"/>
+                            <line x1="445" y1="138" x2="457" y2="92" stroke="rgba(168,184,200,0.35)" stroke-width="1.2"/>
+                            <line x1="408" y1="92" x2="457" y2="92" stroke="rgba(168,184,200,0.45)" stroke-width="2"/>
+                            <!-- Pantograph contact point glow -->
+                            <circle cx="432" cy="88" r="3" fill="rgba(58,135,200,0.6)" filter="url(#railSoftGlow)"/>
+
+                            <!-- ── SPEED LINES ── -->
+                            <line x1="0" y1="162" x2="18" y2="162" stroke="rgba(200,146,42,0.25)" stroke-width="2" stroke-dasharray="12 8"/>
+                            <line x1="0" y1="172" x2="14" y2="172" stroke="rgba(58,135,200,0.2)" stroke-width="1.5" stroke-dasharray="8 10"/>
+                            <line x1="0" y1="182" x2="16" y2="182" stroke="rgba(200,146,42,0.15)" stroke-width="1.2" stroke-dasharray="10 8"/>
+                            <line x1="0" y1="192" x2="12" y2="192" stroke="rgba(58,135,200,0.12)" stroke-width="1" stroke-dasharray="6 12"/>
                         </svg>
                         <p class="svc-illus-caption">Silk Road rail corridors — Istanbul to Shanghai</p>
                     </div>
