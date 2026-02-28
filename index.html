@@ -1208,22 +1208,23 @@
     </div>
     <div class="chatbox-body">
       <div class="chatbox-messages" id="chatMessages">
-        <div class="chat-msg bot">
-          <div class="chat-bubble">Hello! 👋 Welcome to Boxmar Global Logistics. How can we help you today?</div>
-        </div>
-        <div class="chat-msg bot">
-          <div class="chat-bubble">Choose a topic or type your question:</div>
-        </div>
-        <div class="chat-quick-replies">
-          <button class="chat-quick" onclick="chatReply('quote')">📋 Get a Quote</button>
-          <button class="chat-quick" onclick="chatReply('services')">🚛 Our Services</button>
-          <button class="chat-quick" onclick="chatReply('tracking')">📍 Track Shipment</button>
-          <button class="chat-quick" onclick="chatReply('contact')">📞 Contact Info</button>
-        </div>
+      <div class="chat-msg bot">
+        <div class="chat-bubble">Hello! 👋 Welcome to <strong>Boxmar Global Logistics</strong>. I'm your intelligent logistics assistant. How can I help you today?</div>
+      </div>
+      <div class="chat-msg bot">
+        <div class="chat-bubble">Choose a topic or type your question in English or Turkish:</div>
+      </div>
+      <div class="chat-quick-replies">
+        <button class="chat-quick" onclick="chatReply('quote')">📋 Get a Quote</button>
+        <button class="chat-quick" onclick="chatReply('services')">🌐 Our Services</button>
+        <button class="chat-quick" onclick="chatReply('tracking')">📍 Track Shipment</button>
+        <button class="chat-quick" onclick="chatReply('transit')">⏱️ Transit Times</button>
+        <button class="chat-quick" onclick="chatReply('adr')">🏆 Certifications</button>
+        <button class="chat-quick" onclick="chatReply('contact')">📞 Contact</button>
+      </div>
       </div>
       <div class="chatbox-input">
-        <input type="text" placeholder="Type a message..." id="chatInput"
-          onkeypress="if(event.key==='Enter')sendChat()">
+        <input type="text" placeholder="Type a message..." id="chatInput" autocomplete="off">
         <button onclick="sendChat()">➤</button>
       </div>
     </div>
@@ -1243,38 +1244,333 @@
     })();
   </script>
   <script>
-    // Chat box logic
-    function chatReply(topic) {
+  /* ============================================================
+     BOXMAR INTELLIGENT CHATBOT v2.0
+     NLP-style keyword matching, bilingual (EN/TR), multi-turn
+     context awareness, typing indicator, follow-up suggestions.
+  ============================================================ */
+  (function() {
+
+    /* ── KNOWLEDGE BASE ── */
+    const KB = {
+
+      /* ── GREETINGS ── */
+      greet: {
+        patterns: ['hello','hi','hey','merhaba','selam','good morning','good afternoon','günaydın','iyi günler','nasılsın','how are you'],
+        en: "Hello! 👋 Welcome to <strong>Boxmar Global Logistics</strong>. I'm your logistics assistant. How can I help you today?",
+        tr: "Merhaba! 👋 <strong>Boxmar Global Lojistik</strong>'e hoş geldiniz. Lojistik asistanınızım. Size nasıl yardımcı olabilirim?",
+        followups: ['quote','services','road','sea','air','chemical']
+      },
+
+      /* ── QUOTE ── */
+      quote: {
+        patterns: ['quote','quotation','price','pricing','cost','rate','rates','fiyat','teklif','ücret','ne kadar','how much','estimate','offer'],
+        en: "📋 <strong>Get a Free Quote</strong><br><br>You can request a quote in 3 ways:<br>1️⃣ Fill our <a href='#quote' style='color:var(--blue-400)'>online quote form</a> — response within <strong>1 hour</strong><br>2️⃣ Call us: <a href='tel:+908508405381' style='color:var(--blue-400)'>+90 850 840 53 81</a><br>3️⃣ Email: <a href='mailto:info@boxmar.com.tr' style='color:var(--blue-400)'>info@boxmar.com.tr</a><br><br>We offer competitive rates for all transport modes.",
+        tr: "📋 <strong>Ücretsiz Teklif Alın</strong><br><br>3 yolla teklif talep edebilirsiniz:<br>1️⃣ <a href='#quote' style='color:var(--blue-400)'>Online teklif formunu</a> doldurun — <strong>1 saat</strong> içinde yanıt<br>2️⃣ Bizi arayın: <a href='tel:+908508405381' style='color:var(--blue-400)'>+90 850 840 53 81</a><br>3️⃣ E-posta: <a href='mailto:info@boxmar.com.tr' style='color:var(--blue-400)'>info@boxmar.com.tr</a>",
+        followups: ['road','sea','air','rail']
+      },
+
+      /* ── SERVICES OVERVIEW ── */
+      services: {
+        patterns: ['services','service','what do you do','what do you offer','logistics','freight','transport','taşımacılık','hizmet','lojistik','ne yapıyorsunuz'],
+        en: "🌐 <strong>Boxmar's 6 Core Services:</strong><br><br>🚛 <a href='services/road.html' style='color:var(--gold-400)'>Road Transport</a> — Turkey & Europe, daily routes<br>🚢 <a href='services/sea.html' style='color:var(--gold-400)'>Sea Freight</a> — FCL & LCL, 120+ ports<br>✈️ <a href='services/air.html' style='color:var(--gold-400)'>Air Freight</a> — 24–72h, 200+ airports<br>🚂 <a href='services/rail.html' style='color:var(--gold-400)'>Rail Freight</a> — Silk Road, Turkey to China<br>⚗️ <a href='services/chemical.html' style='color:var(--gold-400)'>Chemical Freight</a> — ISO Tank, ADR certified<br>🍶 <a href='services/food.html' style='color:var(--gold-400)'>Food Freight</a> — HACCP, Flexi Tank<br><br>Which service would you like to know more about?",
+        tr: "🌐 <strong>Boxmar'ın 6 Temel Hizmeti:</strong><br><br>🚛 <a href='services/road.html' style='color:var(--gold-400)'>Karayolu Taşımacılığı</a> — Türkiye & Avrupa<br>🚢 <a href='services/sea.html' style='color:var(--gold-400)'>Deniz Yükü</a> — FCL & LCL, 120+ liman<br>✈️ <a href='services/air.html' style='color:var(--gold-400)'>Hava Yükü</a> — 24–72 saat<br>🚂 <a href='services/rail.html' style='color:var(--gold-400)'>Demiryolu Yükü</a> — İpek Yolu<br>⚗️ <a href='services/chemical.html' style='color:var(--gold-400)'>Kimyasal Yük</a> — ISO Tank, ADR<br>🍶 <a href='services/food.html' style='color:var(--gold-400)'>Gıda Yükü</a> — HACCP, Flexi Tank",
+        followups: ['road','sea','air','rail','chemical','food']
+      },
+
+      /* ── ROAD TRANSPORT ── */
+      road: {
+        patterns: ['road','truck','ftl','ltl','highway','karayolu','kamyon','tır','europe','avrupa','germany','almanya','turkey','türkiye','door to door','kapıdan kapıya'],
+        en: "🚛 <strong>Road Transport</strong><br><br>Boxmar operates <strong>500+ trucks</strong> across Turkey and Europe with daily fixed schedules.<br><br>✅ FTL (Full Truck Load)<br>✅ LTL (Less Than Truck Load)<br>✅ Reefer (Temperature Controlled)<br>✅ Flatbed (Oversized Cargo)<br>✅ GPS Real-Time Tracking<br>✅ ADR Certified for Hazardous Goods<br><br>Coverage: 🇹🇷 Turkey + 20+ European countries<br>Transit: Istanbul → Hamburg ~3–4 days<br><br><a href='services/road.html' style='color:var(--gold-400)'>→ Road Transport Details</a>",
+        tr: "🚛 <strong>Karayolu Taşımacılığı</strong><br><br>Boxmar, Türkiye ve Avrupa genelinde <strong>500+ kamyon</strong> ile günlük sabit tarifelerle hizmet vermektedir.<br><br>✅ FTL (Komple Yük)<br>✅ LTL (Parsiyel Yük)<br>✅ Frigorifik (Soğuk Zincir)<br>✅ GPS Gerçek Zamanlı Takip<br><br>Kapsama: 🇹🇷 Türkiye + 20+ Avrupa ülkesi<br><br><a href='services/road.html' style='color:var(--gold-400)'>→ Karayolu Detayları</a>",
+        followups: ['quote','sea','rail','tracking']
+      },
+
+      /* ── SEA FREIGHT ── */
+      sea: {
+        patterns: ['sea','ocean','ship','container','fcl','lcl','port','maritime','deniz','gemi','konteyner','liman','rotterdam','hamburg','mersin','ambarli','ambarlı'],
+        en: "🚢 <strong>Sea Freight</strong><br><br>Boxmar is a recognized leader in ocean shipping with <strong>50+ carrier partners</strong>.<br><br>📦 <strong>FCL</strong> (Full Container Load) — 20ft & 40ft containers<br>📦 <strong>LCL</strong> (Less than Container Load) — weekly consolidations<br>🌡️ Reefer Containers<br>📐 OOG (Out of Gauge) Cargo<br>🏗️ Project Cargo<br><br>Key Ports: Istanbul (Ambarlı), Mersin, Rotterdam, Hamburg, Antwerp, Jebel Ali, Singapore<br><br>Transit: Istanbul → Rotterdam ~12–14 days<br><br><a href='services/sea.html' style='color:var(--gold-400)'>→ Sea Freight Details</a>",
+        tr: "🚢 <strong>Deniz Yükü</strong><br><br>Boxmar, <strong>50+ taşıyıcı ortağıyla</strong> okyanus taşımacılığında tanınan bir liderdir.<br><br>📦 <strong>FCL</strong> — 20ft & 40ft konteyner<br>📦 <strong>LCL</strong> — haftalık konsolidasyon<br>🌡️ Frigorifik Konteyner<br><br>Önemli Limanlar: İstanbul (Ambarlı), Mersin, Rotterdam, Hamburg<br><br><a href='services/sea.html' style='color:var(--gold-400)'>→ Deniz Yükü Detayları</a>",
+        followups: ['quote','fcl','lcl','road','air']
+      },
+
+      /* ── FCL ── */
+      fcl: {
+        patterns: ['fcl','full container','full load','tam konteyner'],
+        en: "📦 <strong>FCL — Full Container Load</strong><br><br>Best for shipments that fill an entire container (10+ CBM).<br><br>✅ Exclusive use of 20ft or 40ft container<br>✅ Lower cost per unit for large volumes<br>✅ Faster transit — no consolidation delays<br>✅ Reduced handling = less damage risk<br>✅ Direct port-to-port or door-to-door<br><br>Typical sizes: 20ft (25 CBM / 22 tons), 40ft (67 CBM / 26 tons)",
+        tr: "📦 <strong>FCL — Komple Konteyner</strong><br><br>Tüm konteyneri dolduran sevkiyatlar için idealdir (10+ CBM).<br><br>✅ 20ft veya 40ft konteynerin münhasır kullanımı<br>✅ Büyük hacimler için düşük birim maliyet<br>✅ Daha hızlı transit",
+        followups: ['lcl','quote','sea']
+      },
+
+      /* ── LCL ── */
+      lcl: {
+        patterns: ['lcl','less than container','partial','groupage','parsiyel','grupaj'],
+        en: "📦 <strong>LCL — Less than Container Load</strong><br><br>Best for smaller shipments (1–10 CBM) sharing container space.<br><br>✅ Pay only for the space you use<br>✅ Cost-effective for small volumes<br>✅ Weekly consolidation departures<br>✅ Flexible for varying shipment sizes<br>✅ Worldwide consolidation network<br><br>Boxmar offers weekly LCL consolidations from Istanbul to major European and Asian ports.",
+        tr: "📦 <strong>LCL — Parsiyel Konteyner</strong><br><br>Küçük sevkiyatlar için idealdir (1–10 CBM).<br><br>✅ Yalnızca kullandığınız alan için ödeme<br>✅ Küçük hacimler için uygun maliyetli<br>✅ Haftalık konsolidasyon seferleri",
+        followups: ['fcl','quote','sea']
+      },
+
+      /* ── AIR FREIGHT ── */
+      air: {
+        patterns: ['air','plane','aircraft','airport','express','urgent','fast','hava','uçak','havayolu','acil','hızlı','pharmaceutical','pharma','perishable'],
+        en: "✈️ <strong>Air Freight</strong><br><br>For time-critical shipments requiring the fastest transit times.<br><br>⏱️ Transit: <strong>24–72 hours</strong> worldwide<br>🌍 Coverage: <strong>200+ airports</strong>, 50+ airline partners<br><br>Cargo types we handle:<br>📦 General Cargo<br>🌿 Perishables & Fresh Produce<br>💊 Pharmaceuticals (GDP compliant)<br>⚠️ Dangerous Goods (IATA certified)<br>💎 High-Value Goods<br>🔧 Spare Parts & Machinery<br><br>Services: Consolidation, Charter, Express, Door-to-Airport<br><br><a href='services/air.html' style='color:var(--gold-400)'>→ Air Freight Details</a>",
+        tr: "✈️ <strong>Hava Yükü</strong><br><br>Zamana duyarlı sevkiyatlar için en hızlı çözüm.<br><br>⏱️ Transit: <strong>24–72 saat</strong> dünya geneli<br>🌍 Kapsama: <strong>200+ havalimanı</strong><br><br>Konsolidasyon, Charter, Ekspres hizmetleri<br><br><a href='services/air.html' style='color:var(--gold-400)'>→ Hava Yükü Detayları</a>",
+        followups: ['quote','sea','road','tracking']
+      },
+
+      /* ── RAIL FREIGHT ── */
+      rail: {
+        patterns: ['rail','train','railway','silk road','china','central asia','intermodal','demiryolu','tren','ipek yolu','çin','orta asya','kazakistan','almaty'],
+        en: "🚂 <strong>Rail Freight — Silk Road</strong><br><br>Eco-friendly rail transport connecting Turkey to Europe, Central Asia, and China.<br><br>🌿 <strong>70% less CO₂</strong> vs road transport<br>🛤️ 5+ key corridors:<br>• Istanbul → Warsaw (via Bulgaria/Romania)<br>• Istanbul → Almaty (via Georgia/Azerbaijan)<br>• Istanbul → Shanghai (Silk Road Express)<br>• Istanbul → Tashkent<br>• Istanbul → Tehran<br><br>⏱️ Istanbul → Shanghai: ~18–22 days (vs 30+ days by sea)<br>💰 Cost: 30–40% cheaper than air freight<br><br><a href='services/rail.html' style='color:var(--gold-400)'>→ Rail Freight Details</a>",
+        tr: "🚂 <strong>Demiryolu Yükü — İpek Yolu</strong><br><br>Türkiye'yi Avrupa, Orta Asya ve Çin'e bağlayan çevre dostu demiryolu taşımacılığı.<br><br>🌿 Karayoluna göre <strong>%70 daha az CO₂</strong><br>⏱️ İstanbul → Şangay: ~18–22 gün<br><br><a href='services/rail.html' style='color:var(--gold-400)'>→ Demiryolu Detayları</a>",
+        followups: ['quote','sea','road','air']
+      },
+
+      /* ── CHEMICAL FREIGHT ── */
+      chemical: {
+        patterns: ['chemical','hazmat','hazardous','adr','iso tank','tank container','dangerous goods','kimyasal','tehlikeli','tank konteyner','kimya'],
+        en: "⚗️ <strong>Chemical Freight & ISO Tank</strong><br><br>Boxmar is one of Turkey's leading tank operators for chemical shipments.<br><br>🏆 Certifications: <strong>ADR · IMDG · RID · ISO 9001</strong><br><br>Tank Types:<br>🔵 ISO Tank Containers (stainless steel)<br>🔵 Flexitank (single-use, 24,000L)<br>🔵 Bulk Liquid Tankers<br><br>Capacity: <strong>4,000 – 35,000 litres</strong><br>Temperature: <strong>-40°C to +130°C</strong><br>24/7 monitoring & real-time tracking<br><br>Products: Acids, Alkalis, Solvents, Petrochemicals, Resins, Adhesives<br><br><a href='services/chemical.html' style='color:var(--gold-400)'>→ Chemical Freight Details</a>",
+        tr: "⚗️ <strong>Kimyasal Yük & ISO Tank</strong><br><br>Boxmar, Türkiye'nin önde gelen tank operatörlerinden biridir.<br><br>🏆 Sertifikalar: <strong>ADR · IMDG · RID · ISO 9001</strong><br>Kapasite: <strong>4.000 – 35.000 litre</strong><br>Sıcaklık: <strong>-40°C ile +130°C</strong><br><br><a href='services/chemical.html' style='color:var(--gold-400)'>→ Kimyasal Yük Detayları</a>",
+        followups: ['quote','food','adr','road']
+      },
+
+      /* ── FOOD FREIGHT ── */
+      food: {
+        patterns: ['food','edible','olive oil','sunflower','liquid food','haccp','flexi tank','bulk liner','gıda','yemeklik','zeytinyağı','ayçiçeği','sıvı gıda'],
+        en: "🍶 <strong>Food Tank Freight</strong><br><br>Specialized food-grade liquid transport — HACCP compliant and ISO 22000 certified.<br><br>🏆 Certifications: <strong>HACCP · ISO 22000 · BRC</strong><br><br>Solutions:<br>🟢 <strong>Flexi Tank</strong> — single-use food-grade bladder, up to 24,000L<br>🟢 <strong>Bulk Liner</strong> — dry bulk food in standard containers<br>🟢 <strong>ISO Tank</strong> — stainless steel, reusable<br><br>Products: Olive Oil, Sunflower Oil, Molasses, Fruit Juice, Wine, Honey, Liquid Sugar<br><br>30+ product types handled<br><br><a href='services/food.html' style='color:var(--gold-400)'>→ Food Freight Details</a>",
+        tr: "🍶 <strong>Gıda Tankı Taşımacılığı</strong><br><br>HACCP uyumlu ve ISO 22000 sertifikalı gıda sınıfı sıvı taşımacılığı.<br><br>🟢 Flexi Tank — 24.000L'ye kadar<br>🟢 Bulk Liner — kuru dökme gıda<br>🟢 ISO Tank — paslanmaz çelik<br><br>Ürünler: Zeytinyağı, Ayçiçeği Yağı, Melas, Meyve Suyu<br><br><a href='services/food.html' style='color:var(--gold-400)'>→ Gıda Yükü Detayları</a>",
+        followups: ['quote','chemical','sea','road']
+      },
+
+      /* ── TRACKING ── */
+      tracking: {
+        patterns: ['track','tracking','shipment status','where is','cargo','takip','kargo','nerede','sevkiyat','shipment'],
+        en: "📍 <strong>Track Your Shipment</strong><br><br>Visit our <a href='tracking.html' style='color:var(--blue-400)'>tracking page</a> and enter your tracking number.<br><br>For <strong>urgent tracking</strong> or if you don't have a tracking number:<br>📞 <a href='tel:+908508405381' style='color:var(--blue-400)'>+90 850 840 53 81</a><br>💬 <a href='https://wa.me/908508405381' target='_blank' style='color:var(--gold-400)'>WhatsApp us</a><br><br>Our operations team is available <strong>24/7</strong> for urgent shipment queries.",
+        tr: "📍 <strong>Sevkiyat Takibi</strong><br><br><a href='tracking.html' style='color:var(--blue-400)'>Takip sayfamızı</a> ziyaret edin ve takip numaranızı girin.<br><br>Acil takip için:<br>📞 <a href='tel:+908508405381' style='color:var(--blue-400)'>+90 850 840 53 81</a><br>💬 <a href='https://wa.me/908508405381' target='_blank' style='color:var(--gold-400)'>WhatsApp</a>",
+        followups: ['contact','quote','services']
+      },
+
+      /* ── CONTACT ── */
+      contact: {
+        patterns: ['contact','address','phone','email','office','location','iletişim','adres','telefon','ofis','konum','where are you','neredesiniz'],
+        en: "📞 <strong>Contact Boxmar</strong><br><br>📍 Muratreis Mah. Payanda Sk. Çelik İş Hanı No:9 İç Kapı No:1<br>Üsküdar, İstanbul / Turkey<br><br>📞 <a href='tel:+908508405381' style='color:var(--blue-400)'>+90 850 840 53 81</a><br>✉️ <a href='mailto:info@boxmar.com.tr' style='color:var(--blue-400)'>info@boxmar.com.tr</a><br>💬 <a href='https://wa.me/908508405381' target='_blank' style='color:var(--gold-400)'>WhatsApp</a><br><br>🕐 Office Hours: Mon–Fri 09:00–18:00 (GMT+3)<br>🚨 Emergency: 24/7 operations line available",
+        tr: "📞 <strong>Boxmar İletişim</strong><br><br>📍 Muratreis Mah. Payanda Sk. Çelik İş Hanı No:9<br>Üsküdar, İstanbul / Türkiye<br><br>📞 <a href='tel:+908508405381' style='color:var(--blue-400)'>+90 850 840 53 81</a><br>✉️ <a href='mailto:info@boxmar.com.tr' style='color:var(--blue-400)'>info@boxmar.com.tr</a><br>💬 <a href='https://wa.me/908508405381' target='_blank' style='color:var(--gold-400)'>WhatsApp</a>",
+        followups: ['quote','tracking','services']
+      },
+
+      /* ── ABOUT / COMPANY ── */
+      about: {
+        patterns: ['about','company','history','founded','years','experience','who are you','boxmar','hakkında','şirket','tarih','kuruluş','kaç yıl','deneyim'],
+        en: "🏢 <strong>About Boxmar Global Logistics</strong><br><br>Founded in <strong>2001</strong> in Istanbul, Turkey — celebrating <strong>25 years</strong> of excellence in international freight forwarding.<br><br>📊 Key Facts:<br>• 50+ logistics experts<br>• 500+ satisfied clients<br>• 120+ countries served<br>• 10,000 m² warehouse<br>• 6 transport modes<br><br>🏆 Certifications: ISO 9001 · ADR · IMDG · HACCP · ISO 22000<br><br>Boxmar is one of Turkey's leading tank operators, specializing in chemical and food-grade liquid transport.<br><br><a href='about.html' style='color:var(--gold-400)'>→ Full Company Profile</a>",
+        tr: "🏢 <strong>Boxmar Global Lojistik Hakkında</strong><br><br><strong>2001</strong> yılında İstanbul'da kurulan Boxmar, uluslararası yük taşımacılığında <strong>25 yıllık</strong> mükemmelliği kutlamaktadır.<br><br>📊 Temel Bilgiler:<br>• 50+ lojistik uzmanı<br>• 500+ memnun müşteri<br>• 120+ ülke<br><br><a href='about.html' style='color:var(--gold-400)'>→ Şirket Profili</a>",
+        followups: ['services','quote','contact']
+      },
+
+      /* ── ADR / CERTIFICATIONS ── */
+      adr: {
+        patterns: ['adr','certification','certified','iso','haccp','imdg','rid','sertifika','belge','uygunluk'],
+        en: "🏆 <strong>Boxmar Certifications</strong><br><br>✅ <strong>ADR</strong> — European Agreement on Dangerous Goods by Road<br>✅ <strong>IMDG</strong> — International Maritime Dangerous Goods Code<br>✅ <strong>RID</strong> — Regulations for International Carriage of Dangerous Goods by Rail<br>✅ <strong>ISO 9001</strong> — Quality Management System<br>✅ <strong>HACCP</strong> — Food Safety Management<br>✅ <strong>ISO 22000</strong> — Food Safety Management System<br><br>All Boxmar drivers and handlers are trained and certified for hazardous materials handling.",
+        tr: "🏆 <strong>Boxmar Sertifikaları</strong><br><br>✅ ADR — Karayolu Tehlikeli Madde Taşımacılığı<br>✅ IMDG — Deniz Tehlikeli Madde Kodu<br>✅ RID — Demiryolu Tehlikeli Madde<br>✅ ISO 9001 — Kalite Yönetim Sistemi<br>✅ HACCP — Gıda Güvenliği<br>✅ ISO 22000 — Gıda Güvenliği Yönetim Sistemi",
+        followups: ['chemical','food','quote']
+      },
+
+      /* ── TRANSIT TIMES ── */
+      transit: {
+        patterns: ['transit','how long','delivery time','days','süre','kaç gün','ne zaman','teslim','transit süresi'],
+        en: "⏱️ <strong>Typical Transit Times from Istanbul:</strong><br><br>🚛 <strong>Road:</strong><br>• Istanbul → Hamburg: 3–4 days<br>• Istanbul → Paris: 4–5 days<br>• Istanbul → Warsaw: 3–4 days<br><br>🚢 <strong>Sea:</strong><br>• Istanbul → Rotterdam: 12–14 days<br>• Istanbul → Jebel Ali: 8–10 days<br>• Istanbul → Singapore: 22–25 days<br><br>✈️ <strong>Air:</strong><br>• Europe: 24–48 hours<br>• USA/Asia: 48–72 hours<br><br>🚂 <strong>Rail:</strong><br>• Istanbul → Warsaw: 5–7 days<br>• Istanbul → Shanghai: 18–22 days",
+        tr: "⏱️ <strong>İstanbul'dan Tipik Transit Süreler:</strong><br><br>🚛 Karayolu: Hamburg 3–4 gün, Paris 4–5 gün<br>🚢 Deniz: Rotterdam 12–14 gün, Dubai 8–10 gün<br>✈️ Hava: Avrupa 24–48 saat, ABD/Asya 48–72 saat<br>🚂 Demiryolu: Varşova 5–7 gün, Şangay 18–22 gün",
+        followups: ['quote','road','sea','air','rail']
+      },
+
+      /* ── CUSTOMS ── */
+      customs: {
+        patterns: ['customs','clearance','import','export','documentation','gümrük','ithalat','ihracat','belge','evrak'],
+        en: "📋 <strong>Customs Clearance</strong><br><br>Boxmar provides full customs brokerage services for all transport modes.<br><br>✅ Import & Export customs clearance<br>✅ All documentation preparation (CMR, B/L, AWB, EUR.1, A.TR)<br>✅ Tariff classification & duty calculation<br>✅ ATA Carnet processing<br>✅ Temporary import/export<br>✅ Free Zone operations<br><br>Our customs team has 25+ years of experience with Turkish and EU customs regulations.",
+        tr: "📋 <strong>Gümrük Müşavirliği</strong><br><br>Boxmar, tüm taşıma modları için tam gümrük müşavirliği hizmetleri sunmaktadır.<br><br>✅ İthalat & İhracat gümrük işlemleri<br>✅ Tüm belge hazırlama (CMR, Konşimento, AWB)<br>✅ Tarife sınıflandırma & vergi hesaplama",
+        followups: ['quote','road','sea','air']
+      },
+
+      /* ── WHATSAPP ── */
+      whatsapp: {
+        patterns: ['whatsapp','wa','wp','wapp'],
+        en: "💬 <strong>WhatsApp</strong><br><br>Chat with our team directly on WhatsApp:<br><a href='https://wa.me/908508405381' target='_blank' style='color:var(--gold-400);font-size:1.1rem;font-weight:700'>+90 850 840 53 81</a><br><br>Available for: quotes, tracking, urgent queries, and general inquiries.",
+        tr: "💬 <strong>WhatsApp</strong><br><br>Ekibimizle doğrudan WhatsApp'tan iletişime geçin:<br><a href='https://wa.me/908508405381' target='_blank' style='color:var(--gold-400);font-size:1.1rem;font-weight:700'>+90 850 840 53 81</a>",
+        followups: ['contact','quote','tracking']
+      },
+
+      /* ── THANK YOU ── */
+      thanks: {
+        patterns: ['thank','thanks','teşekkür','sağol','eyvallah','great','perfect','mükemmel','harika'],
+        en: "😊 You're welcome! Is there anything else I can help you with?",
+        tr: "😊 Rica ederim! Başka yardımcı olabileceğim bir şey var mı?",
+        followups: ['quote','services','contact']
+      },
+
+      /* ── GOODBYE ── */
+      bye: {
+        patterns: ['bye','goodbye','see you','later','hoşça kal','görüşürüz','güle güle'],
+        en: "👋 Goodbye! Thank you for contacting Boxmar. Have a great day! Feel free to reach us anytime at <a href='tel:+908508405381' style='color:var(--blue-400)'>+90 850 840 53 81</a>.",
+        tr: "👋 Hoşça kalın! Boxmar'ı tercih ettiğiniz için teşekkürler. İyi günler! <a href='tel:+908508405381' style='color:var(--blue-400)'>+90 850 840 53 81</a>",
+        followups: []
+      }
+    };
+
+    /* ── FOLLOW-UP LABELS ── */
+    const followupLabels = {
+      quote: '📋 Get a Quote', services: '🌐 All Services', road: '🚛 Road Transport',
+      sea: '🚢 Sea Freight', air: '✈️ Air Freight', rail: '🚂 Rail Freight',
+      chemical: '⚗️ Chemical', food: '🍶 Food Freight', tracking: '📍 Track Shipment',
+      contact: '📞 Contact', about: '🏢 About Us', adr: '🏆 Certifications',
+      transit: '⏱️ Transit Times', customs: '📋 Customs', fcl: '📦 FCL', lcl: '📦 LCL'
+    };
+
+    /* ── STATE ── */
+    let chatLang = 'en';
+    let lastTopic = null;
+    let msgCount = 0;
+
+    /* ── DETECT LANGUAGE ── */
+    function detectLang(text) {
+      const trChars = /[çğışöüÇĞİŞÖÜ]/;
+      const trWords = /\b(merhaba|selam|teşekkür|nasıl|nerede|kaç|gün|yük|taşıma|lojistik|hizmet|teklif|fiyat|gemi|uçak|tren|kimyasal|gıda|takip|iletişim|hakkında|sertifika|gümrük)\b/i;
+      if (trChars.test(text) || trWords.test(text)) return 'tr';
+      return 'en';
+    }
+
+    /* ── FIND BEST MATCH ── */
+    function findMatch(input) {
+      const lower = input.toLowerCase().trim();
+      let bestKey = null;
+      let bestScore = 0;
+
+      for (const [key, data] of Object.entries(KB)) {
+        for (const pattern of data.patterns) {
+          if (lower.includes(pattern)) {
+            const score = pattern.length; // longer match = more specific
+            if (score > bestScore) {
+              bestScore = score;
+              bestKey = key;
+            }
+          }
+        }
+      }
+      return bestKey;
+    }
+
+    /* ── TYPING INDICATOR ── */
+    function showTyping() {
       const msgs = document.getElementById('chatMessages');
-      const replies = {
-        quote: "To get a free quote, please fill out our <a href='#quote' style='color:var(--blue-400)'>quote form</a> or call us at <strong>+90 850 840 53 81</strong>. We'll respond within 1 hour!",
-        services: "We offer 6 core services:<br>🚛 Road Transport<br>🚢 Sea Freight (FCL & LCL)<br>✈️ Air Freight<br>🚂 Rail Freight<br>⚗️ Chemical Tank Containers<br>🍶 Food Tank Operations<br><br>Which service interests you?",
-        tracking: "To track your shipment, visit our <a href='tracking.html' style='color:var(--blue-400)'>tracking page</a> and enter your tracking number. For urgent tracking, call <strong>+90 850 840 53 81</strong>.",
-        contact: "📍 Muratreis Mah. Payanda Sk. Çelik İş Hanı No:9, Üsküdar, İstanbul<br>📞 <a href='tel:+908508405381' style='color:var(--blue-400)'>+90 850 840 53 81</a><br>✉️ <a href='mailto:info@boxmar.com.tr' style='color:var(--blue-400)'>info@boxmar.com.tr</a>"
+      const typing = document.createElement('div');
+      typing.className = 'chat-msg bot chat-typing-indicator';
+      typing.id = 'chatTyping';
+      typing.innerHTML = '<div class="chat-bubble"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>';
+      msgs.appendChild(typing);
+      msgs.scrollTop = msgs.scrollHeight;
+    }
+
+    function hideTyping() {
+      const t = document.getElementById('chatTyping');
+      if (t) t.remove();
+    }
+
+    /* ── ADD MESSAGE ── */
+    function addMsg(html, isUser) {
+      const msgs = document.getElementById('chatMessages');
+      const div = document.createElement('div');
+      div.className = 'chat-msg ' + (isUser ? 'user' : 'bot');
+      div.innerHTML = '<div class="chat-bubble">' + html + '</div>';
+      msgs.appendChild(div);
+      msgs.scrollTop = msgs.scrollHeight;
+    }
+
+    /* ── ADD FOLLOW-UP CHIPS ── */
+    function addFollowups(keys) {
+      if (!keys || keys.length === 0) return;
+      const msgs = document.getElementById('chatMessages');
+      const div = document.createElement('div');
+      div.className = 'chat-quick-replies chat-followups';
+      keys.forEach(k => {
+        if (followupLabels[k]) {
+          const btn = document.createElement('button');
+          btn.className = 'chat-quick';
+          btn.textContent = followupLabels[k];
+          btn.onclick = () => {
+            div.remove();
+            processInput(followupLabels[k].replace(/^[^\s]+\s/, ''), k);
+          };
+          div.appendChild(btn);
+        }
+      });
+      msgs.appendChild(div);
+      msgs.scrollTop = msgs.scrollHeight;
+    }
+
+    /* ── PROCESS INPUT ── */
+    function processInput(userText, forcedKey) {
+      const msgs = document.getElementById('chatMessages');
+      // Remove any existing quick replies
+      msgs.querySelectorAll('.chat-quick-replies').forEach(el => el.remove());
+
+      addMsg(userText, true);
+      msgCount++;
+
+      // Detect language
+      chatLang = detectLang(userText);
+
+      // Find match
+      const key = forcedKey || findMatch(userText);
+      lastTopic = key;
+
+      const thinkTime = 600 + Math.random() * 600;
+      showTyping();
+
+      setTimeout(() => {
+        hideTyping();
+
+        if (key && KB[key]) {
+          const reply = KB[key][chatLang] || KB[key]['en'];
+          addMsg(reply, false);
+          addFollowups(KB[key].followups);
+        } else {
+          // Intelligent fallback
+          const fallbacks = {
+            en: "I'm not sure I understood that. Here are some things I can help with:",
+            tr: "Tam olarak anlayamadım. Yardımcı olabileceğim konular:"
+          };
+          addMsg(fallbacks[chatLang], false);
+          addFollowups(['quote','services','tracking','contact','transit','adr']);
+        }
+      }, thinkTime);
+    }
+
+    /* ── PUBLIC API ── */
+    window.chatReply = function(topic) {
+      const labels = {
+        quote: 'Get a Quote', services: 'Our Services',
+        tracking: 'Track Shipment', contact: 'Contact Info'
       };
-      // Remove quick replies
-      const qr = msgs.querySelector('.chat-quick-replies');
-      if (qr) qr.remove();
-      // Add user msg
-      const topicNames = { quote: 'Get a Quote', services: 'Our Services', tracking: 'Track Shipment', contact: 'Contact Info' };
-      msgs.innerHTML += '<div class="chat-msg user"><div class="chat-bubble">' + topicNames[topic] + '</div></div>';
-      // Add bot reply
-      setTimeout(() => {
-        msgs.innerHTML += '<div class="chat-msg bot"><div class="chat-bubble">' + replies[topic] + '</div></div>';
-        msgs.scrollTop = msgs.scrollHeight;
-      }, 500);
-    }
-    function sendChat() {
+      processInput(labels[topic] || topic, topic);
+    };
+
+    window.sendChat = function() {
       const input = document.getElementById('chatInput');
-      const msgs = document.getElementById('chatMessages');
-      if (!input.value.trim()) return;
-      msgs.innerHTML += '<div class="chat-msg user"><div class="chat-bubble">' + input.value + '</div></div>';
+      const text = input.value.trim();
+      if (!text) return;
       input.value = '';
-      setTimeout(() => {
-        msgs.innerHTML += '<div class="chat-msg bot"><div class="chat-bubble">Thank you for your message! A Boxmar representative will respond shortly. For immediate assistance, call <strong>+90 850 840 53 81</strong> or <a href="https://wa.me/908508405381" target="_blank" style="color:var(--gold-400)">WhatsApp us</a>.</div></div>';
-        msgs.scrollTop = msgs.scrollHeight;
-      }, 800);
-    }
+      processInput(text);
+    };
+
+    /* ── ENTER KEY ── */
+    document.addEventListener('DOMContentLoaded', () => {
+      const inp = document.getElementById('chatInput');
+      if (inp) {
+        inp.addEventListener('keypress', e => {
+          if (e.key === 'Enter') window.sendChat();
+        });
+      }
+    });
+
+  })();
   </script>
   <script>
     // Particle generator for hero
