@@ -80,6 +80,106 @@ const translations = {
     'cert.unet.label': 'Certificate',
     'cert.unet.short': 'Holder of Certificate',
 
+    /* Map legend */
+    'map.legend.title': 'Route Types',
+    'map.legend.road': 'Road / Rail',
+    'map.legend.sea': 'Sea Freight',
+    'map.legend.air': 'Air Freight',
+    'map.legend.silk': 'Silk Road',
+    'map.stat.countries': 'Countries',
+    'map.stat.continents': 'Continents',
+    'map.stat.ports': 'Ports & Airports',
+    'map.stat.modes': 'Transport Modes',
+
+    /* Hero company label */
+    'hero.company': 'Boxmar Global Logistics',
+    'hero.est': 'Est. 2001 · Turkey',
+    'hero.years.text': 'YEARS OF TRUST',
+
+    /* Quote form options */
+    'quote.opt.general': 'General Cargo',
+    'quote.opt.chemical': 'Chemical / Hazardous',
+    'quote.opt.food': 'Food / Liquid Food',
+    'quote.opt.project': 'Project Cargo',
+    'quote.opt.bulk': 'Bulk Cargo',
+    'quote.opt.road': 'Road Transport',
+    'quote.opt.sea.fcl': 'Sea Freight (FCL)',
+    'quote.opt.sea.lcl': 'Sea Freight (LCL)',
+    'quote.opt.air': 'Air Freight',
+    'quote.opt.rail': 'Rail Freight',
+    'quote.opt.multi': 'Multimodal',
+
+    /* Contact page */
+    'contact.form.fill': 'Please fill out the form below and we will get back to you as soon as possible.',
+    'contact.dept.select': 'Select a department',
+    'contact.dept.general': 'General Inquiries',
+    'contact.dept.chem': 'Chemical Tanks',
+    'contact.dept.food': 'Food Tanks',
+    'contact.dept.customs': 'Customs Clearance',
+
+    /* Road service page */
+    'road.vehicle.ftl': 'Full Truck Load',
+    'road.vehicle.ltl': 'Less Than Truck Load',
+    'road.vehicle.reefer': 'Reefer',
+    'road.vehicle.reefer.sub': 'Temperature Controlled',
+    'road.vehicle.flatbed': 'Flatbed',
+    'road.vehicle.flatbed.sub': 'Oversized & Project Cargo',
+    'road.image.title': 'Daily Routes',
+    'road.image.sub': 'Turkey → Europe',
+    'road.image.caption': '500+ trucks · 20+ countries · 99% on-time delivery',
+
+    /* Sea service page */
+    'sea.services.include': 'Services Include',
+    'sea.ports.title': 'Key Ports',
+    'sea.image.title': 'Global Ocean Shipping',
+    'sea.image.caption': '120+ ports · FCL & LCL · 50+ carrier partners',
+    'sea.fcl.title': 'FCL — Full Container Load',
+    'sea.fcl.sub': 'Best for large shipments that fill an entire container',
+    'sea.lcl.title': 'LCL — Less than Container Load',
+    'sea.lcl.sub': 'Best for smaller shipments sharing container space',
+
+    /* Air service page */
+    'air.services.include': 'Services Include',
+    'air.cargo.title': 'Cargo Types We Handle',
+    'air.image.title': 'Time-Critical Air Freight',
+    'air.image.caption': '200+ airports · 24–72h delivery · 50+ airline partners',
+    'air.why.title': 'Why Choose Air Freight?',
+
+    /* Rail service page */
+    'rail.corridors.title': 'Key Corridors',
+    'rail.routes.title': 'Silk Road Routes',
+    'rail.image.title': 'Silk Road Rail Freight',
+    'rail.image.caption': 'Turkey → China · 70% less CO₂ · 5+ key corridors',
+
+    /* Chemical service page */
+    'chem.products.title': 'Products We Transport',
+    'chem.image.title': 'ISO Tank Specialists',
+    'chem.image.caption': 'ADR certified · 4,000–35,000L · ±130°C range',
+
+    /* Food service page */
+    'food.bulk.title': 'Bulk Liner Products',
+    'food.flexi.title': 'Flexi Tank Products',
+    'food.image.title': 'HACCP Certified Food Tank Ops',
+    'food.image.caption': 'Flexi Tank 24,000L · Bulk Liner · ISO 22000',
+
+    /* Tracking page demo */
+    'tracking.origin': 'Origin',
+    'tracking.destination': 'Destination',
+    'tracking.eta': 'ETA',
+    'tracking.step.order': 'Order Received',
+    'tracking.step.pickup': 'Picked Up',
+    'tracking.step.customs': 'Customs Cleared',
+    'tracking.step.transit': 'In Transit - Sea Freight',
+    'tracking.step.arrival': 'Arrival at Port',
+    'tracking.step.delivered': 'Delivered',
+    'tracking.tank.title': 'Tank Container Monitoring',
+    'tracking.tank.temp': 'Temperature',
+    'tracking.tank.pressure': 'Pressure',
+    'tracking.tank.type': 'Tank Type',
+    'tracking.tank.product': 'Product',
+    'tracking.help.title': 'Need Help With Tracking?',
+    'tracking.help.text': 'Contact our team for real-time updates on your shipment.',
+
     /* Services section */
     'services.label': 'What We Offer', 'services.title': 'Our Services',
     'services.subtitle': 'Comprehensive logistics solutions from road to rail, sea to air, with specialized chemical and food tank container expertise.',
@@ -469,6 +569,95 @@ const translations = {
   tr: {
     /* Navigation */
     'nav.home': 'Ana Sayfa', 'nav.about': 'Hakkımızda', 'nav.services': 'Hizmetler',
+    /* Map legend */
+    'map.legend.title': 'Güzergah Türleri',
+    'map.legend.road': 'Karayolu / Demiryolu',
+    'map.legend.sea': 'Deniz Yükü',
+    'map.legend.air': 'Hava Yükü',
+    'map.legend.silk': 'İpek Yolu',
+    'map.stat.countries': 'Ülke',
+    'map.stat.continents': 'Kıta',
+    'map.stat.ports': 'Liman & Havalimanı',
+    'map.stat.modes': 'Taşıma Modu',
+    /* Hero company label */
+    'hero.company': 'Boxmar Global Lojistik',
+    'hero.est': 'Kur. 2001 · Türkiye',
+    'hero.years.text': 'YIL GÜVEN',
+    /* Quote form options */
+    'quote.opt.general': 'Genel Kargo',
+    'quote.opt.chemical': 'Kimyasal / Tehlikeli',
+    'quote.opt.food': 'Gıda / Sıvı Gıda',
+    'quote.opt.project': 'Proje Kargo',
+    'quote.opt.bulk': 'Dökme Kargo',
+    'quote.opt.road': 'Karayolu Taşımacılığı',
+    'quote.opt.sea.fcl': 'Deniz Yükü (FCL)',
+    'quote.opt.sea.lcl': 'Deniz Yükü (LCL)',
+    'quote.opt.air': 'Hava Yükü',
+    'quote.opt.rail': 'Demiryolu Yükü',
+    'quote.opt.multi': 'Multimodal',
+    /* Contact page */
+    'contact.form.fill': 'Lütfen aşağıdaki formu doldurun, en kısa sürede size geri döneceğiz.',
+    'contact.dept.select': 'Departman seçin',
+    'contact.dept.general': 'Genel Sorular',
+    'contact.dept.chem': 'Kimyasal Tanklar',
+    'contact.dept.food': 'Gıda Tankları',
+    'contact.dept.customs': 'Gümrük Müşavirliği',
+    /* Road service page */
+    'road.vehicle.ftl': 'Komple Yük',
+    'road.vehicle.ltl': 'Parsiyel Yük',
+    'road.vehicle.reefer': 'Frigorifik',
+    'road.vehicle.reefer.sub': 'Sıcaklık Kontrollü',
+    'road.vehicle.flatbed': 'Açık Kasa',
+    'road.vehicle.flatbed.sub': 'Büyük & Proje Kargo',
+    'road.image.title': 'Günlük Rotalar',
+    'road.image.sub': 'Türkiye → Avrupa',
+    'road.image.caption': '500+ kamyon · 20+ ülke · %99 zamanında teslimat',
+    /* Sea service page */
+    'sea.services.include': 'Hizmetlerimiz',
+    'sea.ports.title': 'Önemli Limanlar',
+    'sea.image.title': 'Küresel Okyanus Taşımacılığı',
+    'sea.image.caption': '120+ liman · FCL & LCL · 50+ taşıyıcı ortak',
+    'sea.fcl.title': 'FCL — Komple Konteyner',
+    'sea.fcl.sub': 'Tüm konteyneri dolduran büyük sevkiyatlar için idealdir',
+    'sea.lcl.title': 'LCL — Parsiyel Konteyner',
+    'sea.lcl.sub': 'Konteyner alanı paylaşan küçük sevkiyatlar için idealdir',
+    /* Air service page */
+    'air.services.include': 'Hizmetlerimiz',
+    'air.cargo.title': 'Taşıdığımız Kargo Tipleri',
+    'air.image.title': 'Zamana Duyarlı Hava Kargo',
+    'air.image.caption': '200+ havalimanı · 24–72 saat teslimat · 50+ havayolu ortağı',
+    'air.why.title': 'Neden Hava Yükü?',
+    /* Rail service page */
+    'rail.corridors.title': 'Temel Koridorlar',
+    'rail.routes.title': 'İpek Yolu Güzergahları',
+    'rail.image.title': 'İpek Yolu Demiryolu Yükü',
+    'rail.image.caption': 'Türkiye → Çin · %70 daha az CO₂ · 5+ temel koridor',
+    /* Chemical service page */
+    'chem.products.title': 'Taşıdığımız Ürünler',
+    'chem.image.title': 'ISO Tank Uzmanları',
+    'chem.image.caption': 'ADR sertifikalı · 4.000–35.000L · ±130°C aralığı',
+    /* Food service page */
+    'food.bulk.title': 'Bulk Liner Ürünleri',
+    'food.flexi.title': 'Flexi Tank Ürünleri',
+    'food.image.title': 'HACCP Sertifikalı Gıda Tankı Operasyonları',
+    'food.image.caption': 'Flexi Tank 24.000L · Bulk Liner · ISO 22000',
+    /* Tracking page demo */
+    'tracking.origin': 'Çıkış',
+    'tracking.destination': 'Varış',
+    'tracking.eta': 'Tahmini Varış',
+    'tracking.step.order': 'Sipariş Alındı',
+    'tracking.step.pickup': 'Teslim Alındı',
+    'tracking.step.customs': 'Gümrük Tamamlandı',
+    'tracking.step.transit': 'Transitte - Deniz Yükü',
+    'tracking.step.arrival': 'Limana Varış',
+    'tracking.step.delivered': 'Teslim Edildi',
+    'tracking.tank.title': 'Tank Konteyner İzleme',
+    'tracking.tank.temp': 'Sıcaklık',
+    'tracking.tank.pressure': 'Basınç',
+    'tracking.tank.type': 'Tank Tipi',
+    'tracking.tank.product': 'Ürün',
+    'tracking.help.title': 'Takip Konusunda Yardım mı Lazım?',
+    'tracking.help.text': 'Sevkiyatınız hakkında gerçek zamanlı güncellemeler için ekibimizle iletişime geçin.',
     'nav.quote': 'Teklif Al', 'nav.tracking': 'Takip', 'nav.contact': 'İletişim',
     'nav.cta': 'Teklif Al',
 

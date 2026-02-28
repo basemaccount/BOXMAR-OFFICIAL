@@ -113,17 +113,17 @@
                 <div class="grid grid-3" style="margin-bottom:var(--space-3xl);gap:var(--space-md)">
                     <div
                         style="background:var(--gray-50);padding:var(--space-lg);border-radius:var(--radius-md);text-align:center">
-                        <div style="font-size:0.8rem;color:var(--gray-500);margin-bottom:4px">Origin</div>
+                        <div style="font-size:0.8rem;color:var(--gray-500);margin-bottom:4px" data-i18n="tracking.origin">Origin</div>
                         <div style="font-weight:700">İstanbul, TR</div>
                     </div>
                     <div
                         style="background:var(--gray-50);padding:var(--space-lg);border-radius:var(--radius-md);text-align:center">
-                        <div style="font-size:0.8rem;color:var(--gray-500);margin-bottom:4px">Destination</div>
+                        <div style="font-size:0.8rem;color:var(--gray-500);margin-bottom:4px" data-i18n="tracking.destination">Destination</div>
                         <div style="font-weight:700">Hamburg, DE</div>
                     </div>
                     <div
                         style="background:var(--gray-50);padding:var(--space-lg);border-radius:var(--radius-md);text-align:center">
-                        <div style="font-size:0.8rem;color:var(--gray-500);margin-bottom:4px">ETA</div>
+                        <div style="font-size:0.8rem;color:var(--gray-500);margin-bottom:4px" data-i18n="tracking.eta">ETA</div>
                         <div style="font-weight:700;color:var(--gold-500)">Feb 28, 2026</div>
                     </div>
                 </div>
@@ -132,7 +132,7 @@
                 <div class="tracking-step completed">
                     <div class="tracking-dot"></div>
                     <div>
-                        <div style="font-weight:600">Order Received</div>
+                        <div style="font-weight:600" data-i18n="tracking.step.order">Order Received</div>
                         <div style="font-size:0.85rem;color:var(--gray-500)">Feb 18, 2026 · 09:15 · İstanbul, Turkey
                         </div>
                         <div style="font-size:0.85rem;color:var(--gray-500)">Shipment documents processed and verified
@@ -142,68 +142,60 @@
                 <div class="tracking-step completed">
                     <div class="tracking-dot"></div>
                     <div>
-                        <div style="font-weight:600">Picked Up</div>
-                        <div style="font-size:0.85rem;color:var(--gray-500)">Feb 19, 2026 · 14:30 · Tuzla Chemical Zone,
-                            İstanbul</div>
-                        <div style="font-size:0.85rem;color:var(--gray-500)">ISO Tank loaded · Temp: 22°C · Weight:
-                            24,000 kg</div>
+                        <div style="font-weight:600" data-i18n="tracking.step.pickup">Picked Up</div>
+                        <div style="font-size:0.85rem;color:var(--gray-500)">Feb 19, 2026 · 14:30 · Tuzla Chemical Zone, İstanbul</div>
+                        <div style="font-size:0.85rem;color:var(--gray-500)">ISO Tank loaded · Temp: 22°C · Weight: 24,000 kg</div>
                     </div>
                 </div>
                 <div class="tracking-step completed">
                     <div class="tracking-dot"></div>
                     <div>
-                        <div style="font-weight:600">Customs Cleared</div>
-                        <div style="font-size:0.85rem;color:var(--gray-500)">Feb 20, 2026 · 11:00 · Ambarlı Port,
-                            İstanbul</div>
+                        <div style="font-weight:600" data-i18n="tracking.step.customs">Customs Cleared</div>
+                        <div style="font-size:0.85rem;color:var(--gray-500)">Feb 20, 2026 · 11:00 · Ambarlı Port, İstanbul</div>
                         <div style="font-size:0.85rem;color:var(--gray-500)">Export customs clearance completed</div>
                     </div>
                 </div>
                 <div class="tracking-step active">
                     <div class="tracking-dot"></div>
                     <div>
-                        <div style="font-weight:600">In Transit - Sea Freight</div>
-                        <div style="font-size:0.85rem;color:var(--gray-500)">Feb 21, 2026 · Currently in Mediterranean
-                            Sea</div>
-                        <div style="font-size:0.85rem;color:var(--gold-500)">Vessel: MSC ADRIANA · Temp: 21°C · Status:
-                            On Schedule</div>
+                        <div style="font-weight:600" data-i18n="tracking.step.transit">In Transit - Sea Freight</div>
+                        <div style="font-size:0.85rem;color:var(--gray-500)">Feb 21, 2026 · Currently in Mediterranean Sea</div>
+                        <div style="font-size:0.85rem;color:var(--gold-500)">Vessel: MSC ADRIANA · Temp: 21°C · Status: On Schedule</div>
                     </div>
                 </div>
                 <div class="tracking-step">
                     <div class="tracking-dot">○</div>
                     <div>
-                        <div style="font-weight:600;color:var(--gray-400)">Arrival at Port</div>
-                        <div style="font-size:0.85rem;color:var(--gray-400)">Expected: Feb 26, 2026 · Hamburg Port,
-                            Germany</div>
+                        <div style="font-weight:600;color:var(--gray-400)" data-i18n="tracking.step.arrival">Arrival at Port</div>
+                        <div style="font-size:0.85rem;color:var(--gray-400)">Expected: Feb 26, 2026 · Hamburg Port, Germany</div>
                     </div>
                 </div>
                 <div class="tracking-step">
                     <div class="tracking-dot">○</div>
                     <div>
-                        <div style="font-weight:600;color:var(--gray-400)">Delivered</div>
-                        <div style="font-size:0.85rem;color:var(--gray-400)">Expected: Feb 28, 2026 · Final destination
-                        </div>
+                        <div style="font-weight:600;color:var(--gray-400)" data-i18n="tracking.step.delivered">Delivered</div>
+                        <div style="font-size:0.85rem;color:var(--gray-400)">Expected: Feb 28, 2026 · Final destination</div>
                     </div>
                 </div>
 
                 <!-- Tank Info -->
-                <div
-                    style="margin-top:var(--space-3xl);background:linear-gradient(135deg,var(--navy-800),var(--navy-700));border-radius:var(--radius-lg);padding:var(--space-2xl);color:var(--white)">
-                    <h4 style="color:var(--gold-400);margin-bottom:var(--space-lg)">Tank Container Monitoring</h4>
+                <div style="margin-top:var(--space-3xl);background:linear-gradient(135deg,var(--navy-800),var(--navy-700));border-radius:var(--radius-lg);padding:var(--space-2xl);color:var(--white)">
+                    <h4 style="color:var(--gold-400);margin-bottom:var(--space-lg)" data-i18n="tracking.tank.title">Tank Container Monitoring</h4>
                     <div class="grid grid-4" style="gap:var(--space-md)">
                         <div>
-                            <div style="font-size:0.8rem;opacity:0.6">Temperature</div>
+                            <div style="font-size:0.8rem;opacity:0.6" data-i18n="tracking.tank.temp">Temperature</div>
                             <div style="font-size:1.3rem;font-weight:700;color:var(--gold-400)">21°C</div>
                         </div>
                         <div>
-                            <div style="font-size:0.8rem;opacity:0.6">Pressure</div>
+                            <div style="font-size:0.8rem;opacity:0.6" data-i18n="tracking.tank.pressure">Pressure</div>
                             <div style="font-size:1.3rem;font-weight:700;color:var(--gold-400)">1.2 bar</div>
                         </div>
                         <div>
-                            <div style="font-size:0.8rem;opacity:0.6">Tank Type</div>
+                            <div style="font-size:0.8rem;opacity:0.6" data-i18n="tracking.tank.type">Tank Type</div>
                             <div style="font-size:1.3rem;font-weight:700">ISO Tank 26K</div>
                         </div>
                         <div>
-                            <div style="font-size:0.8rem;opacity:0.6">Product</div>
+                            <div style="font-size:0.8rem;opacity:0.6" data-i18n="tracking.tank.product">Product</div>
                             <div style="font-size:1.3rem;font-weight:700">Chemical</div>
                         </div>
                     </div>
@@ -214,8 +206,8 @@
 
     <section class="cta-section">
         <div class="container reveal">
-            <h2>Need Help With Tracking?</h2>
-            <p style="color:rgba(255,255,255,0.7)">Contact our team for real-time updates on your shipment.</p>
+            <h2 data-i18n="tracking.help.title">Need Help With Tracking?</h2>
+            <p style="color:rgba(255,255,255,0.7)" data-i18n="tracking.help.text">Contact our team for real-time updates on your shipment.</p>
             <a href="contact.html" class="btn btn-primary" style="margin-top:var(--space-lg)">Contact Us</a>
             <div class="cta-phone">Or Call <a href="tel:+908508405381" style="color:var(--gold-400)">+90 850 840 53
                     81</a></div>
