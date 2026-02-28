@@ -180,162 +180,14 @@
                 </div>
 
                 <div class="reveal reveal-delay-2">
-                    <!-- Sea Freight Illustration — Enhanced -->
-                    <div class="svc-illustration svc-illustration--dark" style="margin-bottom:var(--space-xl);padding:0;overflow:hidden">
-                        <svg viewBox="0 0 520 300" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block" aria-label="Cargo Ship Sea Freight Illustration">
-                            <defs>
-                                <linearGradient id="seaSky" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" stop-color="#010810"/>
-                                    <stop offset="35%" stop-color="#061525"/>
-                                    <stop offset="70%" stop-color="#0A2040"/>
-                                    <stop offset="100%" stop-color="#0E2A50"/>
-                                </linearGradient>
-                                <linearGradient id="seaWater" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" stop-color="#0E2848"/>
-                                    <stop offset="40%" stop-color="#0A2038"/>
-                                    <stop offset="100%" stop-color="#050E20"/>
-                                </linearGradient>
-                                <linearGradient id="shipHull" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" stop-color="#2A5E9A"/>
-                                    <stop offset="50%" stop-color="#1A3E6E"/>
-                                    <stop offset="100%" stop-color="#0A1E3A"/>
-                                </linearGradient>
-                                <linearGradient id="shipDeck" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" stop-color="#1E3E6A"/>
-                                    <stop offset="100%" stop-color="#0C1E38"/>
-                                </linearGradient>
-                                <linearGradient id="moonGrad" cx="40%" cy="40%" r="50%" gradientUnits="objectBoundingBox">
-                                    <stop offset="0%" stop-color="rgba(255,240,180,0.3)"/>
-                                    <stop offset="100%" stop-color="rgba(255,220,100,0.05)"/>
-                                </linearGradient>
-                                <filter id="seaGlow" x="-50%" y="-50%" width="200%" height="200%">
-                                    <feGaussianBlur stdDeviation="4" result="blur"/>
-                                    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-                                </filter>
-                                <filter id="seaSoftGlow" x="-20%" y="-20%" width="140%" height="140%">
-                                    <feGaussianBlur stdDeviation="2" result="blur"/>
-                                    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-                                </filter>
-                            </defs>
-
-                            <!-- ── SKY ── -->
-                            <rect width="520" height="300" fill="url(#seaSky)"/>
-                            <!-- Stars -->
-                            <circle cx="25" cy="15" r="1.2" fill="rgba(255,255,255,0.6)"/>
-                            <circle cx="70" cy="8" r="0.8" fill="rgba(255,255,255,0.5)"/>
-                            <circle cx="130" cy="20" r="1" fill="rgba(255,255,255,0.4)"/>
-                            <circle cx="200" cy="10" r="1.2" fill="rgba(255,255,255,0.6)"/>
-                            <circle cx="270" cy="18" r="0.8" fill="rgba(255,255,255,0.5)"/>
-                            <circle cx="340" cy="8" r="1" fill="rgba(255,255,255,0.4)"/>
-                            <circle cx="410" cy="22" r="1.2" fill="rgba(255,255,255,0.6)"/>
-                            <circle cx="480" cy="12" r="0.8" fill="rgba(255,255,255,0.5)"/>
-                            <!-- Moon -->
-                            <circle cx="460" cy="45" r="24" fill="rgba(255,240,180,0.12)"/>
-                            <circle cx="460" cy="45" r="18" fill="rgba(255,240,180,0.1)"/>
-                            <circle cx="460" cy="45" r="12" fill="rgba(255,240,180,0.08)"/>
-                            <!-- Moon reflection on water -->
-                            <ellipse cx="460" cy="185" rx="30" ry="8" fill="rgba(255,240,180,0.06)"/>
-                            <!-- Horizon glow -->
-                            <ellipse cx="260" cy="170" rx="350" ry="40" fill="rgba(58,135,200,0.07)"/>
-                            <ellipse cx="260" cy="172" rx="200" ry="20" fill="rgba(58,135,200,0.05)"/>
-
-                            <!-- ── OCEAN ── -->
-                            <rect x="0" y="170" width="520" height="130" fill="url(#seaWater)"/>
-                            <!-- Ocean depth gradient overlay -->
-                            <rect x="0" y="170" width="520" height="130" fill="rgba(0,0,0,0.1)"/>
-                            <!-- Wave layers -->
-                            <path d="M0 178 C35 170 70 186 105 178 C140 170 175 186 210 178 C245 170 280 186 315 178 C350 170 385 186 420 178 C455 170 490 184 520 178" stroke="rgba(58,135,200,0.35)" stroke-width="2" fill="none"/>
-                            <path d="M0 192 C45 183 90 200 135 192 C180 183 225 200 270 192 C315 183 360 200 405 192 C450 183 490 198 520 192" stroke="rgba(58,135,200,0.25)" stroke-width="1.5" fill="none"/>
-                            <path d="M0 208 C55 198 110 215 165 208 C220 198 275 215 330 208 C385 198 440 213 520 208" stroke="rgba(58,135,200,0.18)" stroke-width="1.2" fill="none"/>
-                            <path d="M0 225 C65 215 130 230 195 225 C260 215 325 230 390 225 C440 218 480 228 520 225" stroke="rgba(58,135,200,0.12)" stroke-width="1" fill="none"/>
-                            <!-- Foam/whitecaps -->
-                            <path d="M20 180 C30 178 40 182 50 180" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                            <path d="M150 185 C162 182 174 187 186 185" stroke="rgba(255,255,255,0.12)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-                            <path d="M300 178 C312 175 324 180 336 178" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-
-                            <!-- ── CARGO SHIP ── -->
-                            <!-- Ship shadow on water -->
-                            <ellipse cx="260" cy="178" rx="230" ry="15" fill="rgba(0,0,0,0.25)"/>
-                            <!-- Hull (main body) -->
-                            <path d="M50 148 L470 148 L492 172 L28 172 Z" fill="url(#shipHull)" stroke="rgba(58,135,200,0.35)" stroke-width="1.2"/>
-                            <!-- Hull highlight (top edge) -->
-                            <line x1="50" y1="148" x2="470" y2="148" stroke="rgba(58,135,200,0.3)" stroke-width="1.5"/>
-                            <!-- Waterline stripe (gold) -->
-                            <path d="M28 168 L492 168 L492 172 L28 172 Z" fill="rgba(200,146,42,0.4)"/>
-                            <!-- Hull bottom (dark) -->
-                            <path d="M28 172 L492 172 L492 178 L28 178 Z" fill="rgba(5,12,22,0.8)"/>
-                            <!-- Main deck -->
-                            <rect x="55" y="118" width="390" height="32" rx="2" fill="url(#shipDeck)" stroke="rgba(58,135,200,0.2)" stroke-width="0.8"/>
-                            <!-- Deck edge railing -->
-                            <line x1="55" y1="118" x2="445" y2="118" stroke="rgba(168,184,200,0.25)" stroke-width="1.5"/>
-
-                            <!-- ── CONTAINERS (3 rows, 8 columns) ── -->
-                            <!-- Row 3 (bottom, on deck) -->
-                            <rect x="65" y="96" width="42" height="24" rx="2" fill="rgba(58,135,200,0.65)" stroke="rgba(58,135,200,0.85)" stroke-width="0.8"/>
-                            <rect x="111" y="96" width="42" height="24" rx="2" fill="rgba(200,146,42,0.55)" stroke="rgba(200,146,42,0.75)" stroke-width="0.8"/>
-                            <rect x="157" y="96" width="42" height="24" rx="2" fill="rgba(58,135,200,0.65)" stroke="rgba(58,135,200,0.85)" stroke-width="0.8"/>
-                            <rect x="203" y="96" width="42" height="24" rx="2" fill="rgba(200,146,42,0.55)" stroke="rgba(200,146,42,0.75)" stroke-width="0.8"/>
-                            <rect x="249" y="96" width="42" height="24" rx="2" fill="rgba(58,135,200,0.65)" stroke="rgba(58,135,200,0.85)" stroke-width="0.8"/>
-                            <rect x="295" y="96" width="42" height="24" rx="2" fill="rgba(200,146,42,0.55)" stroke="rgba(200,146,42,0.75)" stroke-width="0.8"/>
-                            <rect x="341" y="96" width="42" height="24" rx="2" fill="rgba(58,135,200,0.65)" stroke="rgba(58,135,200,0.85)" stroke-width="0.8"/>
-                            <!-- Row 2 (middle) -->
-                            <rect x="86" y="74" width="42" height="24" rx="2" fill="rgba(200,146,42,0.5)" stroke="rgba(200,146,42,0.7)" stroke-width="0.8"/>
-                            <rect x="132" y="74" width="42" height="24" rx="2" fill="rgba(58,135,200,0.6)" stroke="rgba(58,135,200,0.8)" stroke-width="0.8"/>
-                            <rect x="178" y="74" width="42" height="24" rx="2" fill="rgba(200,146,42,0.5)" stroke="rgba(200,146,42,0.7)" stroke-width="0.8"/>
-                            <rect x="224" y="74" width="42" height="24" rx="2" fill="rgba(58,135,200,0.6)" stroke="rgba(58,135,200,0.8)" stroke-width="0.8"/>
-                            <rect x="270" y="74" width="42" height="24" rx="2" fill="rgba(200,146,42,0.5)" stroke="rgba(200,146,42,0.7)" stroke-width="0.8"/>
-                            <rect x="316" y="74" width="42" height="24" rx="2" fill="rgba(58,135,200,0.6)" stroke="rgba(58,135,200,0.8)" stroke-width="0.8"/>
-                            <!-- Row 1 (top) -->
-                            <rect x="107" y="52" width="42" height="24" rx="2" fill="rgba(58,135,200,0.55)" stroke="rgba(58,135,200,0.75)" stroke-width="0.8"/>
-                            <rect x="153" y="52" width="42" height="24" rx="2" fill="rgba(200,146,42,0.45)" stroke="rgba(200,146,42,0.65)" stroke-width="0.8"/>
-                            <rect x="199" y="52" width="42" height="24" rx="2" fill="rgba(58,135,200,0.55)" stroke="rgba(58,135,200,0.75)" stroke-width="0.8"/>
-                            <rect x="245" y="52" width="42" height="24" rx="2" fill="rgba(200,146,42,0.45)" stroke="rgba(200,146,42,0.65)" stroke-width="0.8"/>
-                            <rect x="291" y="52" width="42" height="24" rx="2" fill="rgba(58,135,200,0.55)" stroke="rgba(58,135,200,0.75)" stroke-width="0.8"/>
-                            <!-- Container detail lines -->
-                            <line x1="86" y1="86" x2="128" y2="86" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
-                            <line x1="132" y1="86" x2="174" y2="86" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
-
-                            <!-- ── BRIDGE/SUPERSTRUCTURE ── -->
-                            <rect x="360" y="42" width="90" height="78" rx="5" fill="rgba(18,45,85,0.97)" stroke="rgba(58,135,200,0.4)" stroke-width="1.2"/>
-                            <!-- Bridge levels -->
-                            <line x1="360" y1="68" x2="450" y2="68" stroke="rgba(58,135,200,0.2)" stroke-width="0.8"/>
-                            <line x1="360" y1="90" x2="450" y2="90" stroke="rgba(58,135,200,0.2)" stroke-width="0.8"/>
-                            <!-- Bridge windows (illuminated) -->
-                            <rect x="368" y="48" width="16" height="12" rx="2" fill="rgba(240,200,80,0.45)" stroke="rgba(240,200,80,0.65)" stroke-width="0.8"/>
-                            <rect x="388" y="48" width="16" height="12" rx="2" fill="rgba(240,200,80,0.45)" stroke="rgba(240,200,80,0.65)" stroke-width="0.8"/>
-                            <rect x="408" y="48" width="16" height="12" rx="2" fill="rgba(240,200,80,0.45)" stroke="rgba(240,200,80,0.65)" stroke-width="0.8"/>
-                            <rect x="428" y="48" width="14" height="12" rx="2" fill="rgba(240,200,80,0.35)" stroke="rgba(240,200,80,0.55)" stroke-width="0.8"/>
-                            <!-- Lower windows -->
-                            <rect x="368" y="72" width="12" height="10" rx="2" fill="rgba(240,200,80,0.3)" stroke="rgba(240,200,80,0.5)" stroke-width="0.6"/>
-                            <rect x="384" y="72" width="12" height="10" rx="2" fill="rgba(240,200,80,0.3)" stroke="rgba(240,200,80,0.5)" stroke-width="0.6"/>
-                            <rect x="400" y="72" width="12" height="10" rx="2" fill="rgba(240,200,80,0.3)" stroke="rgba(240,200,80,0.5)" stroke-width="0.6"/>
-                            <!-- Funnel -->
-                            <rect x="390" y="18" width="24" height="26" rx="4" fill="rgba(12,28,55,0.97)" stroke="rgba(58,135,200,0.35)" stroke-width="1"/>
-                            <!-- Boxmar stripe on funnel -->
-                            <rect x="390" y="30" width="24" height="6" fill="rgba(200,146,42,0.7)"/>
-                            <!-- Funnel top -->
-                            <rect x="388" y="14" width="28" height="6" rx="2" fill="rgba(8,18,38,0.9)"/>
-                            <!-- Smoke puffs -->
-                            <circle cx="402" cy="8" r="7" fill="rgba(168,184,200,0.08)"/>
-                            <circle cx="406" cy="-2" r="10" fill="rgba(168,184,200,0.06)"/>
-                            <circle cx="398" cy="-12" r="13" fill="rgba(168,184,200,0.04)"/>
-                            <!-- Radar mast -->
-                            <line x1="405" y1="42" x2="405" y2="18" stroke="rgba(168,184,200,0.3)" stroke-width="1"/>
-                            <line x1="398" y1="22" x2="412" y2="22" stroke="rgba(168,184,200,0.3)" stroke-width="1.5"/>
-                            <!-- Navigation lights -->
-                            <circle cx="450" cy="118" r="4" fill="rgba(240,200,80,0.9)" filter="url(#seaSoftGlow)"/>
-                            <circle cx="55" cy="148" r="3" fill="rgba(255,80,80,0.8)" filter="url(#seaSoftGlow)"/>
-                            <!-- Anchor chain -->
-                            <path d="M75 148 C72 158 70 165 68 172" stroke="rgba(168,184,200,0.25)" stroke-width="1.5" stroke-dasharray="3 2"/>
-                            <!-- Bow wave (water displacement) -->
-                            <path d="M28 172 C15 178 8 185 5 192" stroke="rgba(255,255,255,0.2)" stroke-width="2" fill="none" stroke-linecap="round"/>
-                            <path d="M28 172 C18 180 12 188 8 196" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                            <!-- Wake (behind ship) -->
-                            <path d="M492 172 C505 178 512 185 515 192" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                            <!-- Water reflection of ship -->
-                            <path d="M50 178 L470 178 L492 190 L28 190 Z" fill="rgba(30,74,120,0.12)"/>
-                        </svg>
-                        <p class="svc-illus-caption">Global ocean shipping — 120+ ports worldwide</p>
+                    <!-- Cinematic Hero Image Banner -->
+                    <div class="svc-hero-image-banner">
+                        <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1400&q=92&auto=format&fit=crop" alt="Large cargo container ship at sea" loading="lazy" width="1400" height="840"/>
+                        <div class="svc-hero-image-overlay">
+                            <div class="svc-hero-image-label">Boxmar Ocean Line</div>
+                            <h3 class="svc-hero-image-title">Global Ocean<br>Shipping</h3>
+                            <p class="svc-hero-image-sub">120+ ports · FCL &amp; LCL · 50+ carrier partners</p>
+                        </div>
                     </div>
                     <!-- Services Include -->
                     <div class="svc-info-box" style="margin-bottom:var(--space-xl)">
@@ -443,47 +295,51 @@
         </div>
     </section>
 
-    <!-- PHOTO GALLERY -->
+    <!-- PHOTO GALLERY — 5-Photo Premium Mosaic -->
     <section class="section section--gray">
         <div class="container">
             <div class="svc-photos-header reveal">
-                <h2 class="svc-photos-title" style="color:var(--navy-800)">Sea Freight in Action</h2>
-                <span class="tag">Real Operations</span>
+                <div class="svc-photos-header-left">
+                    <div class="section-label">Real Operations</div>
+                    <h2 class="svc-photos-title">Sea Freight in Action</h2>
+                    <p class="svc-photos-subtitle">Global ocean shipping — 120+ ports, every continent</p>
+                </div>
+                <span class="tag">FCL &amp; LCL Experts</span>
             </div>
-            <div class="svc-photo-grid reveal">
+            <div class="svc-photo-grid grid-featured reveal">
                 <div class="svc-photo-card featured">
-                    <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=800&q=80&fit=crop" alt="Cargo container ship at sea" loading="lazy"/>
+                    <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1400&q=92&auto=format&fit=crop" alt="Large cargo container ship at sea" loading="lazy" width="1400" height="840"/>
                     <div class="svc-photo-overlay">
                         <span class="svc-photo-tag">Ocean Freight</span>
-                        <span class="svc-photo-caption">Container ship crossing the Mediterranean</span>
+                        <span class="svc-photo-caption">Container ship crossing the Mediterranean — Istanbul to Rotterdam</span>
                     </div>
                 </div>
                 <div class="svc-photo-card">
-                    <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&q=80&fit=crop" alt="Container port operations" loading="lazy"/>
+                    <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=900&q=92&auto=format&fit=crop" alt="Container port crane operations" loading="lazy" width="900" height="675"/>
                     <div class="svc-photo-overlay">
-                        <span class="svc-photo-tag">Port</span>
-                        <span class="svc-photo-caption">Port handling operations</span>
+                        <span class="svc-photo-tag">Port Ops</span>
+                        <span class="svc-photo-caption">Port crane loading operations</span>
                     </div>
                 </div>
                 <div class="svc-photo-card">
-                    <img src="https://images.unsplash.com/photo-1565793979680-f1d3e5e5e5e5?w=600&q=80&fit=crop" alt="Shipping containers stacked" loading="lazy"/>
-                    <div class="svc-photo-overlay">
-                        <span class="svc-photo-tag">Containers</span>
-                        <span class="svc-photo-caption">FCL & LCL container services</span>
-                    </div>
-                </div>
-                <div class="svc-photo-card">
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80&fit=crop" alt="Cargo ship loading at port" loading="lazy"/>
-                    <div class="svc-photo-overlay">
-                        <span class="svc-photo-tag">Loading</span>
-                        <span class="svc-photo-caption">Container loading operations</span>
-                    </div>
-                </div>
-                <div class="svc-photo-card">
-                    <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=600&q=80&fit=crop" alt="Aerial view of container port" loading="lazy"/>
+                    <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=900&q=92&auto=format&fit=crop" alt="Aerial view of container port" loading="lazy" width="900" height="675"/>
                     <div class="svc-photo-overlay">
                         <span class="svc-photo-tag">Port View</span>
-                        <span class="svc-photo-caption">Global port network</span>
+                        <span class="svc-photo-caption">Aerial view — global port network</span>
+                    </div>
+                </div>
+                <div class="svc-photo-card">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=92&auto=format&fit=crop" alt="Cargo ship loading at port" loading="lazy" width="900" height="675"/>
+                    <div class="svc-photo-overlay">
+                        <span class="svc-photo-tag">Loading</span>
+                        <span class="svc-photo-caption">FCL container loading at Ambarlı Port</span>
+                    </div>
+                </div>
+                <div class="svc-photo-card">
+                    <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=900&q=92&auto=format&fit=crop" alt="Container ship at sea horizon" loading="lazy" width="900" height="675"/>
+                    <div class="svc-photo-overlay">
+                        <span class="svc-photo-tag">Global</span>
+                        <span class="svc-photo-caption">50+ carrier partners — worldwide coverage</span>
                     </div>
                 </div>
             </div>
@@ -505,6 +361,43 @@
                         Chat on WhatsApp
                     </a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RELATED SERVICES -->
+    <section class="section svc-related-section" style="padding:var(--space-3xl) 0">
+        <div class="container" style="position:relative;z-index:2">
+            <div class="text-center reveal" style="margin-bottom:var(--space-2xl)">
+                <div class="section-label" style="justify-content:center">Explore More</div>
+                <h2 class="section-title" style="color:var(--white)">Our Other Services</h2>
+            </div>
+            <div class="svc-related-grid reveal">
+                <a href="road.html" class="svc-related-card">
+                    <div class="svc-related-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 16V6h11v10H1zm12-6h3l3 4v2h-2m-4 0H8m-5 0H1"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="17" cy="16.5" r="2.5"/></svg></div>
+                    <span class="svc-related-name">Road Transport</span>
+                    <span class="svc-related-arrow">→</span>
+                </a>
+                <a href="air.html" class="svc-related-card">
+                    <div class="svc-related-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg></div>
+                    <span class="svc-related-name">Air Freight</span>
+                    <span class="svc-related-arrow">→</span>
+                </a>
+                <a href="rail.html" class="svc-related-card">
+                    <div class="svc-related-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="14" rx="2"/><path d="M4 11h16M9 17l-2 4M15 17l2 4"/><circle cx="8" cy="14" r="1"/><circle cx="16" cy="14" r="1"/></svg></div>
+                    <span class="svc-related-name">Rail Freight</span>
+                    <span class="svc-related-arrow">→</span>
+                </a>
+                <a href="chemical.html" class="svc-related-card">
+                    <div class="svc-related-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v6.292a4 4 0 00-1.17 2.83L7.5 21h9l-1.33-9.878A4 4 0 0014 8.292V2"/><path d="M8.5 2h7M8.5 6h7"/></svg></div>
+                    <span class="svc-related-name">Chemical Freight</span>
+                    <span class="svc-related-arrow">→</span>
+                </a>
+                <a href="food.html" class="svc-related-card">
+                    <div class="svc-related-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 017 7c0 5-7 11-7 11S5 14 5 9a7 7 0 017-7z"/><path d="M9.5 9a2.5 2.5 0 005 0"/></svg></div>
+                    <span class="svc-related-name">Food Freight</span>
+                    <span class="svc-related-arrow">→</span>
+                </a>
             </div>
         </div>
     </section>
