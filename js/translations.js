@@ -32,6 +32,53 @@ const translations = {
     'trust.1': '25 Years Experience', 'trust.2': '99.9% On-Time Delivery',
     'trust.3': 'ADR Certified', 'trust.4': 'ISO 9001 Quality',
     'trust.5': 'U-NET No: 1284152',
+    'trust.sub.1': 'Since 2001',
+    'trust.sub.2': 'Industry-leading',
+    'trust.sub.3': 'Hazardous goods',
+    'trust.sub.4': 'Certified system',
+    'trust.sub.5': 'Certificate holder',
+
+    /* Global Network section */
+    'network.label': 'Our Reach',
+    'network.title': 'Global Network',
+    'network.subtitle': 'Connecting Turkey to the world — 120+ countries, 6 continents, every major trade corridor.',
+
+    /* About stat pills */
+    'about.pill.1': 'Years of international forwarding excellence',
+    'about.pill.2': 'Satisfied clients across 120+ countries',
+    'about.pill.3': 'Expert logistics professionals',
+
+    /* Testimonials subtitle */
+    'testimonials.subtitle': 'Trusted by 500+ companies across 120+ countries',
+
+    /* Quote form subtitle */
+    'quote.subtitle': 'Get a competitive quote in 3 simple steps. Response within 1 hour.',
+
+    /* CTA v2 */
+    'cta.label': 'Ready to Get Started?',
+    'cta.wa': 'WhatsApp',
+
+    /* Footer */
+    'footer.terms': 'Terms of Service',
+    'footer.cert': 'Holder of Certificate',
+
+    /* Tracking page */
+    'tracking.demo.subtitle': 'Enter your tracking number or try our demo:',
+
+    /* Service page photo sections */
+    'svc.page.photos.label': 'Real Operations',
+    'svc.page.photos.label.air': 'Speed Comparison',
+    'svc.page.photos.label.air.sub': 'When time is critical, air freight is the clear choice.',
+    'svc.page.photos.label.rail': 'Silk Road Routes',
+    'svc.page.photos.label.chem': 'ADR Certified Operations',
+    'svc.page.photos.label.food.tank': 'Tank Solutions',
+    'svc.page.photos.label.food.tank.sub': 'Three specialized solutions for different food product requirements.',
+    'svc.page.photos.label.food': 'HACCP Certified Operations',
+
+    /* About page certificate */
+    'cert.unet': 'Holder of Certificate — U-NET No: 1284152',
+    'cert.unet.label': 'Certificate',
+    'cert.unet.short': 'Holder of Certificate',
 
     /* Services section */
     'services.label': 'What We Offer', 'services.title': 'Our Services',
@@ -445,6 +492,53 @@ const translations = {
     'trust.1': '25 Yıl Deneyim', 'trust.2': '%99.9 Zamanında Teslimat',
     'trust.3': 'ADR Sertifikalı', 'trust.4': 'ISO 9001 Kalite',
     'trust.5': 'U-NET No: 1284152',
+    'trust.sub.1': '2001\'den beri',
+    'trust.sub.2': 'Sektör lideri',
+    'trust.sub.3': 'Tehlikeli madde',
+    'trust.sub.4': 'Sertifikalı sistem',
+    'trust.sub.5': 'Sertifika sahibi',
+
+    /* Global Network section */
+    'network.label': 'Küresel Erişimimiz',
+    'network.title': 'Küresel Ağ',
+    'network.subtitle': 'Türkiye\'yi dünyaya bağlıyoruz — 120+ ülke, 6 kıta, her büyük ticaret koridoru.',
+
+    /* About stat pills */
+    'about.pill.1': 'Yıllık uluslararası forwarding mükemmelliği',
+    'about.pill.2': '120+ ülkede memnun müşteri',
+    'about.pill.3': 'Uzman lojistik profesyoneli',
+
+    /* Testimonials subtitle */
+    'testimonials.subtitle': '120+ ülkede 500+ şirket tarafından güvenilen',
+
+    /* Quote form subtitle */
+    'quote.subtitle': '3 basit adımda rekabetçi teklif alın. 1 saat içinde yanıt.',
+
+    /* CTA v2 */
+    'cta.label': 'Başlamaya Hazır mısınız?',
+    'cta.wa': 'WhatsApp',
+
+    /* Footer */
+    'footer.terms': 'Kullanım Koşulları',
+    'footer.cert': 'Sertifika Sahibi',
+
+    /* Tracking page */
+    'tracking.demo.subtitle': 'Takip numaranızı girin veya demoyu deneyin:',
+
+    /* Service page photo sections */
+    'svc.page.photos.label': 'Gerçek Operasyonlar',
+    'svc.page.photos.label.air': 'Hız Karşılaştırması',
+    'svc.page.photos.label.air.sub': 'Zaman kritik olduğunda hava yükü açık ara en iyi seçimdir.',
+    'svc.page.photos.label.rail': 'İpek Yolu Güzergahları',
+    'svc.page.photos.label.chem': 'ADR Sertifikalı Operasyonlar',
+    'svc.page.photos.label.food.tank': 'Tank Çözümleri',
+    'svc.page.photos.label.food.tank.sub': 'Farklı gıda ürünü gereksinimleri için üç uzmanlaşmış çözüm.',
+    'svc.page.photos.label.food': 'HACCP Sertifikalı Operasyonlar',
+
+    /* About page certificate */
+    'cert.unet': 'Sertifika Sahibi — U-NET No: 1284152',
+    'cert.unet.label': 'Sertifika',
+    'cert.unet.short': 'Sertifika Sahibi',
 
     /* Services section */
     'services.label': 'Ne Sunuyoruz', 'services.title': 'Hizmetlerimiz',
