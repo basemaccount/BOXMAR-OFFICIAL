@@ -135,6 +135,98 @@
                 </div>
 
                 <div class="reveal reveal-delay-2">
+                    <!-- Sea Freight Illustration -->
+                    <div class="svc-illustration svc-illustration--dark" style="margin-bottom:var(--space-xl)">
+                        <svg viewBox="0 0 480 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Cargo Ship Sea Freight Illustration">
+                            <defs>
+                                <linearGradient id="seaSky" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#020810"/>
+                                    <stop offset="60%" stop-color="#071828"/>
+                                    <stop offset="100%" stop-color="#0A2040"/>
+                                </linearGradient>
+                                <linearGradient id="seaWater" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#0A2040"/>
+                                    <stop offset="100%" stop-color="#050E1C"/>
+                                </linearGradient>
+                                <linearGradient id="shipHull" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#1E4A78"/>
+                                    <stop offset="100%" stop-color="#0A1628"/>
+                                </linearGradient>
+                                <filter id="seaGlow">
+                                    <feGaussianBlur stdDeviation="3" result="blur"/>
+                                    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                                </filter>
+                            </defs>
+                            <!-- Sky -->
+                            <rect width="480" height="260" fill="url(#seaSky)" rx="12"/>
+                            <!-- Stars -->
+                            <circle cx="40" cy="25" r="1" fill="rgba(255,255,255,0.5)"/>
+                            <circle cx="100" cy="15" r="1.5" fill="rgba(255,255,255,0.4)"/>
+                            <circle cx="180" cy="30" r="1" fill="rgba(255,255,255,0.3)"/>
+                            <circle cx="280" cy="20" r="1" fill="rgba(255,255,255,0.5)"/>
+                            <circle cx="380" cy="10" r="1.5" fill="rgba(255,255,255,0.4)"/>
+                            <circle cx="440" cy="35" r="1" fill="rgba(255,255,255,0.3)"/>
+                            <!-- Moon -->
+                            <circle cx="420" cy="40" r="18" fill="rgba(200,180,100,0.15)"/>
+                            <circle cx="428" cy="36" r="14" fill="rgba(200,180,100,0.08)"/>
+                            <!-- Horizon glow -->
+                            <ellipse cx="240" cy="155" rx="280" ry="30" fill="rgba(58,135,200,0.08)"/>
+                            <!-- Water -->
+                            <rect x="0" y="155" width="480" height="105" fill="url(#seaWater)" rx="0"/>
+                            <!-- Water waves -->
+                            <path d="M0 165 C40 158 80 172 120 165 C160 158 200 172 240 165 C280 158 320 172 360 165 C400 158 440 172 480 165" stroke="rgba(58,135,200,0.3)" stroke-width="1.5" fill="none"/>
+                            <path d="M0 178 C50 170 100 185 150 178 C200 170 250 185 300 178 C350 170 400 185 450 178 C465 175 475 180 480 178" stroke="rgba(58,135,200,0.2)" stroke-width="1" fill="none"/>
+                            <path d="M0 192 C60 184 120 198 180 192 C240 184 300 198 360 192 C420 184 460 196 480 192" stroke="rgba(58,135,200,0.15)" stroke-width="0.8" fill="none"/>
+                            <!-- Water reflection -->
+                            <path d="M120 155 C160 165 200 160 240 155 C280 150 320 165 360 155" stroke="rgba(200,146,42,0.1)" stroke-width="1" fill="none"/>
+
+                            <!-- ── CARGO SHIP ── -->
+                            <!-- Hull -->
+                            <path d="M60 140 L420 140 L440 160 L40 160 Z" fill="url(#shipHull)" stroke="rgba(58,135,200,0.3)" stroke-width="1"/>
+                            <!-- Hull waterline stripe -->
+                            <rect x="40" y="155" width="400" height="5" fill="rgba(200,146,42,0.3)" rx="1"/>
+                            <!-- Main deck -->
+                            <rect x="70" y="110" width="340" height="32" rx="2" fill="rgba(15,35,60,0.9)" stroke="rgba(58,135,200,0.2)" stroke-width="0.8"/>
+                            <!-- Containers on deck (stacked) -->
+                            <!-- Row 1 (bottom) -->
+                            <rect x="80" y="90" width="38" height="22" rx="2" fill="rgba(58,135,200,0.6)" stroke="rgba(58,135,200,0.8)" stroke-width="0.8"/>
+                            <rect x="122" y="90" width="38" height="22" rx="2" fill="rgba(200,146,42,0.5)" stroke="rgba(200,146,42,0.7)" stroke-width="0.8"/>
+                            <rect x="164" y="90" width="38" height="22" rx="2" fill="rgba(58,135,200,0.6)" stroke="rgba(58,135,200,0.8)" stroke-width="0.8"/>
+                            <rect x="206" y="90" width="38" height="22" rx="2" fill="rgba(200,146,42,0.5)" stroke="rgba(200,146,42,0.7)" stroke-width="0.8"/>
+                            <rect x="248" y="90" width="38" height="22" rx="2" fill="rgba(58,135,200,0.6)" stroke="rgba(58,135,200,0.8)" stroke-width="0.8"/>
+                            <rect x="290" y="90" width="38" height="22" rx="2" fill="rgba(200,146,42,0.5)" stroke="rgba(200,146,42,0.7)" stroke-width="0.8"/>
+                            <rect x="332" y="90" width="38" height="22" rx="2" fill="rgba(58,135,200,0.6)" stroke="rgba(58,135,200,0.8)" stroke-width="0.8"/>
+                            <!-- Row 2 (top) -->
+                            <rect x="101" y="70" width="38" height="22" rx="2" fill="rgba(200,146,42,0.45)" stroke="rgba(200,146,42,0.65)" stroke-width="0.8"/>
+                            <rect x="143" y="70" width="38" height="22" rx="2" fill="rgba(58,135,200,0.55)" stroke="rgba(58,135,200,0.75)" stroke-width="0.8"/>
+                            <rect x="185" y="70" width="38" height="22" rx="2" fill="rgba(200,146,42,0.45)" stroke="rgba(200,146,42,0.65)" stroke-width="0.8"/>
+                            <rect x="227" y="70" width="38" height="22" rx="2" fill="rgba(58,135,200,0.55)" stroke="rgba(58,135,200,0.75)" stroke-width="0.8"/>
+                            <rect x="269" y="70" width="38" height="22" rx="2" fill="rgba(200,146,42,0.45)" stroke="rgba(200,146,42,0.65)" stroke-width="0.8"/>
+                            <rect x="311" y="70" width="38" height="22" rx="2" fill="rgba(58,135,200,0.55)" stroke="rgba(58,135,200,0.75)" stroke-width="0.8"/>
+                            <!-- Bridge/superstructure -->
+                            <rect x="340" y="55" width="80" height="58" rx="4" fill="rgba(20,50,90,0.95)" stroke="rgba(58,135,200,0.35)" stroke-width="1"/>
+                            <!-- Bridge windows -->
+                            <rect x="348" y="62" width="14" height="10" rx="2" fill="rgba(240,200,80,0.4)" stroke="rgba(240,200,80,0.6)" stroke-width="0.5"/>
+                            <rect x="366" y="62" width="14" height="10" rx="2" fill="rgba(240,200,80,0.4)" stroke="rgba(240,200,80,0.6)" stroke-width="0.5"/>
+                            <rect x="384" y="62" width="14" height="10" rx="2" fill="rgba(240,200,80,0.4)" stroke="rgba(240,200,80,0.6)" stroke-width="0.5"/>
+                            <rect x="402" y="62" width="12" height="10" rx="2" fill="rgba(240,200,80,0.3)" stroke="rgba(240,200,80,0.5)" stroke-width="0.5"/>
+                            <!-- Funnel/chimney -->
+                            <rect x="370" y="35" width="20" height="22" rx="3" fill="rgba(15,35,60,0.9)" stroke="rgba(58,135,200,0.3)" stroke-width="0.8"/>
+                            <!-- Boxmar stripe on funnel -->
+                            <rect x="370" y="45" width="20" height="5" fill="rgba(200,146,42,0.6)"/>
+                            <!-- Smoke -->
+                            <circle cx="380" cy="26" r="6" fill="rgba(168,184,200,0.08)"/>
+                            <circle cx="384" cy="16" r="8" fill="rgba(168,184,200,0.06)"/>
+                            <circle cx="378" cy="6" r="10" fill="rgba(168,184,200,0.04)"/>
+                            <!-- Anchor chain -->
+                            <path d="M75 140 C72 148 70 155 68 160" stroke="rgba(168,184,200,0.3)" stroke-width="1.5" stroke-dasharray="3 2"/>
+                            <!-- Navigation light -->
+                            <circle cx="420" cy="108" r="3" fill="rgba(240,200,80,0.8)" filter="url(#seaGlow)"/>
+                            <!-- Water reflection of ship -->
+                            <path d="M60 162 L420 162 L440 175 L40 175 Z" fill="rgba(30,74,120,0.15)"/>
+                        </svg>
+                        <p class="svc-illus-caption">Global ocean shipping — 120+ ports worldwide</p>
+                    </div>
                     <!-- Services Include -->
                     <div class="svc-info-box" style="margin-bottom:var(--space-xl)">
                         <h3>Services Include</h3>

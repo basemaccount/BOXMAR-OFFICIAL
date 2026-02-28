@@ -155,6 +155,97 @@
                 </div>
 
                 <div class="reveal reveal-delay-2">
+                    <!-- Food Tank Illustration -->
+                    <div class="svc-illustration svc-illustration--dark" style="margin-bottom:var(--space-xl)">
+                        <svg viewBox="0 0 480 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Food Grade Flexi Tank and Bulk Liner Illustration">
+                            <defs>
+                                <linearGradient id="foodBg" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#020810"/>
+                                    <stop offset="100%" stop-color="#071828"/>
+                                </linearGradient>
+                                <linearGradient id="flexiTank" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#1E4A78"/>
+                                    <stop offset="50%" stop-color="#0F2340"/>
+                                    <stop offset="100%" stop-color="#071828"/>
+                                </linearGradient>
+                                <linearGradient id="liquidGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="rgba(200,146,42,0.4)"/>
+                                    <stop offset="100%" stop-color="rgba(200,146,42,0.15)"/>
+                                </linearGradient>
+                                <linearGradient id="containerFrame" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#152F56"/>
+                                    <stop offset="100%" stop-color="#071828"/>
+                                </linearGradient>
+                                <filter id="foodGlow">
+                                    <feGaussianBlur stdDeviation="4" result="blur"/>
+                                    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                                </filter>
+                            </defs>
+                            <!-- Background -->
+                            <rect width="480" height="280" fill="url(#foodBg)" rx="12"/>
+                            <!-- Subtle grid -->
+                            <line x1="0" y1="70" x2="480" y2="70" stroke="rgba(58,135,200,0.05)" stroke-width="0.5"/>
+                            <line x1="0" y1="140" x2="480" y2="140" stroke="rgba(58,135,200,0.05)" stroke-width="0.5"/>
+                            <line x1="0" y1="210" x2="480" y2="210" stroke="rgba(58,135,200,0.05)" stroke-width="0.5"/>
+                            <!-- Ambient glow -->
+                            <ellipse cx="240" cy="160" rx="200" ry="80" fill="rgba(132,204,22,0.03)"/>
+
+                            <!-- ── 20FT CONTAINER WITH FLEXI TANK ── -->
+                            <!-- Container outer frame -->
+                            <rect x="40" y="75" width="400" height="155" rx="5" fill="url(#containerFrame)" stroke="rgba(58,135,200,0.3)" stroke-width="1.5"/>
+                            <!-- Container corrugations -->
+                            <line x1="80" y1="75" x2="80" y2="230" stroke="rgba(58,135,200,0.12)" stroke-width="1"/>
+                            <line x1="120" y1="75" x2="120" y2="230" stroke="rgba(58,135,200,0.12)" stroke-width="1"/>
+                            <line x1="160" y1="75" x2="160" y2="230" stroke="rgba(58,135,200,0.12)" stroke-width="1"/>
+                            <line x1="200" y1="75" x2="200" y2="230" stroke="rgba(58,135,200,0.12)" stroke-width="1"/>
+                            <line x1="240" y1="75" x2="240" y2="230" stroke="rgba(58,135,200,0.12)" stroke-width="1"/>
+                            <line x1="280" y1="75" x2="280" y2="230" stroke="rgba(58,135,200,0.12)" stroke-width="1"/>
+                            <line x1="320" y1="75" x2="320" y2="230" stroke="rgba(58,135,200,0.12)" stroke-width="1"/>
+                            <line x1="360" y1="75" x2="360" y2="230" stroke="rgba(58,135,200,0.12)" stroke-width="1"/>
+                            <line x1="400" y1="75" x2="400" y2="230" stroke="rgba(58,135,200,0.12)" stroke-width="1"/>
+                            <!-- Container top/bottom rails -->
+                            <rect x="40" y="75" width="400" height="12" rx="3" fill="rgba(20,50,90,0.9)" stroke="rgba(58,135,200,0.2)" stroke-width="0.8"/>
+                            <rect x="40" y="218" width="400" height="12" rx="3" fill="rgba(20,50,90,0.9)" stroke="rgba(58,135,200,0.2)" stroke-width="0.8"/>
+                            <!-- Container corner castings -->
+                            <rect x="40" y="75" width="20" height="155" rx="3" fill="rgba(20,50,90,0.9)" stroke="rgba(58,135,200,0.2)" stroke-width="0.8"/>
+                            <rect x="420" y="75" width="20" height="155" rx="3" fill="rgba(20,50,90,0.9)" stroke="rgba(58,135,200,0.2)" stroke-width="0.8"/>
+
+                            <!-- ── FLEXI TANK INSIDE CONTAINER ── -->
+                            <!-- Flexi tank bladder (inflated with liquid) -->
+                            <ellipse cx="240" cy="165" rx="170" ry="55" fill="url(#flexiTank)" stroke="rgba(58,135,200,0.35)" stroke-width="1.5"/>
+                            <!-- Liquid level inside flexi tank -->
+                            <ellipse cx="240" cy="175" rx="155" ry="38" fill="url(#liquidGrad)"/>
+                            <!-- Liquid surface shimmer -->
+                            <path d="M90 168 C130 162 170 172 210 166 C250 160 290 170 330 164 C360 160 380 166 390 168" stroke="rgba(200,146,42,0.4)" stroke-width="1.5" fill="none"/>
+                            <!-- Flexi tank top fitting -->
+                            <ellipse cx="240" cy="110" rx="25" ry="8" fill="rgba(80,100,120,0.9)" stroke="rgba(168,184,200,0.5)" stroke-width="1.5"/>
+                            <rect x="228" y="102" width="24" height="10" rx="3" fill="rgba(60,80,100,0.9)" stroke="rgba(168,184,200,0.4)" stroke-width="1"/>
+                            <!-- Fill/discharge hose -->
+                            <path d="M240 102 C240 90 245 82 250 75" stroke="rgba(168,184,200,0.4)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                            <!-- HACCP certification badge -->
+                            <circle cx="150" cy="130" r="22" fill="rgba(132,204,22,0.1)" stroke="rgba(132,204,22,0.4)" stroke-width="1.5"/>
+                            <text x="150" y="127" font-family="Arial" font-weight="bold" font-size="8" fill="rgba(132,204,22,0.8)" text-anchor="middle">HACCP</text>
+                            <text x="150" y="138" font-family="Arial" font-size="7" fill="rgba(132,204,22,0.6)" text-anchor="middle">CERTIFIED</text>
+                            <!-- Food grade label -->
+                            <rect x="300" y="118" width="70" height="24" rx="3" fill="rgba(200,146,42,0.12)" stroke="rgba(200,146,42,0.4)" stroke-width="1"/>
+                            <text x="335" y="134" font-family="Arial" font-weight="bold" font-size="8" fill="rgba(200,146,42,0.8)" text-anchor="middle">FOOD GRADE</text>
+                            <!-- Capacity label -->
+                            <text x="240" y="185" font-family="Arial" font-weight="bold" font-size="11" fill="rgba(200,146,42,0.6)" text-anchor="middle">24,000 L</text>
+                            <!-- Container legs/supports -->
+                            <line x1="80" y1="230" x2="75" y2="258" stroke="rgba(80,100,120,0.5)" stroke-width="4" stroke-linecap="round"/>
+                            <line x1="400" y1="230" x2="405" y2="258" stroke="rgba(80,100,120,0.5)" stroke-width="4" stroke-linecap="round"/>
+                            <!-- Ground shadow -->
+                            <ellipse cx="240" cy="262" rx="200" ry="10" fill="rgba(0,0,0,0.3)"/>
+                            <!-- Food product icons (decorative) -->
+                            <!-- Olive oil drop -->
+                            <path d="M430 50 C430 40 438 35 438 45 C438 52 430 55 430 50 Z" fill="rgba(200,146,42,0.3)" stroke="rgba(200,146,42,0.5)" stroke-width="0.8"/>
+                            <!-- Wheat grain -->
+                            <ellipse cx="450" cy="40" rx="6" ry="10" fill="rgba(200,146,42,0.2)" stroke="rgba(200,146,42,0.4)" stroke-width="0.8" transform="rotate(20 450 40)"/>
+                            <!-- Water drop -->
+                            <path d="M50 50 C50 40 58 35 58 45 C58 52 50 55 50 50 Z" fill="rgba(58,135,200,0.3)" stroke="rgba(58,135,200,0.5)" stroke-width="0.8"/>
+                        </svg>
+                        <p class="svc-illus-caption">Flexi Tank — single-use food-grade bladder, up to 24,000 litres</p>
+                    </div>
                     <!-- Bulk Liner Products -->
                     <div class="svc-info-box" style="margin-bottom:var(--space-xl)">
                         <h3>Bulk Liner Products</h3>
