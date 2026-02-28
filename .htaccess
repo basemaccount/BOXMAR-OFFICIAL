@@ -1,0 +1,92 @@
+# Boxmar Global Logistics — Apache Configuration
+# For Natro.com and other Apache-based hosting
+
+# Enable mod_rewrite
+Options +FollowSymLinks
+RewriteEngine On
+
+# Force HTTPS (uncomment when SSL is configured)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Remove .html extension from URLs (clean URLs)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Redirect /services/road to /services/road.html etc.
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+[^/])$ $1.html [L]
+
+# Default document
+DirectoryIndex index.html
+
+# Prevent directory listing
+Options -Indexes
+
+# ── CACHING ──
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # HTML — short cache (content changes)
+    ExpiresByType text/html "access plus 1 hour"
+    
+    # CSS and JavaScript — long cache (versioned by content)
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType text/javascript "access plus 1 year"
+    
+    # Images
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # Fonts
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+</IfModule>
+
+# ── COMPRESSION ──
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ── SECURITY HEADERS ──
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Cache control for static assets
+    <FilesMatch "\.(css|js|png|jpg|jpeg|gif|svg|webp|ico|woff|woff2)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    
+    # No cache for HTML
+    <FilesMatch "\.html$">
+        Header set Cache-Control "public, max-age=3600, must-revalidate"
+    </FilesMatch>
+</IfModule>
+
+# ── MIME TYPES ──
+<IfModule mod_mime.c>
+    AddType text/css .css
+    AddType application/javascript .js
+    AddType image/svg+xml .svg
+    AddType font/woff2 .woff2
+    AddType font/woff .woff
+</IfModule>
+
+# ── CUSTOM ERROR PAGES ──
+ErrorDocument 404 /index.html
