@@ -2096,10 +2096,17 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     border: 1px solid rgba(255,255,255,0.1);
     font-size: 0.75rem;
     font-weight: 700;
-    color: rgba(255,255,255,0.4) !important;
+    color: rgba(255,255,255,0.6) !important;
     text-transform: uppercase;
     transition: all var(--t-base);
     cursor: pointer;
+}
+
+.footer-social a svg,
+.social-link svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
 }
 
 .footer-social a:hover,
@@ -2109,6 +2116,21 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     color: var(--navy-900) !important;
     transform: translateY(-3px);
     box-shadow: var(--shadow-gold);
+}
+
+/* Footer links with icons */
+.footer-links-v2 a svg,
+.footer-links a svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+    opacity: 0.5;
+    transition: opacity var(--t-fast);
+}
+
+.footer-links-v2 a:hover svg,
+.footer-links a:hover svg {
+    opacity: 1;
 }
 
 .footer-bottom {
@@ -6803,18 +6825,25 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 .footer-links-v2 a::before {
-    content: '›';
-    color: var(--gold-700);
-    font-size: 1rem;
-    transition: color var(--t-fast), transform var(--t-fast);
+    content: none; /* Removed — SVG icons used instead */
 }
 
 .footer-links-v2 a:hover {
     color: var(--gold-400);
-    padding-left: 4px;
+    padding-left: 2px;
 }
 
-.footer-links-v2 a:hover::before {
+.footer-links-v2 a svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+    opacity: 0.45;
+    transition: opacity var(--t-fast), color var(--t-fast);
+    color: rgba(255,255,255,0.6);
+}
+
+.footer-links-v2 a:hover svg {
+    opacity: 1;
     color: var(--gold-400);
 }
 
