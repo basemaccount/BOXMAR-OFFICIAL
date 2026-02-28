@@ -7094,3 +7094,290 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     .promise-grid-v2 { grid-template-columns: 1fr; }
     .mv-card-v2 { padding: var(--space-xl); }
 }
+
+/* ============================================
+   MODERN HERO VISUAL v2
+   Replaces camel SVG with animated globe/
+   logistics visual with orbiting icons.
+   ============================================ */
+
+.hero-modern-visual {
+    position: relative;
+    width: 100%;
+    height: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Globe container */
+.hero-globe-container {
+    position: relative;
+    width: 380px;
+    height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Rotating rings */
+.hv-ring {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hv-ring-1 {
+    width: 380px;
+    height: 380px;
+    border: 1px solid rgba(200,146,42,0.2);
+    animation: hv-spin 30s linear infinite;
+    box-shadow: 0 0 30px rgba(200,146,42,0.05) inset;
+}
+
+.hv-ring-2 {
+    width: 300px;
+    height: 300px;
+    border: 1px dashed rgba(58,135,200,0.2);
+    animation: hv-spin 20s linear infinite reverse;
+}
+
+.hv-ring-3 {
+    width: 220px;
+    height: 220px;
+    border: 1px solid rgba(200,146,42,0.15);
+    animation: hv-spin 15s linear infinite;
+}
+
+@keyframes hv-spin {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Central sphere */
+.hv-sphere {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%,
+        rgba(200,146,42,0.25) 0%,
+        rgba(58,135,200,0.15) 35%,
+        rgba(5,14,28,0.9) 65%,
+        rgba(2,8,16,0.98) 100%);
+    border: 2px solid rgba(200,146,42,0.35);
+    box-shadow:
+        0 0 80px rgba(200,146,42,0.3),
+        0 0 160px rgba(58,135,200,0.15),
+        0 0 40px rgba(200,146,42,0.1),
+        inset 0 0 60px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: hv-breathe 6s ease-in-out infinite alternate;
+    z-index: 2;
+}
+
+@keyframes hv-breathe {
+    0%   { box-shadow: 0 0 60px rgba(200,146,42,0.25), 0 0 120px rgba(58,135,200,0.12), inset 0 0 60px rgba(0,0,0,0.5); transform: scale(0.97); }
+    100% { box-shadow: 0 0 100px rgba(200,146,42,0.4), 0 0 200px rgba(58,135,200,0.2), inset 0 0 60px rgba(0,0,0,0.5); transform: scale(1.03); }
+}
+
+/* Logo in sphere */
+.hv-logo {
+    width: 110px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(200,146,42,0.5)) drop-shadow(0 0 40px rgba(200,146,42,0.2));
+    animation: hv-logo-float 5s ease-in-out infinite;
+    position: relative;
+    z-index: 3;
+}
+
+@keyframes hv-logo-float {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-6px); }
+}
+
+/* Pulse rings */
+.hv-pulse {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(200,146,42,0.4);
+    animation: hv-pulse-anim 3s ease-out infinite;
+    pointer-events: none;
+}
+
+.hv-pulse-1 { width: 160px; height: 160px; animation-delay: 0s; }
+.hv-pulse-2 { width: 160px; height: 160px; animation-delay: 1s; }
+.hv-pulse-3 { width: 160px; height: 160px; animation-delay: 2s; }
+
+@keyframes hv-pulse-anim {
+    0%   { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* Orbiting service icons */
+.hv-orbit {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hv-orbit-1 { animation: hv-orbit-spin 12s linear infinite; }
+.hv-orbit-2 { animation: hv-orbit-spin 16s linear infinite reverse; }
+.hv-orbit-3 { animation: hv-orbit-spin 10s linear infinite; animation-delay: -3s; }
+.hv-orbit-4 { animation: hv-orbit-spin 14s linear infinite reverse; animation-delay: -5s; }
+
+@keyframes hv-orbit-spin {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.hv-orbit-dot {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(5,14,28,0.95);
+    border: 1px solid rgba(200,146,42,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(200,146,42,0.2), 0 4px 12px rgba(0,0,0,0.5);
+    backdrop-filter: blur(8px);
+    pointer-events: none;
+}
+
+/* Counter-rotate the icon so it stays upright */
+.hv-orbit-1 .hv-orbit-dot { animation: hv-counter-spin 12s linear infinite reverse; }
+.hv-orbit-2 .hv-orbit-dot { animation: hv-counter-spin 16s linear infinite; }
+.hv-orbit-3 .hv-orbit-dot { animation: hv-counter-spin 10s linear infinite reverse; animation-delay: -3s; }
+.hv-orbit-4 .hv-orbit-dot { animation: hv-counter-spin 14s linear infinite; animation-delay: -5s; }
+
+@keyframes hv-counter-spin {
+    0%   { transform: translateX(-50%) rotate(0deg); }
+    100% { transform: translateX(-50%) rotate(360deg); }
+}
+
+/* SVG connection lines */
+.hv-connections {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hv-route {
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-dasharray: 8 12;
+    animation: hv-route-dash 6s linear infinite;
+}
+
+.hv-route-gold {
+    stroke: rgba(200,146,42,0.5);
+    animation-duration: 5s;
+}
+
+.hv-route-blue {
+    stroke: rgba(58,135,200,0.45);
+    animation-duration: 7s;
+    animation-direction: reverse;
+}
+
+.hv-route-silk {
+    stroke: rgba(224,176,80,0.7);
+    stroke-width: 2;
+    animation-duration: 4s;
+    filter: drop-shadow(0 0 3px rgba(200,146,42,0.5));
+}
+
+@keyframes hv-route-dash {
+    0%   { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -80; }
+}
+
+/* 25 Years badge */
+.hv-years-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: var(--grad-gold);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow:
+        0 0 0 3px rgba(200,146,42,0.3),
+        0 0 0 6px rgba(200,146,42,0.1),
+        var(--shadow-gold);
+    animation: hv-badge-glow 5s ease-in-out infinite alternate;
+    z-index: 10;
+    cursor: default;
+}
+
+@keyframes hv-badge-glow {
+    0%   { box-shadow: 0 0 0 3px rgba(200,146,42,0.3), 0 0 0 6px rgba(200,146,42,0.1), var(--shadow-gold); transform: rotate(-3deg); }
+    100% { box-shadow: 0 0 0 4px rgba(200,146,42,0.5), 0 0 0 10px rgba(200,146,42,0.15), var(--glow-gold); transform: rotate(3deg); }
+}
+
+.hv-years-num {
+    font-family: var(--font-accent);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--navy-900);
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+.hv-years-text {
+    font-size: 0.42rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--navy-900);
+    line-height: 1.3;
+    margin-top: 2px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .hero-globe-container { width: 300px; height: 300px; }
+    .hv-ring-1 { width: 300px; height: 300px; }
+    .hv-ring-2 { width: 240px; height: 240px; }
+    .hv-ring-3 { width: 180px; height: 180px; }
+    .hv-sphere { width: 130px; height: 130px; }
+    .hv-logo { width: 90px; }
+    .hv-pulse-1, .hv-pulse-2, .hv-pulse-3 { width: 130px; height: 130px; }
+    .hero-modern-visual { height: 420px; }
+}
+
+@media (max-width: 768px) {
+    .hero-globe-container { width: 260px; height: 260px; }
+    .hv-ring-1 { width: 260px; height: 260px; }
+    .hv-ring-2 { width: 200px; height: 200px; }
+    .hv-ring-3 { width: 150px; height: 150px; }
+    .hv-sphere { width: 110px; height: 110px; }
+    .hv-logo { width: 76px; }
+    .hv-pulse-1, .hv-pulse-2, .hv-pulse-3 { width: 110px; height: 110px; }
+    .hero-modern-visual { height: 360px; }
+    .hv-years-badge { width: 72px; height: 72px; top: 10px; right: 10px; }
+    .hv-years-num { font-size: 1.7rem; }
+}
+
+@media (max-width: 576px) {
+    .hero-modern-visual { display: none; }
+}
