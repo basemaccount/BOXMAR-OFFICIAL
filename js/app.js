@@ -15,12 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initCounters();
   initAccordion();
+  initAccordionV2();
   initQuoteForm();
+  initQuoteFormV2();
   initTestimonials();
   initLanguageSwitcher();
   initTrackingDemo();
   initSmoothScroll();
   initScrollTop();
+  initParallaxHero();
 });
 
 let currentLang = 'en';
@@ -86,6 +89,7 @@ function initScrollAnimations() {
 function initCounters() {
   const counters = document.querySelectorAll('[data-count]');
   if (!counters.length) return;
+  // Also update v2 stat numbers when they have data-count
 
   const observer = new IntersectionObserver(
     entries => entries.forEach(entry => {
@@ -328,4 +332,78 @@ function initScrollTop() {
   btn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+}
+
+/* ============================================
+   FAQ ACCORDION v2 — .faq-item-v2 elements
+   ============================================ */
+function initAccordionV2() {
+  document.querySelectorAll('.faq-question-v2').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item     = btn.closest('.faq-item-v2');
+      const answer   = item.querySelector('.faq-answer-v2');
+      const isActive = item.classList.contains('active');
+
+      // Close all open items
+      document.querySelectorAll('.faq-item-v2.active').forEach(open => {
+        open.classList.remove('active');
+        open.querySelector('.faq-answer-v2').style.maxHeight = '0';
+      });
+
+      // Open clicked item (unless it was already open)
+      if (!isActive) {
+        item.classList.add('active');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+}
+
+/* ============================================
+   QUOTE FORM v2 — sync v2 step indicators
+   ============================================ */
+function initQuoteFormV2() {
+  const stepsV2 = document.querySelectorAll('.form-step-v2');
+  if (!stepsV2.length) return;
+
+  // Observe changes to the legacy form-steps to sync v2 indicators
+  const legacySteps = document.querySelectorAll('.form-step');
+  if (!legacySteps.length) return;
+
+  const syncSteps = () => {
+    legacySteps.forEach((legacyStep, i) => {
+      if (!stepsV2[i]) return;
+      stepsV2[i].classList.toggle('active', legacyStep.classList.contains('active'));
+      stepsV2[i].classList.toggle('completed', legacyStep.classList.contains('completed'));
+    });
+  };
+
+  // Use MutationObserver to watch for class changes on legacy steps
+  const observer = new MutationObserver(syncSteps);
+  legacySteps.forEach(step => {
+    observer.observe(step, { attributes: true, attributeFilter: ['class'] });
+  });
+
+  syncSteps(); // Initial sync
+}
+
+/* ============================================
+   PARALLAX HERO — subtle parallax on scroll
+   ============================================ */
+function initParallaxHero() {
+  const hero = document.querySelector('.hero');
+  const orbs = document.querySelectorAll('.hero-orb');
+  if (!hero || !orbs.length) return;
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    if (scrollY > window.innerHeight) return;
+
+    const progress = scrollY / window.innerHeight;
+
+    orbs.forEach((orb, i) => {
+      const speed = 0.3 + i * 0.1;
+      orb.style.transform = `translateY(${scrollY * speed}px)`;
+    });
+  }, { passive: true });
 }

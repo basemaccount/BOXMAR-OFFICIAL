@@ -31,6 +31,7 @@ const translations = {
     /* Trust bar */
     'trust.1': '25 Years Experience', 'trust.2': '99.9% On-Time Delivery',
     'trust.3': 'ADR Certified', 'trust.4': 'ISO 9001 Quality',
+    'trust.5': 'U-NET No: 1284152',
 
     /* Services section */
     'services.label': 'What We Offer', 'services.title': 'Our Services',
@@ -443,6 +444,7 @@ const translations = {
     /* Trust bar */
     'trust.1': '25 Yıl Deneyim', 'trust.2': '%99.9 Zamanında Teslimat',
     'trust.3': 'ADR Sertifikalı', 'trust.4': 'ISO 9001 Kalite',
+    'trust.5': 'U-NET No: 1284152',
 
     /* Services section */
     'services.label': 'Ne Sunuyoruz', 'services.title': 'Hizmetlerimiz',
