@@ -4128,58 +4128,58 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     overflow: hidden;
     position: relative;
     background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
-    border: 1px solid rgba(200,146,42,0.18);
-    padding: var(--space-2xl);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border: 1px solid rgba(200,146,42,0.22);
+    padding: 0;
+    display: block;
     min-height: 280px;
     box-shadow:
-        0 8px 40px rgba(0,0,0,0.4),
-        0 0 0 1px rgba(200,146,42,0.08);
+        0 12px 48px rgba(0,0,0,0.5),
+        0 0 0 1px rgba(200,146,42,0.1),
+        0 0 60px rgba(200,146,42,0.04) inset;
     transition: all var(--t-base);
     cursor: default;
 }
 
 .svc-illustration:hover {
-    border-color: rgba(200,146,42,0.35);
+    border-color: rgba(200,146,42,0.45);
     box-shadow:
-        0 12px 50px rgba(0,0,0,0.5),
-        0 0 0 1px rgba(200,146,42,0.15),
-        0 0 40px rgba(200,146,42,0.06) inset;
+        0 20px 60px rgba(0,0,0,0.6),
+        0 0 0 1px rgba(200,146,42,0.2),
+        0 0 80px rgba(200,146,42,0.08) inset;
+    transform: translateY(-2px);
 }
 
 .svc-illustration svg {
     width: 100%;
-    max-width: 520px;
     height: auto;
+    display: block;
     filter:
-        drop-shadow(0 6px 24px rgba(0,0,0,0.5))
-        drop-shadow(0 0 12px rgba(200,146,42,0.1));
+        drop-shadow(0 8px 30px rgba(0,0,0,0.6))
+        drop-shadow(0 0 15px rgba(200,146,42,0.12));
     animation: svc-illus-float 7s ease-in-out infinite;
     transition: filter var(--t-base);
 }
 
 .svc-illustration:hover svg {
     filter:
-        drop-shadow(0 8px 30px rgba(0,0,0,0.6))
-        drop-shadow(0 0 20px rgba(200,146,42,0.18));
+        drop-shadow(0 10px 40px rgba(0,0,0,0.7))
+        drop-shadow(0 0 25px rgba(200,146,42,0.22));
 }
 
 @keyframes svc-illus-float {
     0%, 100% { transform: translateY(0px); }
-    30%       { transform: translateY(-6px); }
-    70%       { transform: translateY(-4px); }
+    30%       { transform: translateY(-5px); }
+    70%       { transform: translateY(-3px); }
 }
 
 /* Illustration with dark background */
 .svc-illustration--dark {
-    background: linear-gradient(145deg, rgba(3,8,18,0.92), rgba(8,18,38,0.95));
-    border-color: rgba(200,146,42,0.22);
+    background: linear-gradient(160deg, #010508 0%, #050E1C 40%, #071828 100%);
+    border-color: rgba(200,146,42,0.25);
 }
 
 .svc-illustration--dark:hover {
-    background: linear-gradient(145deg, rgba(5,12,25,0.95), rgba(10,22,45,0.98));
+    background: linear-gradient(160deg, #020810 0%, #071020 40%, #0A1E38 100%);
 }
 
 /* Illustration with light background */
