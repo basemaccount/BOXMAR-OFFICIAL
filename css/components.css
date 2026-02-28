@@ -334,6 +334,7 @@
     background: var(--grad-hero);
     overflow: hidden;
     padding-top: 140px;
+    padding-bottom: var(--space-4xl);
 }
 
 /* Desert dune wave at bottom of hero */
@@ -647,14 +648,26 @@
     display: flex;
     gap: var(--space-md);
     flex-wrap: wrap;
-    margin-bottom: var(--space-3xl);
+    margin-bottom: var(--space-xl);
     align-items: center;
 }
 
 .hero-buttons .btn {
     font-size: 1rem;
-    padding: 15px 34px;
+    padding: 16px 36px;
     letter-spacing: 0.03em;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hero-buttons .btn svg {
+    flex-shrink: 0;
+    transition: transform var(--t-fast);
+}
+
+.hero-buttons .btn:hover svg {
+    transform: translateX(3px);
 }
 
 /* Hero mini-stats */
@@ -3495,7 +3508,9 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     .hero-text-content   { margin: 0 auto; }
     .hero-desc           { border-left: none; border-top: 3px solid var(--gold-400); border-radius: var(--radius-sm); }
     .hero-buttons        { justify-content: center; }
+    .hero-trust-row      { justify-content: center; }
     .hero-stats-glass    { flex-wrap: wrap; justify-content: center; }
+    .hero-company-label  { font-size: 0.68rem; }
     .hero-float-card     { display: none; }
     .hero-visual-content { height: 340px; }
     .hero-camel-stage    { width: 260px; height: 260px; }
@@ -3639,29 +3654,56 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: rgba(168, 184, 200, 0.7);
-    letter-spacing: 0.1em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: rgba(168, 184, 200, 0.75);
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    margin-bottom: var(--space-lg);
-    padding: 5px 14px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(200,146,42,0.2);
+    margin-bottom: var(--space-xl);
+    padding: 6px 16px;
+    background: rgba(200,146,42,0.06);
+    border: 1px solid rgba(200,146,42,0.25);
     border-radius: var(--radius-full);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 20px rgba(200,146,42,0.06) inset;
 }
 
 .hero-company-dot {
-    width: 6px; height: 6px;
+    width: 7px; height: 7px;
     border-radius: 50%;
-    background: var(--gold-400);
-    box-shadow: 0 0 8px var(--gold-400);
+    background: var(--gold-300);
+    box-shadow: 0 0 10px var(--gold-400), 0 0 20px rgba(200,146,42,0.4);
     animation: pulse-dot 2s infinite;
     flex-shrink: 0;
 }
 
-.hero-company-sep { color: rgba(200,146,42,0.4); }
+.hero-company-sep { color: rgba(200,146,42,0.5); }
+
+/* ============================================
+   HERO TRUST ROW (below CTA buttons)
+   ============================================ */
+.hero-trust-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-2xl);
+}
+
+.hero-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: rgba(168, 184, 200, 0.65);
+    letter-spacing: 0.02em;
+}
+
+.hero-trust-item svg {
+    flex-shrink: 0;
+    opacity: 0.8;
+}
 
 /* ============================================
    HERO GLOBE WRAP
