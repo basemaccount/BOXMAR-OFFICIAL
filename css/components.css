@@ -3611,12 +3611,14 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 .chat-msg.bot .chat-bubble strong { color: var(--navy-800); }
 
-/* ── Input Area ── */
+/* ── Input Area (footer only — no text input in v4.0) ── */
 .chatbox-input-area {
     border-top: 1px solid rgba(0,0,0,0.07);
     background: var(--white);
+    padding: 6px 0 2px;
 }
 
+/* Legacy input styles kept for compatibility */
 .chatbox-input {
     display: flex;
     align-items: center;
@@ -3664,7 +3666,34 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     font-size: 0.65rem;
     color: var(--gray-400);
     text-align: center;
-    padding: 0 var(--space-md) 8px;
+    padding: 4px var(--space-md) 8px;
+}
+
+/* ── Choice Buttons (v4.0 button-driven chatbot) ── */
+.chat-quick-replies.chat-followups {
+    padding: 4px 12px 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.chat-quick-replies.chat-followups .chat-quick {
+    font-size: 0.78rem;
+    padding: 6px 12px;
+    border-radius: var(--radius-full);
+    background: rgba(58,135,200,0.08);
+    border: 1px solid rgba(58,135,200,0.2);
+    color: var(--blue-600);
+    cursor: pointer;
+    transition: all var(--t-fast);
+    white-space: nowrap;
+}
+
+.chat-quick-replies.chat-followups .chat-quick:hover {
+    background: var(--blue-600);
+    color: var(--white);
+    border-color: var(--blue-600);
+    transform: translateY(-1px);
 }
 
 /* ── Trigger Button ── */

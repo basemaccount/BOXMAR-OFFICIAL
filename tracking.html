@@ -288,59 +288,140 @@
 </svg>
 </a>
 
-    <!-- Chat Box -->
+    <!-- ===== CHAT BOX ===== -->
     <div class="chatbox" id="chatbox">
-        <div class="chatbox-header" onclick="document.getElementById('chatbox').classList.toggle('open')">
-            <span>💬 Chat with Boxmar</span>
-            <span class="chatbox-close">×</span>
+      <div class="chatbox-header">
+        <div class="chatbox-header-left">
+          <div class="chatbox-avatar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <div class="chatbox-header-info">
+            <span class="chatbox-title">Boxmar Assistant</span>
+            <span class="chatbox-status"><span class="chatbox-status-dot"></span>Online · Typically replies instantly</span>
+          </div>
         </div>
-        <div class="chatbox-body">
-            <div class="chatbox-messages" id="chatMessages">
-                <div class="chat-msg bot"><div class="chat-bubble">Hello! 👋 Welcome to Boxmar Global Logistics. How can we help you today?</div></div>
-                <div class="chat-msg bot"><div class="chat-bubble">Choose a topic or type your question:</div></div>
-                <div class="chat-quick-replies">
-                    <button class="chat-quick" onclick="chatReply('quote')">📋 Get a Quote</button>
-                    <button class="chat-quick" onclick="chatReply('services')">🚛 Our Services</button>
-                    <button class="chat-quick" onclick="chatReply('tracking')">📍 Track Shipment</button>
-                    <button class="chat-quick" onclick="chatReply('contact')">📞 Contact Info</button>
-                </div>
-            </div>
-            <div class="chatbox-input">
-                <input type="text" placeholder="Type a message..." id="chatInput" onkeypress="if(event.key==='Enter')sendChat()">
-                <button onclick="sendChat()">➤</button>
-            </div>
+        <div class="chatbox-header-actions">
+          <button class="chatbox-minimize" onclick="document.getElementById('chatbox').classList.remove('open');document.getElementById('chatTrigger').style.display=''" title="Minimize">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/></svg>
+          </button>
         </div>
+      </div>
+      <div class="chatbox-body">
+        <div class="chatbox-messages" id="chatMessages">
+          <div class="chat-msg bot">
+            <div class="chat-avatar-sm">B</div>
+            <div class="chat-msg-content">
+              <div class="chat-bubble">Hello! 👋 Welcome to <strong>Boxmar Global Logistics</strong>. I'm your intelligent logistics assistant. What can I help you with today?</div>
+              <div class="chat-time" id="chatInitTime"></div>
+            </div>
+          </div>
+          <div class="chat-quick-replies" id="chatInitReplies">
+            <button class="chat-quick" onclick="chatReply('tracking_help')">📍 Track My Shipment</button>
+            <button class="chat-quick" onclick="chatReply('quote')">📋 Get a Quote</button>
+            <button class="chat-quick" onclick="chatReply('services')">🌐 Our Services</button>
+            <button class="chat-quick" onclick="chatReply('transit')">⏱️ Transit Times</button>
+            <button class="chat-quick" onclick="chatReply('contact')">📞 Contact</button>
+            <button class="chat-quick" onclick="chatReply('menu')">🏠 More Options</button>
+          </div>
+        </div>
+        <div class="chatbox-input-area">
+          <div class="chatbox-footer-note">Powered by Boxmar AI · <a href="contact.html" style="color:var(--gold-500)">Talk to a human →</a></div>
+        </div>
+      </div>
     </div>
-    <button class="chatbox-trigger" id="chatTrigger" onclick="document.getElementById('chatbox').classList.add('open');this.style.display='none'">
-        <span>💬</span>
-        <span data-i18n="float.chat">Chat</span>
+    <button class="chatbox-trigger" id="chatTrigger"
+      onclick="document.getElementById('chatbox').classList.add('open');this.style.display='none'">
+      <span class="chatbox-trigger-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      </span>
+      <span data-i18n="float.chat">Chat</span>
+      <span class="chatbox-trigger-badge">AI</span>
     </button>
 
     <script src="js/translations.js"></script>
     <script src="js/app.js"></script>
     <script>
-        function chatReply(topic) {
-            const msgs = document.getElementById('chatMessages');
-            const replies = {
-                quote: "To get a free quote, please visit our <a href='index.html#quote' style='color:var(--blue-400)'>quote form</a> or call us at <strong>+90 850 840 53 81</strong>.",
-                services: "We offer 6 core services:<br>🚛 Road Transport<br>🚢 Sea Freight<br>✈️ Air Freight<br>🚂 Rail Freight<br>⚗️ Chemical Tanks<br>🍶 Food Tanks",
-                tracking: "Enter your tracking number above and click 'Track Now'. Demo number: <strong>BX-2026-TR-4821</strong>",
-                contact: "📍 Muratreis Mah. Payanda Sk. Çelik İş Hanı No:9, Üsküdar, İstanbul<br>📞 <a href='tel:+908508405381' style='color:var(--blue-400)'>+90 850 840 53 81</a>"
-            };
-            const qr = msgs.querySelector('.chat-quick-replies');
-            if (qr) qr.remove();
-            const topicNames = { quote: 'Get a Quote', services: 'Our Services', tracking: 'Track Shipment', contact: 'Contact Info' };
-            msgs.innerHTML += '<div class="chat-msg user"><div class="chat-bubble">' + topicNames[topic] + '</div></div>';
-            setTimeout(() => { msgs.innerHTML += '<div class="chat-msg bot"><div class="chat-bubble">' + replies[topic] + '</div></div>'; msgs.scrollTop = msgs.scrollHeight; }, 500);
-        }
-        function sendChat() {
-            const input = document.getElementById('chatInput');
-            const msgs = document.getElementById('chatMessages');
-            if (!input.value.trim()) return;
-            msgs.innerHTML += '<div class="chat-msg user"><div class="chat-bubble">' + input.value + '</div></div>';
-            input.value = '';
-            setTimeout(() => { msgs.innerHTML += '<div class="chat-msg bot"><div class="chat-bubble">Thank you! A Boxmar representative will respond shortly. Call <strong>+90 850 840 53 81</strong> for immediate help.</div></div>'; msgs.scrollTop = msgs.scrollHeight; }, 800);
-        }
+    /* Boxmar Chatbot v4.0 — Button-driven, no text input */
+    (function() {
+      const KB = {
+        tracking_help: { en: "📍 <strong>Track Your Shipment</strong><br><br>Enter your tracking number in the form above and click <strong>Track Now</strong>.<br><br>Demo number: <strong>BX-2026-TR-4821</strong><br><br>Don't have a tracking number? Contact our operations team:", tr: "📍 <strong>Sevkiyat Takibi</strong><br><br>Yukarıdaki forma takip numaranızı girin ve <strong>Takip Et</strong>'e tıklayın.<br><br>Demo numara: <strong>BX-2026-TR-4821</strong><br><br>Takip numaranız yok mu? Operasyon ekibimizle iletişime geçin:", followups: ['tracking_call','tracking_whatsapp','menu'] },
+        quote: { en: "📋 <strong>Get a Free Quote</strong><br><br>We respond within <strong>1 hour</strong> during business hours.", tr: "📋 <strong>Ücretsiz Teklif Alın</strong><br><br>Mesai saatlerinde <strong>1 saat</strong> içinde yanıt veriyoruz.", followups: ['quote_form','quote_call','quote_whatsapp','menu'] },
+        quote_form: { en: "📝 <a href='index.html#quote' style='color:var(--gold-400);font-weight:700'>→ Open Quote Form</a>", tr: "📝 <a href='index.html#quote' style='color:var(--gold-400);font-weight:700'>→ Teklif Formunu Aç</a>", followups: ['services','menu'] },
+        quote_call: { en: "📞 <a href='tel:+908508405381' style='color:var(--blue-400);font-weight:700;font-size:1.1rem'>+90 850 840 53 81</a><br>🕐 Mon–Fri 09:00–18:00 · 🚨 24/7", tr: "📞 <a href='tel:+908508405381' style='color:var(--blue-400);font-weight:700;font-size:1.1rem'>+90 850 840 53 81</a><br>🕐 Pzt–Cum 09:00–18:00 · 🚨 7/24", followups: ['quote_whatsapp','menu'] },
+        quote_whatsapp: { en: "💬 <a href='https://wa.me/908508405381?text=Hello%2C%20I%20would%20like%20a%20freight%20quote' target='_blank' style='color:var(--gold-400);font-weight:700'>→ Open WhatsApp Chat</a>", tr: "💬 <a href='https://wa.me/908508405381?text=Merhaba%2C%20navlun%20teklifi%20almak%20istiyorum' target='_blank' style='color:var(--gold-400);font-weight:700'>→ WhatsApp'ı Aç</a>", followups: ['quote_call','menu'] },
+        services: { en: "🌐 <strong>Boxmar's 6 Core Services</strong><br><br>Select a service:", tr: "🌐 <strong>Boxmar'ın 6 Temel Hizmeti</strong><br><br>Bir hizmet seçin:", followups: ['road','sea','air','rail','chemical','food'] },
+        road: { en: "🚛 <strong>Road Transport</strong><br><br>500+ trucks · Turkey & 20+ European countries<br>✅ FTL · LTL · Reefer · ADR<br>⏱️ Istanbul → Hamburg: 3–4 days<br><br><a href='services/road.html' style='color:var(--gold-400)'>→ Details</a>", tr: "🚛 <strong>Karayolu Taşımacılığı</strong><br><br>500+ kamyon · Türkiye & 20+ Avrupa ülkesi<br>⏱️ İstanbul → Hamburg: 3–4 gün<br><br><a href='services/road.html' style='color:var(--gold-400)'>→ Detaylar</a>", followups: ['sea','air','quote','menu'] },
+        sea: { en: "🚢 <strong>Sea Freight</strong><br><br>50+ carrier partners · 120+ ports<br>✅ FCL · LCL · Reefer<br>⏱️ Istanbul → Rotterdam: 12–14 days<br><br><a href='services/sea.html' style='color:var(--gold-400)'>→ Details</a>", tr: "🚢 <strong>Deniz Yükü</strong><br><br>50+ taşıyıcı · 120+ liman<br>⏱️ İstanbul → Rotterdam: 12–14 gün<br><br><a href='services/sea.html' style='color:var(--gold-400)'>→ Detaylar</a>", followups: ['road','air','quote','menu'] },
+        air: { en: "✈️ <strong>Air Freight</strong><br><br>200+ airports · 24–72 hours worldwide<br><br><a href='services/air.html' style='color:var(--gold-400)'>→ Details</a>", tr: "✈️ <strong>Hava Yükü</strong><br><br>200+ havalimanı · 24–72 saat<br><br><a href='services/air.html' style='color:var(--gold-400)'>→ Detaylar</a>", followups: ['sea','rail','quote','menu'] },
+        rail: { en: "🚂 <strong>Rail Freight — Silk Road</strong><br><br>🌿 70% less CO₂ · Istanbul → Shanghai: 18–22 days<br><br><a href='services/rail.html' style='color:var(--gold-400)'>→ Details</a>", tr: "🚂 <strong>Demiryolu — İpek Yolu</strong><br><br>🌿 %70 daha az CO₂ · İstanbul → Şangay: 18–22 gün<br><br><a href='services/rail.html' style='color:var(--gold-400)'>→ Detaylar</a>", followups: ['sea','air','quote','menu'] },
+        chemical: { en: "⚗️ <strong>Chemical Freight & ISO Tank</strong><br><br>🏆 ADR · IMDG · RID · ISO 9001<br><br><a href='services/chemical.html' style='color:var(--gold-400)'>→ Details</a>", tr: "⚗️ <strong>Kimyasal Yük & ISO Tank</strong><br><br>🏆 ADR · IMDG · RID · ISO 9001<br><br><a href='services/chemical.html' style='color:var(--gold-400)'>→ Detaylar</a>", followups: ['food','quote','menu'] },
+        food: { en: "🍶 <strong>Food Tank Freight</strong><br><br>🏆 HACCP · ISO 22000 · BRC<br><br><a href='services/food.html' style='color:var(--gold-400)'>→ Details</a>", tr: "🍶 <strong>Gıda Tankı Taşımacılığı</strong><br><br>🏆 HACCP · ISO 22000 · BRC<br><br><a href='services/food.html' style='color:var(--gold-400)'>→ Detaylar</a>", followups: ['chemical','quote','menu'] },
+        tracking_call: { en: "📞 <strong>Call Operations (24/7)</strong><br><br><a href='tel:+908508405381' style='color:var(--blue-400);font-weight:700;font-size:1.1rem'>+90 850 840 53 81</a>", tr: "📞 <strong>Operasyonu Arayın (7/24)</strong><br><br><a href='tel:+908508405381' style='color:var(--blue-400);font-weight:700;font-size:1.1rem'>+90 850 840 53 81</a>", followups: ['tracking_whatsapp','menu'] },
+        tracking_whatsapp: { en: "💬 <a href='https://wa.me/908508405381?text=Hello%2C%20I%20need%20to%20track%20my%20shipment' target='_blank' style='color:var(--gold-400);font-weight:700'>→ Open WhatsApp</a>", tr: "💬 <a href='https://wa.me/908508405381?text=Merhaba%2C%20sevkiyatımı%20takip%20etmek%20istiyorum' target='_blank' style='color:var(--gold-400);font-weight:700'>→ WhatsApp'ı Aç</a>", followups: ['tracking_call','menu'] },
+        transit: { en: "⏱️ <strong>Transit Times from Istanbul</strong><br><br>🚛 Hamburg: 3–4d · Paris: 4–5d<br>🚢 Rotterdam: 12–14d · Dubai: 8–10d<br>✈️ Europe: 24–48h · USA: 48–72h<br>🚂 Warsaw: 5–7d · Shanghai: 18–22d", tr: "⏱️ <strong>İstanbul'dan Transit Süreler</strong><br><br>🚛 Hamburg: 3–4g · Paris: 4–5g<br>🚢 Rotterdam: 12–14g · Dubai: 8–10g<br>✈️ Avrupa: 24–48s · ABD: 48–72s<br>🚂 Varşova: 5–7g · Şangay: 18–22g", followups: ['quote','services','menu'] },
+        contact: { en: "📞 <strong>Contact Boxmar</strong><br><br>📍 Üsküdar, İstanbul / Turkey<br>📞 <a href='tel:+908508405381' style='color:var(--blue-400)'>+90 850 840 53 81</a><br>✉️ <a href='mailto:info@boxmar.com.tr' style='color:var(--blue-400)'>info@boxmar.com.tr</a><br>💬 <a href='https://wa.me/908508405381' target='_blank' style='color:var(--gold-400)'>WhatsApp</a>", tr: "📞 <strong>Boxmar İletişim</strong><br><br>📍 Üsküdar, İstanbul<br>📞 <a href='tel:+908508405381' style='color:var(--blue-400)'>+90 850 840 53 81</a><br>✉️ <a href='mailto:info@boxmar.com.tr' style='color:var(--blue-400)'>info@boxmar.com.tr</a><br>💬 <a href='https://wa.me/908508405381' target='_blank' style='color:var(--gold-400)'>WhatsApp</a>", followups: ['quote','tracking_help','services','menu'] },
+        menu: { en: "🏠 <strong>Main Menu</strong><br><br>What would you like to know about?", tr: "🏠 <strong>Ana Menü</strong><br><br>Ne hakkında bilgi almak istersiniz?", followups: ['tracking_help','quote','services','transit','contact'] }
+      };
+      const labels = {
+        tracking_help:'📍 Track My Shipment', quote:'📋 Get a Quote', quote_form:'📝 Online Form',
+        quote_call:'📞 Call Us', quote_whatsapp:'💬 WhatsApp', services:'🌐 All Services',
+        road:'🚛 Road', sea:'🚢 Sea', air:'✈️ Air', rail:'🚂 Rail', chemical:'⚗️ Chemical', food:'🍶 Food',
+        tracking_call:'📞 Call Operations', tracking_whatsapp:'💬 WhatsApp Track',
+        transit:'⏱️ Transit Times', contact:'📞 Contact', menu:'🏠 Main Menu'
+      };
+      let chatLang = 'en';
+      function syncLang() { chatLang = document.documentElement.lang === 'tr' ? 'tr' : 'en'; }
+      function getTime() { const n=new Date(); return n.getHours().toString().padStart(2,'0')+':'+n.getMinutes().toString().padStart(2,'0'); }
+      function addMsg(html, isUser) {
+        const msgs = document.getElementById('chatMessages');
+        if (!msgs) return;
+        const d = document.createElement('div');
+        d.className = 'chat-msg ' + (isUser ? 'user' : 'bot');
+        d.innerHTML = isUser
+          ? '<div class="chat-msg-content"><div class="chat-bubble">'+html+'</div><div class="chat-time">'+getTime()+'</div></div>'
+          : '<div class="chat-avatar-sm">B</div><div class="chat-msg-content"><div class="chat-bubble">'+html+'</div><div class="chat-time">'+getTime()+'</div></div>';
+        msgs.appendChild(d); msgs.scrollTop = msgs.scrollHeight;
+      }
+      function addChoices(keys) {
+        const msgs = document.getElementById('chatMessages');
+        if (!msgs || !keys || !keys.length) return;
+        const d = document.createElement('div');
+        d.className = 'chat-quick-replies chat-followups';
+        keys.forEach(k => {
+          if (!labels[k]) return;
+          const btn = document.createElement('button');
+          btn.className = 'chat-quick'; btn.innerHTML = labels[k];
+          btn.onclick = () => { msgs.querySelectorAll('.chat-quick-replies').forEach(el=>el.remove()); processChoice(k); };
+          d.appendChild(btn);
+        });
+        msgs.appendChild(d); msgs.scrollTop = msgs.scrollHeight;
+      }
+      function processChoice(key) {
+        syncLang();
+        addMsg(labels[key] || key, true);
+        const msgs = document.getElementById('chatMessages');
+        const typing = document.createElement('div');
+        typing.className = 'chat-msg bot'; typing.id = 'chatTyping';
+        typing.innerHTML = '<div class="chat-avatar-sm">B</div><div class="chat-msg-content"><div class="chat-bubble"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div></div>';
+        msgs.appendChild(typing); msgs.scrollTop = msgs.scrollHeight;
+        setTimeout(() => {
+          const t = document.getElementById('chatTyping'); if(t) t.remove();
+          const data = KB[key] || KB.menu;
+          addMsg(data[chatLang] || data.en, false);
+          addChoices(data.followups);
+        }, 400 + Math.floor(Math.random()*400));
+      }
+      window.chatReply = function(topic) {
+        const msgs = document.getElementById('chatMessages');
+        if (msgs) msgs.querySelectorAll('.chat-quick-replies').forEach(el=>el.remove());
+        processChoice(topic);
+      };
+      document.addEventListener('DOMContentLoaded', () => {
+        syncLang();
+        const t = document.getElementById('chatInitTime'); if(t) t.textContent = getTime();
+      });
+      new MutationObserver(syncLang).observe(document.documentElement, {attributes:true, attributeFilter:['lang']});
+    })();
     </script>
     <script>
         // Tracking page specific logic
