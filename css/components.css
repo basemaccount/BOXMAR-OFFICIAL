@@ -532,14 +532,14 @@
 /* Hero layout */
 .hero-split {
     display: grid;
-    grid-template-columns: 55fr 45fr;
-    gap: var(--space-3xl);
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
     align-items: center;
     position: relative;
     z-index: 2;
 }
 
-.hero-text-content { max-width: 620px; }
+.hero-text-content { max-width: 640px; }
 
 /* Hero headline */
 .hero-title-creative {
@@ -3725,13 +3725,12 @@ textarea.form-control { min-height: 120px; resize: vertical; }
    HERO VISUAL CONTENT — improved layout
    ============================================ */
 .hero-visual-content {
-    display: flex !important;
-    flex-direction: column;
+    position: relative;
+    height: 600px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    height: auto;
-    min-height: 520px;
-    gap: 0;
+    flex-direction: column;
 }
 
 /* ============================================
